@@ -1,0 +1,33 @@
+@import './mixins'
+
+@media (min-width: 768px)
+  .page-wrap
+    min-height: 100%
+    /* start menu height. equal to footer height */
+    margin-bottom: -30px
+
+  .page-wrap:after
+    content: ""
+    display: block
+
+  .start-menu, .start-menu:after
+    height: 30px
+
+  .start-menu
+    backdrop()
+
+    #start-btn
+      height: 30px
+
+    #start-btn:hover
+      cursor: pointer
+
+    #time-display
+      margin-right: 4px
+      height: 23px
+      padding-top: 3px
+      padding-right: 10px
+      padding-left: 10px
+      font-size: 16px
+      float: right
+      pressed()
