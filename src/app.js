@@ -72,9 +72,7 @@ $(document).ready(function () {
 
 		// shutdown
 		$('#shutdown-btn').on('click', function (e) {
-			endClippy()
-			$('.window').hide()
-			$('#shutdown-dialog').show()
+			window.location.href = 'http://google.com/'
 		})
 
 		// show command prompt
@@ -110,15 +108,6 @@ $(document).ready(function () {
 			if (!assistantVisible) {
 				setupAssistant()
 			}
-		})
-
-		// shutdown events
-		$('#shutdown-confirm-btn').on('click', function () {
-			window.location.href = 'http://ducksarethebest.com/'
-		})
-
-		$('#shutdown-cancel-btn').on('click', function () {
-			$(this).parents('div.window').hide()
 		})
 
 		// Minesweeper events
@@ -207,6 +196,18 @@ $(document).ready(function () {
 				this.echo('\tlinkedin                 My LinkedIn profile')
 				this.echo('\tprojects                 View my personal projects')
 				this.echo(' ')
+			},
+
+			goto: function (url) {
+				if (typeof url !== "string") {
+					this.echo('Invalid url detected. Please try again.')
+				} else {
+					if (url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1) {
+						window.open(url, '_blank')
+					} else {
+						window.open('https://' + url, '_blank')
+					}
+				}
 			},
 
 			bandcamp: function () {

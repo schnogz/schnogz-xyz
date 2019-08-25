@@ -8,57 +8,55 @@ const autoprefixer = require('autoprefixer-stylus')
 const del = require('del')
 const concat = require('gulp-concat')
 
-const paths = {
-  source: {
-    assets: 'src/assets/**/*',
-    css: 'src/styles/index.styl',
-    html: 'src/index.html',
-    js: 'src/app.js',
-    vendor: 'src/vendor/**/*',
-  },
-  dist: 'dist'
+const PATHS = {
+  assets: 'src/assets/**/*',
+  css: 'src/styles/index.styl',
+  dist: 'dist',
+  html: 'src/index.html',
+  js: 'src/app.js',
+  source: 'src',
+  vendor: 'src/vendor/**/*',
 }
 
 function copyAssets() {
-  return gulp.src(paths.source.assets)
-    .pipe(gulp.dest(paths.dist + '/assets'))
+  return gulp.src(PATHS.assets)
+    .pipe(gulp.dest(PATHS.dist + '/assets'))
 }
 function copyHtml() {
-  return gulp.src(paths.source.html)
-    .pipe(gulp.dest(paths.dist))
+  return gulp.src(PATHS.html)
+    .pipe(gulp.dest(PATHS.dist))
 }
 function copyVendor() {
-  return gulp.src(paths.source.vendor)
-    .pipe(gulp.dest(paths.dist + '/vendor'))
+  return gulp.src(PATHS.vendor)
+    .pipe(gulp.dest(PATHS.dist + '/vendor'))
 }
 function clean() {
-  return del([paths.dist])
+  return del([PATHS.dist])
 }
 function styles() {
-  return gulp.src(paths.source.css)
+  return gulp.src(PATHS.css)
     .pipe(stylus({
       paths: [__dirname + '/src/styles'],
       use: [nib(), autoprefixer()]
     }))
     .pipe(rename('styles.min.css'))
     .pipe(csso())
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(PATHS.dist))
 }
 function scripts() {
-  return gulp.src(paths.source.js)
+  return gulp.src(PATHS.js)
     .pipe(uglify())
     .pipe(concat('app.min.js'))
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(PATHS.dist))
 }
 function ClippyMin() {
   return gulp.src('src/vendor/clippy.js')
     .pipe(uglify())
     .pipe(concat('clippy.min.js'))
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(PATHS.dist))
 }
 function watch() {
-  gulp.watch(paths.source.css, styles)
-  gulp.watch(paths.source.js, scripts)
+  gulp.watch(PATHS.source, build)
 }
 const copy = gulp.parallel(copyAssets, copyHtml, copyVendor)
 const build = gulp.series(clean, copy, gulp.parallel(styles, scripts))
