@@ -1,37 +1,65 @@
-var gulp = require('gulp');
+const gulp = require('gulp')
+const csso = require('gulp-csso')
+const stylus = require('gulp-stylus')
+const rename = require('gulp-rename')
+const uglify = require('gulp-uglify')
+const nib = require('nib')
+const autoprefixer = require('autoprefixer-stylus')
+const del = require('del')
+const concat = require('gulp-concat')
 
-var csso = require('gulp-csso');
-var stylus = require('gulp-stylus');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
-var nib = require('nib');
-var autoprefixer = require('autoprefixer-stylus');
+const paths = {
+  source: {
+    assets: 'src/assets/**/*',
+    css: 'src/styles/index.styl',
+    html: 'src/index.html',
+    js: 'src/app.js',
+    vendor: 'src/vendor/**/*',
+  },
+  dist: 'dist'
+}
 
-gulp.task('css', function(){
-    return gulp.src('src/index.styl')
-        .pipe(stylus({
-            paths: [__dirname+'/src'],
-            use: [
-                nib(),
-                autoprefixer()
-            ]
-        }))
+function copyAssets() {
+  return gulp.src(paths.source.assets)
+    .pipe(gulp.dest(paths.dist + '/assets'))
+}
+function copyHtml() {
+  return gulp.src(paths.source.html)
+    .pipe(gulp.dest(paths.dist))
+}
+function copyVendor() {
+  return gulp.src(paths.source.vendor)
+    .pipe(gulp.dest(paths.dist + '/vendor'))
+}
+function clean() {
+  return del([paths.dist])
+}
+function styles() {
+  return gulp.src(paths.source.css)
+    .pipe(stylus({
+      paths: [__dirname + '/src/styles'],
+      use: [nib(), autoprefixer()]
+    }))
+    .pipe(rename('styles.min.css'))
+    .pipe(csso())
+    .pipe(gulp.dest(paths.dist))
+}
+function scripts() {
+  return gulp.src(paths.source.js)
+    .pipe(uglify())
+    .pipe(concat('app.min.js'))
+    .pipe(gulp.dest(paths.dist))
+}
+function watch() {
+  gulp.watch(paths.source.css, styles)
+  gulp.watch(paths.source.js, scripts)
+}
+const copy = gulp.parallel(copyAssets, copyHtml, copyVendor)
+const build = gulp.series(clean, copy, gulp.parallel(styles, scripts))
 
-        .pipe(rename('style.min.css'))
-        .pipe(csso())
-        .pipe(gulp.dest('dist/css'));
-});
-
-gulp.task('compress', function() {
-    return gulp.src('src/bootstrap.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
-});
-
-gulp.task('compress-ms', function() {
-    return gulp.src('src/minesweeper.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js/minesweeper'));
-});
-
-gulp.task('default', function(){});
+exports.clean = clean
+exports.styles = styles
+exports.scripts = scripts
+exports.watch = watch
+exports.build = build
+exports.default = build

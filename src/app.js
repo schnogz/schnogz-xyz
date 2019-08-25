@@ -58,7 +58,7 @@ $(document).ready(function() {
         $('body').on('click', function(e) {
             if(e.target.id !== 'start-btn') {
                 $("#start-menu").hide();
-                $("#start-btn").attr('src', 'icons/start.png');
+                $("#start-btn").attr('src', 'assets/start.png');
                 menuVisible = false;
             }
         });
@@ -83,11 +83,11 @@ $(document).ready(function() {
         // show/hide start menu
         $('#start-btn').on('click', function() {
             if (menuVisible) {
-                $(this).attr('src', 'icons/start.png');
+                $(this).attr('src', 'assets/start.png');
                 $("#start-menu").hide();
                 menuVisible = false;
             } else {
-                $(this).attr('src', 'icons/startpressed.png');
+                $(this).attr('src', 'assets/startpressed.png');
                 $("#start-menu").show();
                 menuVisible = true;
             }
@@ -155,7 +155,7 @@ $(document).ready(function() {
                 this.echo(' * <b>Cloud</b>: Docker, AWS', {raw:true});
                 this.echo(' ');
                 this.echo(' ');
-                this.echo('<h3><a href="docs/Andrew Schneider Resume.pdf" target="_blank">Resume</a></h3>', {raw:true});
+                this.echo('<h3><a href="../docs/Andrew%20Schneider%20Resume.pdf" target="_blank">Resume</a></h3>', {raw:true});
                 this.echo(' ');
             },
 

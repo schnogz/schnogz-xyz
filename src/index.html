@@ -1,0 +1,171 @@
+<html>
+<head>
+  <title>Andrew Schneider</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css'>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel='stylesheet' href='styles.min.css'>
+  <link rel='stylesheet' href="vendor/clippy.css">
+  <link rel='stylesheet' href="vendor/jquery.terminal.css">
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="vendor/clippy.min.js"></script>
+  <script src="vendor/jquery.terminal.js"></script>
+  <script src="app.min.js"></script>
+</head>
+<body>
+<div class="page-wrap win98">
+  <br/>
+  <div class='resizable window' id="terminal-window">
+    <div class='header'>
+      <img class='icon' src='assets/images/cmd.png'/>
+      <span>C:\WINDOWS\system32\cmd.exe</span>
+      <div class='buttons'>
+        <button class="button-close">X</button>
+      </div>
+    </div>
+    <div class='content' id="terminal"></div>
+  </div>
+  <iframe id="minesweeper" src="vendor/minesweeper/minesweeper.html" height="225" width="185" frameBorder="0"
+          style="display:none"></iframe>
+  <br/><br/>
+  <div class="menu" id="start-menu" style="display:none">
+    <div class="menu-sidebar">
+      <div class="headline">
+        <strong>Windows</strong> 98
+      </div>
+    </div>
+    <ul class="menu-content">
+      <li class="item folder">
+        <img class="icon" src="assets/images/programs.gif">
+        Programs
+        <ul class="menu-content">
+          <li class="item" id="cmd-btn">
+            <img class="icon" src="assets/images/msdos.png">
+            Command Prompt
+          </li>
+          <li class="item" id="minesweeper-btn">
+            <img class="icon" src="assets/images/minesweeper.gif">
+            Minesweeper
+          </li>
+        </ul>
+      </li>
+      <li class="item folder">
+        <img class="icon" src="assets/images/favourites.gif">
+        Favorites
+        <ul class="menu-content longitem">
+          <li class="item">
+            <a href="http://copy.sh/v86/?profile=windows98" target="_blank">
+              <img class="icon" src="assets/images/webpage.png">
+              Browser Based Windows 98
+            </a>
+          </li>
+          <li class="item">
+            <a href="http://www.wfplsiu.com/" target="_blank">
+              <img class="icon" src="assets/images/webpage.png">
+              What Language Should I Use?
+            </a>
+          </li>
+          <li class="item">
+            <a href="http://fapfapjs.io/" target="_blank">
+              <img class="icon" src="assets/images/webpage.png">
+              Fap Fap JS
+            </a>
+          </li>
+          <li class="item">
+            <a href="http://adventurega.me/bootstrap/#" target="_blank">
+              <img class="icon" src="assets/images/webpage.png">
+              Every Bootstrap Page Ever
+            </a>
+          </li>
+          <li class="item">
+            <a href="hhttps://http.cat/" target="_blank">
+              <img class="icon" src="assets/images/webpage.png">
+              HTTP Status Cats
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="item folder">
+        <img class="icon" src="assets/images/documents.gif">
+        Documents
+        <ul class="menu-content">
+          <li class="item">
+            <a href="assets/docs/Andrew%20Schneider%20Resume.pdf">
+              <img class="icon" src="assets/images/txt.gif">
+              My Resume
+            </a>
+          </li>
+          <li class="item">
+            <a href="assets/docs/Bitcoin-%20A%20Peer-to-Peer%20Electronic%20Cash%20System.pdf" target="_blank">
+              <img class="icon" src="assets/images/txt.gif">
+              Bitcoin White Paper
+            </a>
+          </li>
+          <li class="item">
+            <a href="docs/Video%20Game%20Collection.xlsx" target="_blank">
+              <img class="icon" src="assets/images/txt.gif">
+              Video Game Collection
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="item folder">
+        <img class="icon" src="assets/images/settings.gif">
+        Settings
+        <ul class="menu-content">
+          <li class="item" id="hideClippy">
+            <img class="icon" src="assets/images/settings.gif">
+            Hide Clippy
+          </li>
+          <li class="item" id="showClippy">
+            <img class="icon" src="assets/images/settings.gif">
+            Show Clippy
+          </li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+      <li class="item" id="shutdown-btn">
+        <img class="icon" src="assets/images/shutdown.gif">
+        Shut Down...
+      </li>
+    </ul>
+  </div>
+  <div class="window" id="shutdown-dialog" style="display: none">
+    <div class="header">
+      Shut Down Windows
+      <div class="buttons">
+        <button class="button-close">X</button>
+      </div>
+    </div>
+    <div class="content">
+      <h3>Are you sure you want to shutdown this website?</h3>
+      <p>You will be redirected to a magical place.</p>
+      <button id="shutdown-confirm-btn">Shutdown</button>
+      <button id="shutdown-cancel-btn">Cancel</button>
+    </div>
+  </div>
+</div>
+<footer class="start-menu">
+  <img id='start-btn' class='icon' src='assets/images/start.png'/>
+  <span id="time-display"></span>
+</footer>
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date()
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]
+    a.async = 1
+    a.src = g
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
+
+  ga('create', 'UA-62555232-1', 'auto')
+  ga('send', 'pageview')
+
+</script>
+</body>
+</html>

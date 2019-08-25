@@ -1882,7 +1882,7 @@
     }
     // -------------------------------------------------------------------------
     // taken from https://hacks.mozilla.org/2011/09/detecting-and-generating-
-    // css-animations-in-javascript/
+    // styles-animations-in-javascript/
     function support_animations() {
         var animation = false,
             animationstring = 'animation',
