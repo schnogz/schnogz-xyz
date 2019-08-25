@@ -8,7 +8,6 @@ frontend:
       commands:
         - 'yarn gulp build'
   artifacts:
+    baseDirectory: '/dist'
     files:
       - '**/*'
-  discard-paths: yes
-  baseDirectory: 'dist'
