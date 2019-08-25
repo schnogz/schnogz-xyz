@@ -2,101 +2,102 @@
 @import './mixins'
 
 @media (min-width: 768px)
-  .menu
-    backdrop()
-    clearfix()
+	.menu
+		backdrop()
+		clearfix()
 
-    width: 195px
-    font-size: 13px
-    padding 1px
-    position absolute
-    bottom:31px
-    cursor: default
+		width: 195px
+		font-size: 13px
+		padding 1px
+		position absolute
+		bottom: 31px
+		cursor: default
 
-    >.menu-content
-      float: right
+		> .menu-content
+			float: right
 
-    .menu-sidebar
-      background: linear-gradient(to bottom, blue-dark, blue-light)
-      position absolute
-      width: 25px
-      height: 100%
+		.menu-sidebar
+			background: linear-gradient(to bottom, blue-dark, blue-light)
+			position absolute
+			width: 25px
+			height: 100%
 
-      .headline
-        transform: rotate(270deg);
-        position: absolute;
-        bottom: 40px;
-        left: -32px;
-        width: 100px;
-        height: 30px;
-        font-size: 16px;
-        color: white;
+			.headline
+				transform: rotate(270deg);
+				position: absolute;
+				bottom: 40px;
+				left: -32px;
+				width: 100px;
+				height: 30px;
+				font-size: 16px;
+				color: white;
 
-    .menu-content
-      reset-box-model()
+		.menu-content
+			reset-box-model()
 
-      color: black
-      list-style: none
-      margin: 2px 0
-      width: 175px
+			color: black
+			list-style: none
+			margin: 2px 0
+			width: 175px
 
-      .divider
-        margin: 7px 6px
-        border-top: 1px solid gray-dark
-        border-bottom: 1px solid gray-lighter
+			.divider
+				margin: 7px 6px
+				border-top: 1px solid gray-dark
+				border-bottom: 1px solid gray-lighter
 
-      .item
-        padding 10px
+			.item
+				padding 10px
 
-        em
-          font-style: normal
-          text-decoration: underline
+				em
+					font-style: normal
+					text-decoration: underline
 
-      .item:hover
-        color: white
-        background: blue-dark
-        cursor pointer
+			.item:hover
+				color: white
+				background: blue-dark
+				cursor pointer
 
-      .item.folder
-        position relative
+			.item.folder
+				position relative
 
-      .item.folder:after
-        content: '\25B6'
-        float: right
-        font-size 10px
+			.item.folder:after
+				content: '\25B6'
+				float: right
+				font-size 10px
 
-      .item .icon
-        float: left;
-        margin-right: 7px;
-        margin-top: -4px;
+			.item .icon
+				float: left;
+				margin-right: 7px;
+				margin-top: 0px;
 
-      .item:hover .menu-content,
-      .item:focus .menu-content
-        display: block
+			.item:hover .menu-content,
+			.item:focus .menu-content
+				display: block
 
-      .menu-content
-        backdrop()
-        display: none
-        position absolute
-        left: 165px
-        top: -4px
+			.menu-content
+				backdrop()
+				display: none
+				position absolute
+				left: 165px
+				top: -4px
 
-        .item
-          padding: 3px 10px
+				.item
+					padding: 3px 10px
+					a:hover
+						cursor: pointer
 
-          a:link
-            text-decoration: inherit
-            color: inherit
-            cursor: auto
-          a:visited
-            text-decoration: inherit;
-            color: inherit;
-            cursor: auto;
+					a:link
+						text-decoration: inherit
+						color: inherit
 
-        .icon
-          width: 18px
-          height: 18px
-          margin-top -2px
+					a:visited
+						text-decoration: inherit
+						color: inherit
 
-    .longitem
-      width:220px
+			.icon
+				width: 18px
+				height: 18px
+				margin-top -2px
+
+		.longitem
+			width: 220px
