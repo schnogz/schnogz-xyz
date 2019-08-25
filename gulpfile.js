@@ -50,6 +50,12 @@ function scripts() {
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest(paths.dist))
 }
+function ClippyMin() {
+  return gulp.src('src/vendor/clippy.js')
+    .pipe(uglify())
+    .pipe(concat('clippy.min.js'))
+    .pipe(gulp.dest(paths.dist))
+}
 function watch() {
   gulp.watch(paths.source.css, styles)
   gulp.watch(paths.source.js, scripts)
@@ -62,4 +68,5 @@ exports.styles = styles
 exports.scripts = scripts
 exports.watch = watch
 exports.build = build
+exports.clippyMin = ClippyMin
 exports.default = build
