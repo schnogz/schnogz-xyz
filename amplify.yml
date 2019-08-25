@@ -1,0 +1,11 @@
+version: 1.0
+frontend:
+	phases:
+		build:
+			commands:
+				- 'yarn gulp build'
+	artifacts:
+		files:
+			- '**/*'
+		discard-paths: yes
+		baseDirectory: 'dist'
