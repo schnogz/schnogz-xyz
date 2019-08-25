@@ -1,6 +1,9 @@
 version: 1.0
 frontend:
   phases:
+  preBuild:
+    commands:
+      - 'yarn'
     build:
       commands:
         - 'yarn gulp build'
