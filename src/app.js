@@ -257,7 +257,7 @@ $(document).ready(function () {
 			greetings: [
 				'Microsoft(R) Windows DOS',
 				'(C) Copyright Andrew Schneider ' + today.getFullYear(),
-				'Enter `help` for a list of commands.'
+				'[[;green;]For list of available commands enter the word] [[;#7D64F1;]help]'
 			],
 			height: height,
 			prompt: 'C:\\> '
