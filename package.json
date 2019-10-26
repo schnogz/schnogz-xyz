@@ -5,6 +5,9 @@
     "type": "git",
     "url": "git://github.com/schnogz/schnogzdotcom"
   },
+	"scripts": {
+		"build": "gulp build"
+	},
   "dependencies": {
     "autoprefixer-stylus": "1.0.0",
     "del": "5.1.0",
