@@ -1,8 +1,12 @@
-# schnogzdotcom
+# schnogz-dot-com
+Andrew Schneiders's personal [website](http://schnogz.com) built with Gatsby.
 
-### Running Locally
-- `yarn build`
-- Open `index.html` in browser
+### Setup
+- Install dependencies via `yarn`
+
+### Developing
+- `yarn develop`
+- Open `http://localhost:8000` in browser
 
 ### Pushing to AWS
 - Push commit to `origin master` and AWS Amplify will do the rest

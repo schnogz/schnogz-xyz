@@ -1,5 +1,12 @@
 node_modules/
-dist/
-.idea/
-.DS_Store
+
+# Generated Files
+pubic/
+.cache/
 *.log
+
+# IDE
+.idea/
+
+# OSX
+.DS_Store

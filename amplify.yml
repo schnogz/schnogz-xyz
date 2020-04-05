@@ -6,8 +6,8 @@ frontend:
         - 'yarn'
     build:
       commands:
-        - 'yarn gulp build'
+        - 'yarn build'
   artifacts:
-    baseDirectory: '/dist'
+    baseDirectory: '/public'
     files:
       - '**/*'
