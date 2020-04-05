@@ -90,13 +90,10 @@ const SocialLink = styled.a`
   align-items: center;
   width: 40px;
   height: 40px;
-  background: white;
   border-radius: 20px;
   color: ${color.grey900};
-  border: 1px solid white;
   &:hover {
-    border: 1px solid ${color.grey150};
-    background: ${color.grey150};
+    background: ${color.white};
     color: ${color.grey900};
   }
   &:active {

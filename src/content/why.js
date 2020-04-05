@@ -1,21 +1,42 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import TwoColumns from 'components/twoColumns'
-import Project from 'components/project'
 import SectionHeading from 'components/sectionHeading'
-import OnistLogo from 'img/onistLogo.png'
+import TwoColumns from 'components/twoColumns'
+import media from 'utils/media-queries'
+import { color, fontSize } from 'styles/theme'
 
+
+const Heading = styled.span`
+  font-size: ${fontSize.f6};
+  color: ${color.grey900};
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 1.35;
+  ${media.lg`
+    font-size: ${fontSize.f5};
+    letter-spacing: -0.3px;
+  `}
+  ${media.sm`
+    font-size: ${fontSize.f5};
+  `}
+`
 export default () => (
   <TwoColumns
     wide
     leftColumn={<SectionHeading>Why</SectionHeading>}
     rightColumn={
-      <Project
-        logo={<img src={OnistLogo} height="90px" width="90px" alt="The Onist Logo"/>}
-        title="The Onist"
-        abstract="A personal blog where I write about the things that keep me going. Musings may include coding, music, tech, photography, exploration, and whatever else I may fancy that day."
-        link={<a href="http://theonist.com">Check It Out</a>}
-      />
+    	<>
+		    <Heading>
+			    Because I <span role="img" aria-label="heart emoji"> ❤️ </span> what I do
+		    </Heading>
+		    <p>
+			    I keep a personal blog where I write about the things that keep me going. Musings may include coding, music, tech, photography, exploration, and whatever else I may fancy that day.
+		    </p>
+		    <p>
+			    <span role="img" aria-label="link emoji">🔗</span> <a href="http://theonist.com">Check it out</a>
+		    </p>
+	    </>
     }
   />
 )

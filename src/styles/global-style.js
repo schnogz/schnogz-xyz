@@ -40,6 +40,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
   body {
     font-family: 'TTNormsPro', system-ui, sans-serif;
     height: 100%;
+    background-color: #f4f4f4;
     color: ${color.grey700};
     font-feature-settings: "liga","kern";
     font-variant-ligatures: contextual common-ligatures;
