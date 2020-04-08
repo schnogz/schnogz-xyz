@@ -4,30 +4,43 @@
   "version": "1.0.1",
   "author": "Andrew Schneider <andrew.mark.schneider@gmail.com>",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --no-semi --single-quote --write 'src/**/*.js'"
   },
-	"dependencies": {
-		"gatsby": "2.20.14",
-		"gatsby-link": "2.3.2",
-		"gatsby-plugin-google-analytics": "2.2.2",
-		"gatsby-plugin-react-helmet": "3.2.1",
-		"gatsby-plugin-robots-txt": "1.5.0",
-		"gatsby-plugin-sitemap": "2.3.1",
-		"gatsby-plugin-styled-components": "3.2.1",
-		"lodash": "4.17.15",
-		"react": "16.13.1",
-		"react-dom": "16.13.1",
-		"react-github-calendar": "1.0.4",
-		"react-helmet": "5.2.1",
-		"react-tooltip": "4.2.1",
-		"styled-components": "5.1.0"
-	},
+  "dependencies": {
+    "lodash": "4.17.15",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-github-calendar": "1.0.4",
+    "react-helmet": "5.2.1",
+    "react-tooltip": "4.2.1",
+    "styled-components": "5.1.0"
+  },
   "devDependencies": {
     "babel-plugin-styled-components": "1.10.7",
+    "gatsby": "2.20.14",
+    "gatsby-link": "2.3.2",
+    "gatsby-plugin-google-analytics": "2.2.2",
+    "gatsby-plugin-react-helmet": "3.2.1",
+    "gatsby-plugin-robots-txt": "1.5.0",
     "gatsby-plugin-root-import": "2.0.5",
+    "gatsby-plugin-sitemap": "2.3.1",
+    "gatsby-plugin-styled-components": "3.2.1",
+    "husky": "4.2.3",
+    "lint-staged": "10.1.2",
     "prettier": "2.0.4"
   }
 }
