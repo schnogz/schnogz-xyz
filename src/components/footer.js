@@ -20,11 +20,11 @@ const FooterText = styled.div`
 export default () => (
   <Section paddingSmall>
     <FooterText>
-      This website is open source! Fork it on
-	    {' '}
-      <a href="https://github.com/schnogz/schnogzdotcom" target="blank">Github</a>
-	    {' '}
-	    🤓
+      This website is open source! Fork it on{' '}
+      <a href="https://github.com/schnogz/schnogzdotcom" target="blank">
+        Github
+      </a>{' '}
+      🤓
       <br />© {new Date().getFullYear()} Andrew Schneider
     </FooterText>
   </Section>

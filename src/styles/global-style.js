@@ -151,7 +151,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
       color: ${color.blue500};
     }
     :focus {
-      outline: ${props => (props.displayOutlines ? '' : 'none')};
+      outline: ${(props) => (props.displayOutlines ? '' : 'none')};
     }
   }
 

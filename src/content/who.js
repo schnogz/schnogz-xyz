@@ -23,22 +23,35 @@ const Heading = styled.span`
 
 export default () => (
   <TwoColumns
-	  wide
+    wide
     leftColumn={<SectionHeading>Who</SectionHeading>}
     rightColumn={
       <>
         <Heading>
-	        The name is Andrew, pleasure to meet you<span role="img" aria-label="wave emoji"> 🙋🏼‍♂️</span>
+          The name is Andrew, pleasure to meet you
+          <span role="img" aria-label="wave emoji">
+            {' '}
+            🙋🏼‍♂️
+          </span>
           <br />
-	        I'm a web application developer from <span role="img" aria-label="globe emoji"> 🌍 </span>
-	      </Heading>
+          I'm a web application developer from{' '}
+          <span role="img" aria-label="globe emoji">
+            {' '}
+            🌍{' '}
+          </span>
+        </Heading>
         <p>
-          I strive to bring the ideas of people around me to life. Building scalable web applications
-          that are delightfully responsive down to that last pixel is what I live for.
+          I strive to bring the ideas of people around me to life. Building
+          scalable web applications that are delightfully responsive down to
+          that last pixel is what I live for.
         </p>
         <p style={{ marginBottom: 0 }}>
-          Currently leading development on an open source cryptocurrency wallet for{' '}
-          <a href="https://blockchain.com" target="blank">Blockchain.com</a>.
+          Currently leading development on an open source cryptocurrency wallet
+          for{' '}
+          <a href="https://blockchain.com" target="blank">
+            Blockchain.com
+          </a>
+          .
         </p>
       </>
     }

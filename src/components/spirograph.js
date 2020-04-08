@@ -71,22 +71,25 @@ export default class Spirograph extends React.Component {
 
   // helper function
   reduce(numerator, denominator) {
-    let gcd = function(a, b) {
+    let gcd = function (a, b) {
       return b ? gcd(b, a % b) : a
     }
     gcd = gcd(numerator, denominator)
     return [numerator / gcd, denominator / gcd]
   }
 
-  delay = t => new Promise(resolve => setTimeout(resolve, t))
+  delay = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
   newSpirograph() {
     // display config
-    this.size = Math.min(498, Math.min(window.innerWidth / 2.8, window.innerHeight / 2.8))
+    this.size = Math.min(
+      498,
+      Math.min(window.innerWidth / 2.8, window.innerHeight / 2.8)
+    )
     this.dotSize = 7
     this.spiroColor = color.blue700
     this.circleColor = color.grey400
-	  this.speed = this.props.speed
+    this.speed = this.props.speed
     this.mctx.lineWidth = 1.2
     this.pctx.lineWidth = 1.2
 
@@ -191,10 +194,11 @@ export default class Spirograph extends React.Component {
       // ---------- PLOTTING CANVAS ----------
       //check if spirograph is incomplete
       if (this.angle - this.speed < this.N * 2 * Math.PI) {
-      	// pick a random color every so often
-      	if (Math.random() >= 0.9) {
-		      this.pctx.strokeStyle = "#" + Math.floor(Math.random()*16777215).toString(16)
-	      }
+        // pick a random color every so often
+        if (Math.random() >= 0.9) {
+          this.pctx.strokeStyle =
+            '#' + Math.floor(Math.random() * 16777215).toString(16)
+        }
         this.pctx.beginPath()
         this.pctx.moveTo(this.spiroX, this.spiroY)
         this.spiroX =
@@ -242,10 +246,12 @@ export default class Spirograph extends React.Component {
     return (
       <Wrapper>
         <CanvasWrapper>
-          <canvas ref={plottingCanvas => (this.plottingCanvas = plottingCanvas)} />
+          <canvas
+            ref={(plottingCanvas) => (this.plottingCanvas = plottingCanvas)}
+          />
         </CanvasWrapper>
         <CanvasWrapper>
-          <canvas ref={movingCanvas => (this.movingCanvas = movingCanvas)} />
+          <canvas ref={(movingCanvas) => (this.movingCanvas = movingCanvas)} />
         </CanvasWrapper>
       </Wrapper>
     )

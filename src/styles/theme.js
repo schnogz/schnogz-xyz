@@ -9,10 +9,10 @@ export const color = {
   grey200: '#EDEDED',
   grey150: '#F2F2F2',
   grey100: '#F9F9F9',
-	blue400: '#3A99FC',
+  blue400: '#3A99FC',
   blue500: '#007DFF',
-	blue600: '#0059B6',
-	blue700: '#00448B'
+  blue600: '#0059B6',
+  blue700: '#00448B',
 }
 
 export const fontSize = {

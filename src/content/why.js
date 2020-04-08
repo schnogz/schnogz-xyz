@@ -6,7 +6,6 @@ import TwoColumns from 'components/twoColumns'
 import media from 'utils/media-queries'
 import { color, fontSize } from 'styles/theme'
 
-
 const Heading = styled.span`
   font-size: ${fontSize.f6};
   color: ${color.grey900};
@@ -26,17 +25,27 @@ export default () => (
     wide
     leftColumn={<SectionHeading>Why</SectionHeading>}
     rightColumn={
-    	<>
-		    <Heading>
-			    Because I <span role="img" aria-label="heart emoji"> ❤️ </span> what I do
-		    </Heading>
-		    <p>
-			    I keep a personal blog where I write about the things that keep me going. Musings may include coding, music, tech, photography, exploration, and whatever else I may fancy that day.
-		    </p>
-		    <p>
-			    <span role="img" aria-label="link emoji">🔗</span> <a href="http://theonist.com">Check it out</a>
-		    </p>
-	    </>
+      <>
+        <Heading>
+          Because I{' '}
+          <span role="img" aria-label="heart emoji">
+            {' '}
+            ❤️{' '}
+          </span>{' '}
+          what I do
+        </Heading>
+        <p>
+          I keep a personal blog where I write about the things that keep me
+          going. Musings may include coding, music, tech, photography,
+          exploration, and whatever else I may fancy that day.
+        </p>
+        <p>
+          <span role="img" aria-label="link emoji">
+            🔗
+          </span>{' '}
+          <a href="http://theonist.com">Check it out</a>
+        </p>
+      </>
     }
   />
 )

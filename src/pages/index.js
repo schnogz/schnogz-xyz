@@ -20,12 +20,12 @@ export default class App extends React.Component {
         <Section id={'where'}>
           <Where />
         </Section>
-	      <Section id={'when'}>
-		      <When />
-	      </Section>
-	      <Section id={'why'}>
-		      <Why />
-	      </Section>
+        <Section id={'when'}>
+          <When />
+        </Section>
+        <Section id={'why'}>
+          <Why />
+        </Section>
         <Footer />
       </Page>
     )

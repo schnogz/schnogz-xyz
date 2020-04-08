@@ -17,14 +17,14 @@ const Wrapper = styled.div`
 const LeftColumn = styled.div``
 
 const RightColumn = styled.div`
-  max-width: ${props => props.wide ? '620px' : '544px'};
+  max-width: ${(props) => (props.wide ? '620px' : '544px')};
   ${media.md`
     max-width: 544px;
   `}
 `
 
 export default (props) => {
-	const { leftColumn, rightColumn, wide } = props
+  const { leftColumn, rightColumn, wide } = props
   return (
     <Wrapper>
       <LeftColumn>{leftColumn}</LeftColumn>

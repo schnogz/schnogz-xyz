@@ -1,5 +1,5 @@
 import React from 'react'
-import GitHubCalendar from 'react-github-calendar';
+import GitHubCalendar from 'react-github-calendar'
 import ReactTooltip from 'react-tooltip'
 import styled from 'styled-components'
 
@@ -7,7 +7,6 @@ import TwoColumns from 'components/twoColumns'
 import SectionHeading from 'components/sectionHeading'
 import media from 'utils/media-queries'
 import { color, fontSize } from 'styles/theme'
-
 
 const Heading = styled.span`
   font-size: ${fontSize.f6};
@@ -25,23 +24,24 @@ const Heading = styled.span`
 `
 
 export default () => (
-	<TwoColumns
-		wide
-		leftColumn={<SectionHeading>When</SectionHeading>}
-		rightColumn={
-			<>
-				<Heading>
-					I'll never stop improving <span role="img" aria-label="weight lifter emoji"> 🏋️‍♂️</span>
-				</Heading>
-				<p>
-					<GitHubCalendar fontSize="18" username="schnogz">
-						<ReactTooltip delayShow={25} html />
-					</GitHubCalendar>
-				</p>
-			</>
-
-		}
-	/>
+  <TwoColumns
+    wide
+    leftColumn={<SectionHeading>When</SectionHeading>}
+    rightColumn={
+      <>
+        <Heading>
+          I'll never stop improving{' '}
+          <span role="img" aria-label="weight lifter emoji">
+            {' '}
+            🏋️‍♂️
+          </span>
+        </Heading>
+        <p>
+          <GitHubCalendar fontSize="18" username="schnogz">
+            <ReactTooltip delayShow={25} html />
+          </GitHubCalendar>
+        </p>
+      </>
+    }
+  />
 )
-
-

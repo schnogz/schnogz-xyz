@@ -49,7 +49,7 @@ const Abstract = styled.div`
 `
 
 export default (props) => {
-	const { abstract, link, logo, title } = props
+  const { abstract, link, logo, title } = props
   return (
     <ProjectWrapper>
       <Logo>{logo}</Logo>

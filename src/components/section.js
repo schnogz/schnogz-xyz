@@ -19,23 +19,21 @@ const Section = styled.section`
 const Container = styled.div`
   border-top: 1px solid ${color.grey400};
   max-width: 916px;
-  padding: ${props => props.paddingSmall ? '42px 0' : '128px 0'};
+  padding: ${(props) => (props.paddingSmall ? '42px 0' : '128px 0')};
   ${media.lg`
-    padding: padding: ${props => props.paddingSmall ? '42px 0' : '112px 0'};
+    padding: padding: ${(props) => (props.paddingSmall ? '42px 0' : '112px 0')};
   `}
   ${media.sm`
-    padding: padding: ${props => props.paddingSmall ? '10px 0' : '64px 0'};
+    padding: padding: ${(props) => (props.paddingSmall ? '10px 0' : '64px 0')};
   `}
   width: 100%;
 `
 
 export default (props) => {
-	const { children, id, paddingSmall } = props
+  const { children, id, paddingSmall } = props
   return (
     <Section id={id}>
-      <Container paddingSmall={paddingSmall}>
-	      {children}
-      </Container>
+      <Container paddingSmall={paddingSmall}>{children}</Container>
     </Section>
   )
 }

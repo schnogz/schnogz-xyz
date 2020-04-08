@@ -16,8 +16,7 @@ export default () => (
     <CenteredError>
       <h1>404</h1>
       <p>You just hit a route that seems not to exist... the sadness.</p>
-      <Link to='/'>Back to Homepage</Link>
+      <Link to="/">Back to Homepage</Link>
     </CenteredError>
   </Page>
 )
-
