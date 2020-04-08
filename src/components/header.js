@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   `}
 `
 const LogoWrapper = styled.div`
-  padding: 24px 0 24px 24px;
+  padding: 24px 0 30px 30px;
   ${media.sm`
     padding: ${props => (props.article ? '24px 0 24px 24px' : '24px 0 0 0')};
   `};
