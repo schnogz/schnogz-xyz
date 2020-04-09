@@ -17,10 +17,11 @@ export default () => (
         <Project
           logo={
             <img
-              src={BlockchainLogo}
-              height="105px"
-              width="105px"
               alt="Blockchain.com Logo"
+              height="105px"
+              rel="preload"
+              src={BlockchainLogo}
+              width="105px"
             />
           }
           title="Blockchain.com"
@@ -29,10 +30,11 @@ export default () => (
         <Project
           logo={
             <img
-              src={TargetLogo}
-              height="100px"
-              width="100px"
               alt="Target Logo"
+              height="100px"
+              rel="preload"
+              src={TargetLogo}
+              width="100px"
             />
           }
           title="Target"
@@ -41,10 +43,11 @@ export default () => (
         <Project
           logo={
             <img
-              src={ThomsonReutersLogo}
-              height="100px"
-              width="100px"
               alt="Thomson Reuters logo"
+              height="100px"
+              rel="preload"
+              src={ThomsonReutersLogo}
+              width="100px"
             />
           }
           title="Thomson Reuters"
