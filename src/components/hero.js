@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import Header from 'components/header'
-import Spirograph from 'components/spirograph'
 import media from 'utils/media-queries'
 import { color } from 'styles/theme'
+
+const Spirograph = React.lazy(() => import('./spirograph'))
 
 const HeroSection = styled.section`
   height: 100vh;
@@ -17,7 +18,6 @@ const HeroSection = styled.section`
     height: calc(100vh - 76px);
   `}
 `
-
 const scroll = keyframes`
   0% {
     opacity: 0.8;
@@ -27,7 +27,6 @@ const scroll = keyframes`
     top: 32px;
   }
 `
-
 const ScrollAnimation = styled.div`
   position: absolute;
   width: 25px;
@@ -64,7 +63,9 @@ const handleScroll = () => {
 
 export default () => (
   <HeroSection>
-    <Spirograph speed={0.075} />
+    <Suspense fallback={React.Fragment}>
+      <Spirograph speed={0.075} />
+    </Suspense>
     <Header />
     <ScrollAnimation onClick={handleScroll} />
   </HeroSection>
