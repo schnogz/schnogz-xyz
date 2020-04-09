@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: http://www.schnogz.com/sitemap.xml
-Host: www.schnogz.com
