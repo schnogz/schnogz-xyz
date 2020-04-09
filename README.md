@@ -1,5 +1,5 @@
 # schnogz-dot-com
-Andrew Schneiders's personal [website](http://schnogz.com) built with Gatsby.
+Andrew Schneiders's personal [website](https://schnogz.com) built with Gatsby.
 
 ### Setup
 - Install dependencies via `yarn`
