@@ -1,1 +1,56 @@
-{"errors":[],"warnings":[],"namedChunkGroups":{"app":{"chunks":[5,4,1],"assets":["webpack-runtime-6ae14536c4a418a3aea2.js","webpack-runtime-6ae14536c4a418a3aea2.js.map","framework-9b7b0aa78083a4c4cab6.js","framework-9b7b0aa78083a4c4cab6.js.map","app-a87fa4899341605962f7.js","app-a87fa4899341605962f7.js.map"],"children":{},"childAssets":{}},"component---src-pages-404-js":{"chunks":[0,2],"assets":["commons-a963ac08c175c5624a67.js","commons-a963ac08c175c5624a67.js.map","component---src-pages-404-js-7e302c7b6e74b6646b2f.js","component---src-pages-404-js-7e302c7b6e74b6646b2f.js.map"],"children":{},"childAssets":{}},"component---src-pages-index-js":{"chunks":[0,3],"assets":["commons-a963ac08c175c5624a67.js","commons-a963ac08c175c5624a67.js.map","component---src-pages-index-js-16b31b4cc61b3238b88e.js","component---src-pages-index-js-16b31b4cc61b3238b88e.js.map"],"children":{},"childAssets":{}}},"assetsByChunkName":{"app":["webpack-runtime-6ae14536c4a418a3aea2.js","framework-9b7b0aa78083a4c4cab6.js","app-a87fa4899341605962f7.js"],"component---src-pages-404-js":["commons-a963ac08c175c5624a67.js","component---src-pages-404-js-7e302c7b6e74b6646b2f.js"],"component---src-pages-index-js":["commons-a963ac08c175c5624a67.js","component---src-pages-index-js-16b31b4cc61b3238b88e.js"]}}
+{
+  "errors": [],
+  "warnings": [],
+  "namedChunkGroups": {
+    "app": {
+      "chunks": [5, 4, 1],
+      "assets": [
+        "webpack-runtime-a30587a729e99a29ba95.js",
+        "webpack-runtime-a30587a729e99a29ba95.js.map",
+        "framework-9b7b0aa78083a4c4cab6.js",
+        "framework-9b7b0aa78083a4c4cab6.js.map",
+        "app-a87fa4899341605962f7.js",
+        "app-a87fa4899341605962f7.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "component---src-pages-404-js": {
+      "chunks": [0, 2],
+      "assets": [
+        "commons-c6564cdc34e1c6f04489.js",
+        "commons-c6564cdc34e1c6f04489.js.map",
+        "component---src-pages-404-js-f14af0b6ee744c6455c6.js",
+        "component---src-pages-404-js-f14af0b6ee744c6455c6.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "component---src-pages-index-js": {
+      "chunks": [0, 3],
+      "assets": [
+        "commons-c6564cdc34e1c6f04489.js",
+        "commons-c6564cdc34e1c6f04489.js.map",
+        "component---src-pages-index-js-851056001bab125aaf14.js",
+        "component---src-pages-index-js-851056001bab125aaf14.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "assetsByChunkName": {
+    "app": [
+      "webpack-runtime-a30587a729e99a29ba95.js",
+      "framework-9b7b0aa78083a4c4cab6.js",
+      "app-a87fa4899341605962f7.js"
+    ],
+    "component---src-pages-404-js": [
+      "commons-c6564cdc34e1c6f04489.js",
+      "component---src-pages-404-js-f14af0b6ee744c6455c6.js"
+    ],
+    "component---src-pages-index-js": [
+      "commons-c6564cdc34e1c6f04489.js",
+      "component---src-pages-index-js-851056001bab125aaf14.js"
+    ]
+  }
+}

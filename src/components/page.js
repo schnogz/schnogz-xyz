@@ -27,7 +27,7 @@ class Page extends React.Component {
       <Fragment>
         <Helmet>
           <html lang="en" />
-          <title>Schnogz - Andrew Schneider</title>
+          <title>Andrew Schneider (Schnogz)</title>
           <meta
             name="description"
             content="Andrew Schneider's personal website"
