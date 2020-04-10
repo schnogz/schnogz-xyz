@@ -11,10 +11,11 @@ import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 export default () => (
   <TwoColumns
     wide
-    leftColumn={<SectionHeading>Where</SectionHeading>}
+    leftColumn={<SectionHeading>Resume</SectionHeading>}
     rightColumn={
       <>
         <Project
+          abstract="The most trusted crypto company, helping millions across the globe access and store cryptocurrencies."
           logo={
             <img
               alt="Blockchain.com Logo"
@@ -24,10 +25,11 @@ export default () => (
               width="105px"
             />
           }
+          subtitle="Feb 2018 - Present"
           title="Blockchain.com"
-          abstract="The most trusted crypto company, helping millions across the globe access and store cryptocurrencies."
         />
         <Project
+          abstract="One of the world’s most recognized brands as well as one of America’s leading retailers and technological innovators."
           logo={
             <img
               alt="Target Logo"
@@ -37,10 +39,11 @@ export default () => (
               width="100px"
             />
           }
+          subtitle="Sept 2016 - Feb 2018"
           title="Target"
-          abstract="One of the world’s most recognized brands as well as one of America’s leading retailers and technological innovators."
         />
         <Project
+          abstract="A world leading provider of news and information-based tools helping professionals reinvent themselves in the digital age."
           logo={
             <img
               alt="Thomson Reuters logo"
@@ -50,8 +53,8 @@ export default () => (
               width="100px"
             />
           }
+          subtitle="Jan 2012 - Sept 2016"
           title="Thomson Reuters"
-          abstract="A world leading provider of news and information-based tools helping professionals reinvent themselves in the digital age."
         />
       </>
     }

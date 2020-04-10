@@ -7,25 +7,25 @@ import Section from 'components/section'
 import Footer from 'components/footer'
 
 // lazy loaded content
-const Who = loadable(() => import('./../content/who'))
-const Where = loadable(() => import('./../content/where'))
-const Why = loadable(() => import('./../content/why'))
+const Hello = loadable(() => import('./../content/hello'))
+const Resume = loadable(() => import('./../content/resume'))
 const Stats = loadable(() => import('./../content/stats'))
+const Projects = loadable(() => import('./../content/projects'))
 
 export default () => (
   <Page>
     <Hero />
-    <Section id="who">
-      <Who />
+    <Section id="hello">
+      <Hello />
     </Section>
-    <Section id="where">
-      <Where />
+    <Section id="projects">
+      <Projects />
     </Section>
     <Section id="stats">
       <Stats />
     </Section>
-    <Section id="why">
-      <Why />
+    <Section id="resume">
+      <Resume />
     </Section>
     <Footer />
   </Page>

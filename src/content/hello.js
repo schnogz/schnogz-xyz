@@ -24,7 +24,7 @@ const Heading = styled.span`
 export default () => (
   <TwoColumns
     wide
-    leftColumn={<SectionHeading>Who</SectionHeading>}
+    leftColumn={<SectionHeading>Hello</SectionHeading>}
     rightColumn={
       <>
         <Heading>

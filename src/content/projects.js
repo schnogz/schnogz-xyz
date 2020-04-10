@@ -23,11 +23,11 @@ const Heading = styled.span`
 export default () => (
   <TwoColumns
     wide
-    leftColumn={<SectionHeading>Why</SectionHeading>}
+    leftColumn={<SectionHeading>Projects</SectionHeading>}
     rightColumn={
       <>
         <Heading>
-          Because I{' '}
+          I{' '}
           <span role="img" aria-label="heart emoji">
             {' '}
             ❤️{' '}

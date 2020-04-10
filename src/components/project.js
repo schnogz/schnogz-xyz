@@ -26,6 +26,7 @@ const Description = styled.div`
 const Title = styled.h3`
   font-size: ${fontSize.f6};
   font-weight: 700;
+  margin: 0 0 2px;
   ${media.lg`
     font-size: ${fontSize.f5};
     letter-spacing: -0.3px;
@@ -33,7 +34,11 @@ const Title = styled.h3`
   ${media.md`
     font-size: ${fontSize.f6};
   `}
-  margin: 0 0 16px 0;
+`
+const Subtitle = styled.h5`
+  font-size: ${fontSize.f1};
+  font-weight: 200;
+  margin: 0 0 16px;
 `
 const Logo = styled.div`
   flex: 0 0 150px;
@@ -49,12 +54,13 @@ const Abstract = styled.div`
 `
 
 export default (props) => {
-  const { abstract, link, logo, title } = props
+  const { abstract, link, logo, subtitle, title } = props
   return (
     <ProjectWrapper>
       <Logo>{logo}</Logo>
       <Description>
         <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
         <Abstract>{abstract}</Abstract>
         {link}
       </Description>

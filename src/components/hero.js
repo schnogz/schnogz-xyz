@@ -49,7 +49,7 @@ const ScrollAnimation = styled.div`
 `
 
 const handleScroll = () => {
-  document.querySelector('#who').scrollIntoView({
+  document.querySelector('#hello').scrollIntoView({
     behavior: 'smooth',
   })
 }
