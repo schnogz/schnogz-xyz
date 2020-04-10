@@ -40,10 +40,7 @@ export default () => (
           exploration, and whatever else I may fancy that day.
         </p>
         <p>
-          <span role="img" aria-label="link emoji">
-            🔗
-          </span>{' '}
-          <a href="http://theonist.com">Check it out</a>
+          <a href="http://theonist.com">The Onist</a>
         </p>
       </>
     }

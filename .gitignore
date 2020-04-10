@@ -1,3 +1,4 @@
+# Deps
 node_modules/
 
 # Generated Files
@@ -11,3 +12,6 @@ package-lock.json
 
 # OSX
 .DS_Store
+
+# Secrets
+src/config/lastFm.js

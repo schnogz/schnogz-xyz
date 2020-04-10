@@ -10,7 +10,7 @@ import Footer from 'components/footer'
 const Who = loadable(() => import('./../content/who'))
 const Where = loadable(() => import('./../content/where'))
 const Why = loadable(() => import('./../content/why'))
-const When = loadable(() => import('./../content/when'))
+const Stats = loadable(() => import('./../content/stats'))
 
 export default () => (
   <Page>
@@ -21,8 +21,8 @@ export default () => (
     <Section id="where">
       <Where />
     </Section>
-    <Section id="when">
-      <When />
+    <Section id="stats">
+      <Stats />
     </Section>
     <Section id="why">
       <Why />
