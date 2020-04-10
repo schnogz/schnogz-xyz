@@ -64,10 +64,6 @@ export default class Spirograph extends React.Component {
     this.hasUnmounted = true
   }
 
-  shouldComponentUpdate() {
-    return true
-  }
-
   // helper function
   reduce(numerator, denominator) {
     let gcd = function (a, b) {

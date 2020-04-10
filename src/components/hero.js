@@ -3,21 +3,17 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import Header from 'components/header'
-import media from 'utils/media-queries'
 import { color } from 'styles/theme'
 
 const Spirograph = loadable(() => import('./spirograph'))
 
 const HeroSection = styled.section`
-  height: 100vh;
-  max-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
   width: 100%;
-  ${media.sm`
-    height: calc(100vh - 76px);
-  `}
+  overflow: hidden;
 `
 const scroll = keyframes`
   0% {
@@ -53,12 +49,8 @@ const ScrollAnimation = styled.div`
 `
 
 const handleScroll = () => {
-  const SCROLL_SECTION = '#who'
-  const el = document.querySelector(SCROLL_SECTION)
-  window.location.hash = SCROLL_SECTION
-  window.scrollTo({
+  document.querySelector('#who').scrollIntoView({
     behavior: 'smooth',
-    top: el.offsetTop,
   })
 }
 

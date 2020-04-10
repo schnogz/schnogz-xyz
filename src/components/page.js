@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 
 import GlobalStyle from 'styles/global-style'
@@ -24,7 +24,7 @@ class Page extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <Helmet>
           <html lang="en" />
           <title>Andrew Schneider (Schnogz)</title>
@@ -123,7 +123,7 @@ class Page extends React.Component {
         </Helmet>
         <GlobalStyle displayOutlines={this.state.displayOutlines} />
         {this.props.children}
-      </Fragment>
+      </>
     )
   }
 }

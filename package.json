@@ -1,7 +1,7 @@
 {
   "name": "schnogzdotcom",
   "description": "Andrew Schneider's personal site built with Gatsby",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Andrew Schneider <andrew.mark.schneider@gmail.com>",
   "license": "MIT",
   "husky": {
