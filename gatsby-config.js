@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'http://www.schnogz.com',
+    siteUrl: 'https://www.schnogz.com',
     title: 'Andrew Schneider (Schnogz)',
   },
   plugins: [
@@ -33,10 +33,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {
-        domains: [
-          'https://www.google-analytics.com',
-          'https://www.schnogz.com',
-        ],
+        domains: ['https://www.google-analytics.com'],
       },
     },
   ],

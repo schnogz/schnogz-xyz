@@ -90,7 +90,11 @@ export default () => {
     <Wrapper>
       <Header>
         I have scrobbled {current['@attr'] && current['@attr'].total} times to{' '}
-        <a href="https://www.last.fm/user/schnogz" target="_blank">
+        <a
+          href="https://www.last.fm/user/schnogz"
+          rel="noopener noreferrer"
+          target="blank"
+        >
           LastFM
         </a>{' '}
         since May 8, 2011. That's about 28 songs per day on average. Here are my

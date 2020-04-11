@@ -28,6 +28,17 @@ const ScrobbleSection = styled.div`
 `
 const GithubSection = styled.div`
   padding-top: 0.5rem;
+
+  & > article > div.react-github-calendar__title {
+    display: none;
+  }
+
+  & > article > div > div.react-github-calendar__meta {
+    font-size: 1rem;
+  }
+`
+const GithubInto = styled.div`
+  margin: 0.25rem 0 1.75rem;
 `
 const Emoji = styled.span`
   font-size: 1.8rem;
@@ -42,8 +53,10 @@ export default () => (
       <>
         <Heading>
           Won't stop grooving
-          <Emoji role="img" aria-label="dance emoji">
-            🕺🏻
+          <Emoji>
+            <span role="img" aria-label="dance emoji">
+              🕺🏻
+            </span>
           </Emoji>
         </Heading>
         <ScrobbleSection>
@@ -52,11 +65,27 @@ export default () => (
 
         <Heading>
           Won't stop improving
-          <Emoji role="img" aria-label="weight lifter emoji">
-            🏋️‍♂️
+          <Emoji>
+            <span role="img" aria-label="weight lifter emoji">
+              🏋️‍♂️
+            </span>
           </Emoji>
         </Heading>
         <GithubSection>
+          <GithubInto>
+            As you can see in the calendar below, I contribute a ton of code to
+            (mostly) open sourced projects on{' '}
+            <a
+              href="https://github.com/schnogz"
+              rel="noopener noreferrer"
+              target="blank"
+            >
+              GitHub
+            </a>
+            {'.  '}
+            I'm always looking for the next project, so please reach out if
+            you'd like to collaborate.
+          </GithubInto>
           <GitHubCalendar fontSize="18" username="schnogz">
             <ReactTooltip delayShow={25} html />
           </GitHubCalendar>
