@@ -71,9 +71,7 @@ export default () => {
         throw new Error('error')
       })
       .then((data) => setAlbumData(data.topalbums.album))
-      .catch(() =>
-        setAlbumData({ error: 'Whoops! Something went wrong with Last.fm' })
-      )
+      .catch(() => setAlbumData({ error: true }))
   }, [])
 
   useEffect(() => {
@@ -83,10 +81,18 @@ export default () => {
         throw new Error('error')
       })
       .then((data) => setCurrentData(data.recenttracks))
-      .catch(() =>
-        setCurrentData({ error: 'Whoops! Something went wrong with Last.fm' })
-      )
+      .catch(() => setCurrentData({ error: true }))
   }, [])
+
+  if (topAlbums.error || topAlbums.current) {
+    return (
+      <Wrapper>
+        <Header>
+          Damn! I failed to fetch my music listening history from LastFM.
+        </Header>
+      </Wrapper>
+    )
+  }
 
   return (
     <Wrapper>
