@@ -11,7 +11,7 @@ import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 export default () => (
   <TwoColumns
     wide
-    leftColumn={<SectionHeading>Resume</SectionHeading>}
+    leftColumn={<SectionHeading>Experience</SectionHeading>}
     rightColumn={
       <>
         <Project

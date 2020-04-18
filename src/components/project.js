@@ -6,6 +6,8 @@ import media from 'utils/media-queries'
 
 const ProjectWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-bottom: 50px;
   &:last-of-type {
     margin-bottom: 0;
@@ -43,11 +45,17 @@ const Subtitle = styled.h5`
   margin: 0 0 16px;
 `
 const Logo = styled.div`
+  display: flex;
   flex: 0 0 150px;
-  height: 150px;
+  justify-content: center;
+  height: 100%;
   margin-right: 40px;
   border-radius: 8px;
+  ${media.md`
+    justify-content: flex-start;
+  `}
   ${media.sm`
+    justify-content: flex-start;
     margin-bottom: -20px;
   `}
 `
