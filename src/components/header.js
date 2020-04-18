@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Icon from 'components/icons'
-import { color, fontSize } from 'styles/theme'
+import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
 const Wrapper = styled.div`
@@ -32,12 +32,10 @@ const LogoWrapper = styled.div`
     padding: 24px 0 0 0;
   `}
 `
-const NameLink = styled.a`
-  text-decoration: none;
-`
 const Name = styled.h1`
+  color: ${darkMode.seagreen};
   white-space: nowrap;
-  font-size: ${fontSize.f6};
+  font-size: ${fontSize.f7};
   text-align: left;
   margin: 0;
   line-height: 1.2;
@@ -47,21 +45,8 @@ const Name = styled.h1`
     font-size: ${fontSize.f7};
   `};
 `
-const NameArticle = styled.div`
-  white-space: nowrap;
-  font-size: ${fontSize.f5};
-  font-weight: 700;
-  text-align: left;
-  margin: 0;
-  line-height: 1.2;
-  letter-spacing: -0.6px;
-  color: ${color.grey900};
-  ${media.xs`
-    text-align: center;
-  `};
-`
 const Role = styled.div`
-  color: ${color.grey700};
+  color: ${darkMode.grey};
   text-align: left;
   line-height: 1.4;
   font-size: ${fontSize.f4};
@@ -91,16 +76,9 @@ const SocialLink = styled.a`
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  color: ${color.grey900};
+  color: ${darkMode.grey};
   &:hover {
-    background: ${color.white};
-    color: ${color.grey900};
-  }
-  &:active {
-    color: ${color.grey900};
-  }
-  &:visited {
-    color: ${color.grey900};
+    color: ${darkMode.seagreen};
   }
 `
 const SvgWrapper = styled.div`
@@ -119,6 +97,7 @@ const InlineSvg = styled.svg`
   fill: currentColor;
 `
 const Tooltip = styled.div`
+  color: ${darkMode.seagreen};
   padding: 2px 24px 0 24px;
   display: flex;
   justify-content: flex-end;
@@ -159,24 +138,15 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <Wrapper article={this.props.article}>
-        <LogoWrapper article={this.props.article}>
-          {this.props.article && (
-            <NameLink href="/">
-              <NameArticle article={this.props.article}>
-                Andrew Schneider
-              </NameArticle>
-            </NameLink>
-          )}
-          {!this.props.article && (
-            <Name article={this.props.article}>Andrew Schneider</Name>
-          )}
-          {!this.props.article && <Role>Web Developer</Role>}
+      <Wrapper>
+        <LogoWrapper>
+          <Name>Andrew Schneider</Name>
+          <Role>Web Developer</Role>
         </LogoWrapper>
         <div>
-          <SocialLinks article={this.props.article}>
+          <SocialLinks>
             <SocialLink
-              href="http://theonist.com"
+              href="https://theonist.com"
               target="blank"
               onMouseOver={() => this.showTooltip('Blog')}
               onFocus={() => this.showTooltip('Blog')}
@@ -236,17 +206,12 @@ class Header extends React.Component {
               </SvgWrapper>
             </SocialLink>
           </SocialLinks>
-          {!this.props.article && (
-            <Tooltip
-              visible={this.state.tooltipIsVisible}
-              article={this.props.article}
-            >
-              <TooltipText>{this.state.tooltipText}</TooltipText>
-              <TooltipIcon>
-                <Icon glyph="arrow" size={24} />
-              </TooltipIcon>
-            </Tooltip>
-          )}
+          <Tooltip visible={this.state.tooltipIsVisible}>
+            <TooltipText>{this.state.tooltipText}</TooltipText>
+            <TooltipIcon>
+              <Icon glyph="arrow" size={24} />
+            </TooltipIcon>
+          </Tooltip>
         </div>
       </Wrapper>
     )

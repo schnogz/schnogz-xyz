@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import LastFm from './../config/lastFm'
+import { darkMode } from '../styles/theme'
 
 const Wrapper = styled.div`
   flex-direction: column;
@@ -10,7 +11,7 @@ const AlbumListWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `
-const Header = styled.div`
+const Header = styled.p`
   margin-bottom: 1.75rem;
 `
 const Album = styled.div`
@@ -31,12 +32,13 @@ const AlbumCover = styled.img`
   height: 160px;
   width: 160px;
   border-radius: 2px;
-  -webkit-box-shadow: 10px 10px 21px -5px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 21px -5px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 21px -5px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
+  -moz-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
+  box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
 `
 const PlayCount = styled.div`
   background-color: white;
+  color: ${darkMode.greyDark};
   position: absolute;
   bottom: 0;
   right: 0;

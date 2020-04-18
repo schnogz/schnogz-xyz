@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Section from 'components/section'
-import { fontSize } from 'styles/theme'
+import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
 const FooterText = styled.div`
@@ -16,16 +16,19 @@ const FooterText = styled.div`
     font-size: ${fontSize.f1};
   `}
 `
+const Name = styled.span`
+  color: ${darkMode.seagreen};
+`
 
 export default () => (
   <Section paddingSmall>
     <FooterText>
-      This website is open source! Fork it on{' '}
+      This website is open source! Fork it{' '}
       <a href="https://github.com/schnogz/schnogzdotcom" target="blank">
-        Github
+        here
       </a>{' '}
       🤓
-      <br />© {new Date().getFullYear()} Andrew Schneider
+      <br />© {new Date().getFullYear()} <Name>Andrew Schneider</Name>
     </FooterText>
   </Section>
 )

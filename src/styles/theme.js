@@ -1,18 +1,12 @@
-export const color = {
-  grey900: '#1B1B1B',
-  grey800: '#2B2B2B',
-  grey700: '#434343',
-  grey600: '#6E6E6E',
-  grey500: '#999999',
-  grey400: '#C4C4C4',
-  grey300: '#E0E0E0',
-  grey200: '#EDEDED',
-  grey150: '#F2F2F2',
-  grey100: '#F9F9F9',
-  blue400: '#3A99FC',
-  blue500: '#007DFF',
-  blue600: '#0059B6',
-  blue700: '#00448B',
+export const darkMode = {
+  black: '#0b0c10',
+  blackLight: '#1F2833',
+  blue: '#3A99FC',
+  blueDark: '#00448B',
+  grey: '#C5C6C7',
+  greyDark: '#434343',
+  seagreen: '#66FCF1',
+  seagreenDark: '#45A29E',
 }
 
 export const fontSize = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { color } from 'styles/theme'
+import { darkMode } from 'styles/theme'
 import media from 'utils/media-queries'
 
 const Section = styled.section`
@@ -17,7 +17,7 @@ const Section = styled.section`
 `
 
 const Container = styled.div`
-  border-top: 1px solid ${color.grey400};
+  border-top: 1px solid ${darkMode.greyDark};
   max-width: 916px;
   padding: ${(props) => (props.paddingSmall ? '42px 0' : '128px 0')};
   ${media.lg`

@@ -2,7 +2,7 @@ import debounce from 'lodash/debounce'
 import React from 'react'
 import styled from 'styled-components'
 
-import { color } from 'styles/theme'
+import { darkMode } from 'styles/theme'
 
 const Wrapper = styled.div`
   position: absolute;
@@ -82,8 +82,8 @@ export default class Spirograph extends React.Component {
       Math.min(window.innerWidth / 2.8, window.innerHeight / 2.8)
     )
     this.dotSize = 7
-    this.spiroColor = color.blue700
-    this.circleColor = color.grey400
+    this.spiroColor = darkMode.blue
+    this.circleColor = darkMode.blackLight
     this.speed = this.props.speed
     this.mctx.lineWidth = 1.2
     this.pctx.lineWidth = 1.2
@@ -125,7 +125,7 @@ export default class Spirograph extends React.Component {
     this.mctx.strokeStyle = this.circleColor
 
     // plot outer circle
-    this.pctx.strokeStyle = color.grey900
+    this.pctx.strokeStyle = darkMode.greyDark
     this.pctx.beginPath()
     this.pctx.arc(this.centerX, this.centerY, this.size, 0, 2 * Math.PI)
     this.pctx.stroke()
@@ -190,7 +190,7 @@ export default class Spirograph extends React.Component {
       //check if spirograph is incomplete
       if (this.angle - this.speed < this.N * 2 * Math.PI) {
         // pick a random color every so often
-        if (Math.random() >= 0.9) {
+        if (Math.random() >= 0.95) {
           this.pctx.strokeStyle =
             '#' + Math.floor(Math.random() * 16777215).toString(16)
         }

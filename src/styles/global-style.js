@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import media from 'utils/media-queries'
 
-import { color, fontSize } from 'styles/theme'
+import { color, darkMode, fontSize } from 'styles/theme'
 
 import TTNormsProBoldWoff from 'fonts/TTNormsProBold.woff'
 import TTNormsProBoldWoff2 from 'fonts/TTNormsProBold.woff2'
@@ -40,8 +40,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
   body {
     font-family: 'TTNormsPro', system-ui, sans-serif;
     height: 100%;
-    background-color: #f4f4f4;
-    color: ${color.grey700};
+    background-color: ${darkMode.black};
+    color: ${darkMode.grey};
     font-feature-settings: "liga","kern";
     font-variant-ligatures: contextual common-ligatures;
     font-kerning: normal;
@@ -64,7 +64,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
   h1 {
     font-size: ${fontSize.f11};
-    color: ${color.grey900};
     font-weight: 700;
     margin: 0 0 24px 0;
     padding: 0;
@@ -80,7 +79,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
   h2 {
     font-size: ${fontSize.f8};
-    color: ${color.grey900};
     font-weight: 700;
     margin: 16px 0 20px 0;
     padding: 0;
@@ -93,7 +91,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
   h3 {
     font-size: ${fontSize.f6};
-    color: ${color.grey900};
     font-weight: 700;
     margin: 0 0 28px 0;
     padding: 0;
@@ -108,7 +105,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
   h4 {
     font-size: ${fontSize.f5};
-    color: ${color.grey900};
     font-weight: 700;
     margin: 0 0 8px 0;
     padding: 0;
@@ -120,8 +116,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
   }
 
   p {
-    font-size: ${fontSize.f4};
-    line-height: 1.5;
+    color: ${darkMode.grey};
+    font-size: ${fontSize.f3};
+    line-height: 1.4;
     ${media.lg`
       font-size: ${fontSize.f3};
       margin: 0.9em 0;
@@ -140,36 +137,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
   }
 
   a {
-    color: ${color.grey700};
-    &:visited {
-      color: ${color.grey700};
-    }
-    &:active {
-      color: ${color.blue500};
-    }
-    &:hover {
-      color: ${color.blue500};
-    }
-    :focus {
-      outline: ${(props) => (props.displayOutlines ? '' : 'none')};
-    }
+    color: ${darkMode.blue};
+    text-decoration: none;
   }
 
   ::selection {
     background: rgba(0, 125, 255, .99);
     color: white;
-  }
-
-  code {
-    background: ${color.grey200};
-    border-radius: 4px;
-    border: 1px solid ${color.grey400};
-    padding: 1px 4px;
-    margin: 0 3px;
-    font-size: ${fontSize.f3};
-    ${media.lg`
-      font-size: ${fontSize.f2};
-    `}
   }
 `
 

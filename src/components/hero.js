@@ -3,7 +3,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import Header from 'components/header'
-import { color } from 'styles/theme'
+import { darkMode } from 'styles/theme'
 
 const Spirograph = loadable(() => import('./spirograph'))
 
@@ -20,7 +20,7 @@ const scroll = keyframes`
     opacity: 0.8;
   }
   100% {
-  	opacity: 0;
+    opacity: 0;
     top: 32px;
   }
 `
@@ -30,7 +30,7 @@ const ScrollAnimation = styled.div`
   height: 48px;
   bottom: 20px;
   right: 30px;
-  box-shadow: inset 0 0 0 2px ${color.grey800};
+  box-shadow: inset 0 0 0 2px ${darkMode.greyDark};
   border-radius: 25px;
 
   &:before {
@@ -40,8 +40,9 @@ const ScrollAnimation = styled.div`
     right: 8px;
     content: '●';
     animation-name: ${scroll};
-    animation-duration: 2s;
+    animation-duration: 2.5s;
     animation-iteration-count: infinite;
+    color: ${darkMode.greyDark};
   }
   &:hover {
     cursor: pointer;

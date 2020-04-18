@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { fontSize } from 'styles/theme'
+import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
 const ProjectWrapper = styled.div`
@@ -24,6 +24,7 @@ const Description = styled.div`
   }
 `
 const Title = styled.h3`
+  color: ${darkMode.grey};
   font-size: ${fontSize.f6};
   font-weight: 700;
   margin: 0 0 2px;
@@ -36,6 +37,7 @@ const Title = styled.h3`
   `}
 `
 const Subtitle = styled.h5`
+  color: ${darkMode.greyDark};
   font-size: ${fontSize.f1};
   font-weight: 200;
   margin: 0 0 16px;
@@ -49,7 +51,7 @@ const Logo = styled.div`
     margin-bottom: -20px;
   `}
 `
-const Abstract = styled.div`
+const Abstract = styled.p`
   margin-bottom: 16px;
 `
 
