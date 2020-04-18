@@ -19,10 +19,10 @@ export default () => (
           logo={
             <img
               alt="Blockchain.com Logo"
-              height="105px"
+              height="75px"
               rel="preload"
               src={BlockchainLogo}
-              width="105px"
+              width="75px"
             />
           }
           subtitle="Feb 2018 - Present"
@@ -33,10 +33,10 @@ export default () => (
           logo={
             <img
               alt="Target Logo"
-              height="100px"
+              height="70px"
               rel="preload"
               src={TargetLogo}
-              width="100px"
+              width="70px"
             />
           }
           subtitle="Sept 2016 - Feb 2018"
@@ -47,10 +47,10 @@ export default () => (
           logo={
             <img
               alt="Thomson Reuters logo"
-              height="100px"
+              height="70px"
               rel="preload"
               src={ThomsonReutersLogo}
-              width="100px"
+              width="70px"
             />
           }
           subtitle="Jan 2012 - Sept 2016"

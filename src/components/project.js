@@ -6,7 +6,7 @@ import media from 'utils/media-queries'
 
 const ProjectWrapper = styled.div`
   display: flex;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   &:last-of-type {
     margin-bottom: 0;
   }

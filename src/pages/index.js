@@ -18,11 +18,11 @@ export default () => (
     <Section id="hello">
       <Hello />
     </Section>
-    <Section id="projects">
-      <Projects />
-    </Section>
     <Section id="stats">
       <Stats />
+    </Section>
+    <Section id="projects">
+      <Projects />
     </Section>
     <Section id="resume">
       <Resume />

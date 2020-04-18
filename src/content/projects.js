@@ -1,24 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Project from 'components/project'
 import SectionHeading from 'components/sectionHeading'
 import TwoColumns from 'components/twoColumns'
-import media from 'utils/media-queries'
-import { color, fontSize } from 'styles/theme'
 
-const Heading = styled.span`
-  font-size: ${fontSize.f6};
-  color: ${color.grey900};
-  font-weight: 700;
-  letter-spacing: -0.4px;
-  line-height: 1.35;
-  ${media.lg`
-    font-size: ${fontSize.f5};
-    letter-spacing: -0.3px;
-  `}
-  ${media.sm`
-    font-size: ${fontSize.f5};
-  `}
+const EmojiIcon = styled.span`
+  font-size: 70px;
 `
 export default () => (
   <TwoColumns
@@ -26,22 +14,70 @@ export default () => (
     leftColumn={<SectionHeading>Projects</SectionHeading>}
     rightColumn={
       <>
-        <Heading>
-          I{' '}
-          <span role="img" aria-label="heart emoji">
-            {' '}
-            ❤️{' '}
-          </span>{' '}
-          what I do
-        </Heading>
-        <p>
-          I keep a personal blog where I write about the things that keep me
-          going. Musings may include coding, music, tech, photography,
-          exploration, and whatever else I may fancy that day.
-        </p>
-        <p>
-          <a href="http://theonist.com">The Onist</a>
-        </p>
+        <>
+          <Project
+            abstract="My personal blog where I write about the things that keep me going. Musings will include coding, music, tech, photography, travel and much more."
+            logo={
+              <EmojiIcon role="img" aria-label="writing emoji">
+                ✍🏼️
+              </EmojiIcon>
+            }
+            subtitle={
+              <a href="https://theonist.com" target="_blank">
+                https://theonist.com
+              </a>
+            }
+            title="The Onist Blog"
+          />
+          <Project
+            abstract="A website that decodes Ethereum blockchain transaction (including ERC20) hashes into readable JSON."
+            logo={
+              <EmojiIcon role="img" aria-label="open lock emoji">
+                🔓
+              </EmojiIcon>
+            }
+            subtitle={
+              <a href="https://ethereumdecoder.com" target="_blank">
+                https://ethereumdecoder.com
+              </a>
+            }
+            title="Ethereum Decoder"
+          />
+          <Project
+            abstract="An iTerm2 plugin that displays various stats about the Bitcoin blockchain as well as price information of many other top cryptocurrencies."
+            logo={
+              <EmojiIcon role="img" aria-label="chainlinks emoji">
+                ⛓
+              </EmojiIcon>
+            }
+            subtitle={
+              <a
+                href="https://github.com/schnogz/iterm-blockchain-components"
+                target="_blank"
+              >
+                https://github.com/schnogz/iterm-blockchain-components
+              </a>
+            }
+            title="iTerm2 Blockchain Stats"
+          />
+          <Project
+            abstract="A NodeJS wrapper for Songkick's full REST API available on both NPM and GitHub."
+            logo={
+              <EmojiIcon role="img" aria-label="package emoji">
+                📦
+              </EmojiIcon>
+            }
+            subtitle={
+              <a
+                href="https://github.com/schnogz/songkick-api-node"
+                target="_blank"
+              >
+                https://github.com/schnogz/songkick-api-node
+              </a>
+            }
+            title="Songkick API Wrapper"
+          />
+        </>
       </>
     }
   />
