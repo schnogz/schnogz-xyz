@@ -60,9 +60,19 @@ const TextBold = styled.div`
 const ALBUMS_URI = `https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&user=${LastFm.name}&api_key=${LastFm.apiKey}&limit=6&period=7day&format=json`
 const CURRENT_URI = `https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${LastFm.name}&api_key=${LastFm.apiKey}&limit=1&format=json`
 
+const calcAverage = (totalScrobbles = 1) => {
+  const oneDay = 24 * 60 * 60 * 1000 // hours*minutes*seconds*milliseconds
+  const startDate = new Date(2011, 5, 8) // May 8, 2011
+  const daysSinceStart = Math.round(Math.abs((startDate - new Date()) / oneDay))
+  return (totalScrobbles / daysSinceStart).toFixed(2)
+}
 export default () => {
   const [topAlbums, setAlbumData] = useState([])
   const [current, setCurrentData] = useState({})
+  const totalScrobbles = (current['@attr'] && current['@attr'].total) || 1
+  const totalScrobblesFormatted = new Intl.NumberFormat(
+    navigator.language
+  ).format(totalScrobbles)
 
   useEffect(() => {
     fetch(ALBUMS_URI)
@@ -88,7 +98,7 @@ export default () => {
     return (
       <Wrapper>
         <Header>
-          Damn! I failed to fetch my music listening history from LastFM.
+          Damn! I failed to fetch my own music listening history from LastFM.
         </Header>
       </Wrapper>
     )
@@ -97,7 +107,7 @@ export default () => {
   return (
     <Wrapper>
       <Header>
-        I have scrobbled {current['@attr'] && current['@attr'].total} times to{' '}
+        I have scrobbled {totalScrobblesFormatted} times to{' '}
         <a
           href="https://www.last.fm/user/schnogz"
           rel="noopener noreferrer"
@@ -105,8 +115,8 @@ export default () => {
         >
           LastFM
         </a>{' '}
-        since May 8, 2011. That's about 28 songs per day on average. Here are my
-        top albums from last week.
+        since May 8, 2011. That's an average of {calcAverage(totalScrobbles)}{' '}
+        songs per day. Here are my top albums from last week.
       </Header>
       <AlbumListWrapper>
         {topAlbums.map((s) => (

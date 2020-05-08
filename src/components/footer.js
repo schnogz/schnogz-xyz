@@ -23,9 +23,9 @@ const Name = styled.span`
 export default () => (
   <Section paddingSmall>
     <FooterText>
-      This website is open source! Fork it{' '}
+      This website is open source! Fork it on{' '}
       <a href="https://github.com/schnogz/schnogzdotcom" target="blank">
-        here
+        GitHub
       </a>{' '}
       🤓
       <br />© {new Date().getFullYear()} <Name>Andrew Schneider</Name>
