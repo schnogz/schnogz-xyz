@@ -5,10 +5,11 @@ import Page from 'components/page'
 import Hero from 'components/hero'
 import Section from 'components/section'
 import Footer from 'components/footer'
+import ScrollHelper from 'components/scrollHelper'
 
 // lazy loaded content
 const Hello = loadable(() => import('./../content/hello'))
-const Resume = loadable(() => import('./../content/resume'))
+const Experience = loadable(() => import('./../content/experience'))
 const Stats = loadable(() => import('./../content/stats'))
 const Projects = loadable(() => import('./../content/projects'))
 
@@ -24,9 +25,10 @@ export default () => (
     <Section id="projects">
       <Projects />
     </Section>
-    <Section id="resume">
-      <Resume />
+    <Section id="experience">
+      <Experience />
     </Section>
     <Footer />
+    <ScrollHelper />
   </Page>
 )

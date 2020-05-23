@@ -62,7 +62,7 @@ export default class Spirograph extends React.Component {
     // dont start drawing until loading animation completes
     setTimeout(() => {
       window.requestAnimationFrame(this.draw)
-    }, 2500)
+    }, 2000)
   }
 
   componentWillUnmount() {

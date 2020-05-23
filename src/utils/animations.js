@@ -1,7 +1,7 @@
 export const ROTATE_WHILE_TAP = {
   initial: { opacity: 0, scale: 0 },
   animate: { scale: 1, opacity: 1 },
-  transition: { duration: 2 },
+  transition: { duration: 1.5 },
   whileTap: { scale: 0.5, rotate: 180 },
 }
 
