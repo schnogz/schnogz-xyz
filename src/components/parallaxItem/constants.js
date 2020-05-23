@@ -6,4 +6,4 @@ export const SPRING_CONFIG = {
   mass: rand(1, 3),
 }
 
-export const RANGE = 0.2 // parallax range of movement. 1 represents maximum (100%)
+export const RANGE = 0.3 // parallax range of movement. 1 represents maximum (100%)
