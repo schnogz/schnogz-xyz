@@ -16,7 +16,7 @@ const HeroSection = styled.section`
 `
 
 export default () => (
-  <HeroSection id="hero">
+  <HeroSection id="home">
     <Spirograph speed={0.075} />
     <Header />
   </HeroSection>
