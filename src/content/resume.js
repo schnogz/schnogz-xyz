@@ -3,7 +3,6 @@ import React from 'react'
 import TwoColumns from 'components/twoColumns'
 import SectionHeading from 'components/sectionHeading'
 import Project from 'components/project'
-import ParallaxItem from 'components/parallaxItem'
 
 import BlockchainLogo from 'img/blockchainLogo.png'
 import TargetLogo from 'img/targetLogo.png'
