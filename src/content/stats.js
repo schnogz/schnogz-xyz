@@ -73,7 +73,6 @@ export default () => (
         <ScrobbleSection>
           <Scrobbles />
         </ScrobbleSection>
-
         <Heading>
           Won't stop improvin'
           <Emoji>
