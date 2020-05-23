@@ -1,7 +1,7 @@
 {
   "name": "schnogzdotcom",
   "description": "Andrew Schneider's personal site built with Gatsby",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Andrew Schneider <andrew.mark.schneider@gmail.com>",
   "license": "MIT",
   "husky": {
@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "@loadable/component": "5.12.0",
-    "framer-motion": "^1.11.0",
-    "gatsby-plugin-preconnect": "^1.0.5",
+    "framer-motion": "1.11.0",
+    "gatsby-plugin-preconnect": "1.0.5",
     "lodash": "4.17.15",
     "react": "16.13.1",
     "react-dom": "16.13.1",

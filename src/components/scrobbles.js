@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import ParallaxItem from './parallaxItem/index'
+
+// import ParallaxItem from './parallaxItem/index'
 import LastFm from './../config/lastFm'
 import { darkMode } from '../styles/theme'
 
@@ -13,7 +14,7 @@ const AlbumListWrapper = styled.div`
   justify-content: space-between;
 `
 const Header = styled.p`
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 `
 const Album = styled.div`
   display: flex;
@@ -121,19 +122,19 @@ export default () => {
       </Header>
       <AlbumListWrapper>
         {topAlbums.map((s) => (
-          <ParallaxItem key={s.name}>
-            <Album>
-              <CoverWrapper>
-                <AlbumCover
-                  src={s.image[3]['#text']}
-                  alt={s.name + 'album cover'}
-                />
-                <PlayCount>{s.playcount} spins</PlayCount>
-              </CoverWrapper>
-              <TextBold>{s.name}</TextBold>
-              <Text>{s.artist.name}</Text>
-            </Album>
-          </ParallaxItem>
+          // <ParallaxItem key={s.name}>
+          <Album>
+            <CoverWrapper>
+              <AlbumCover
+                src={s.image[3]['#text']}
+                alt={s.name + 'album cover'}
+              />
+              <PlayCount>{s.playcount} spins</PlayCount>
+            </CoverWrapper>
+            <TextBold>{s.name}</TextBold>
+            <Text>{s.artist.name}</Text>
+          </Album>
+          // </ParallaxItem>
         ))}
       </AlbumListWrapper>
     </Wrapper>

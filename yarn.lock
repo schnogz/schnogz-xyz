@@ -4529,7 +4529,7 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^1.11.0:
+framer-motion@1.11.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-1.11.0.tgz#9463a4d8e1be9f25d0f75712a4a835691c028d65"
   integrity sha512-DkJFWAHIv57L4xu8Ufq9GMs9Ifqpgt5Yi55pc4NQos8TUGomgbLlnwpO1IXK85X5K1dVNKuTZMiqjWZLeOfG/A==
@@ -4726,7 +4726,7 @@ gatsby-plugin-page-creator@^2.2.1:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-preconnect@^1.0.5:
+gatsby-plugin-preconnect@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-preconnect/-/gatsby-plugin-preconnect-1.0.5.tgz#8c32602cacfdd6988bf6424dd27821a719d9820f"
   integrity sha512-J/a7Ft1tFrnZOeJuclvDyIOLmBOqfvBOoGn5Tf9eVObfzlhZKq6O/89qbaTMUBUQOmlPa/RYSgq4BBMUX7pFpw==
