@@ -1,10 +1,12 @@
 import debounce from 'lodash/debounce'
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 import { darkMode } from 'styles/theme'
+import { ROTATE_WHILE_TAP } from 'utils/animations'
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
@@ -13,6 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  cursor: pointer;
 `
 const CanvasWrapper = styled.div`
   position: absolute;
@@ -239,7 +242,7 @@ export default class Spirograph extends React.Component {
 
   render() {
     return (
-      <Wrapper>
+      <Wrapper {...ROTATE_WHILE_TAP}>
         <CanvasWrapper>
           <canvas
             ref={(plottingCanvas) => (this.plottingCanvas = plottingCanvas)}

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { darkMode, fontSize } from 'styles/theme'
+import ParallaxItem from './parallaxItem/index'
 import media from 'utils/media-queries'
 
 const ProjectWrapper = styled.div`
@@ -66,14 +67,16 @@ const Abstract = styled.p`
 export default (props) => {
   const { abstract, link, logo, subtitle, title } = props
   return (
-    <ProjectWrapper>
-      <Logo>{logo}</Logo>
-      <Description>
-        <Title>{title}</Title>
-        <Subtitle>{subtitle}</Subtitle>
-        <Abstract>{abstract}</Abstract>
-        {link}
-      </Description>
-    </ProjectWrapper>
+    <ParallaxItem extraOffset={700}>
+      <ProjectWrapper>
+        <Logo>{logo}</Logo>
+        <Description>
+          <Title>{title}</Title>
+          <Subtitle>{subtitle}</Subtitle>
+          <Abstract>{abstract}</Abstract>
+          {link}
+        </Description>
+      </ProjectWrapper>
+    </ParallaxItem>
   )
 }

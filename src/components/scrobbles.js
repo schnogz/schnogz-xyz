@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import ParallaxItem from './parallaxItem/index'
 import LastFm from './../config/lastFm'
 import { darkMode } from '../styles/theme'
 
@@ -120,17 +121,19 @@ export default () => {
       </Header>
       <AlbumListWrapper>
         {topAlbums.map((s) => (
-          <Album>
-            <CoverWrapper>
-              <AlbumCover
-                src={s.image[3]['#text']}
-                alt={s.name + 'album cover'}
-              />
-              <PlayCount>{s.playcount} spins</PlayCount>
-            </CoverWrapper>
-            <TextBold>{s.name}</TextBold>
-            <Text>{s.artist.name}</Text>
-          </Album>
+          <ParallaxItem key={s.name}>
+            <Album>
+              <CoverWrapper>
+                <AlbumCover
+                  src={s.image[3]['#text']}
+                  alt={s.name + 'album cover'}
+                />
+                <PlayCount>{s.playcount} spins</PlayCount>
+              </CoverWrapper>
+              <TextBold>{s.name}</TextBold>
+              <Text>{s.artist.name}</Text>
+            </Album>
+          </ParallaxItem>
         ))}
       </AlbumListWrapper>
     </Wrapper>

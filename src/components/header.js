@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 import Icon from 'components/icons'
 import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
+import { ARRIVE_FROM_TOP, ROTATE_ON_HOVER } from 'utils/animations'
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,7 +25,7 @@ const Wrapper = styled.div`
     height: 112px;
   `}
 `
-const LogoWrapper = styled.div`
+const LogoWrapper = styled(motion.div)`
   padding: 24px 0 30px 30px;
   ${media.sm`
     padding: ${(props) => (props.article ? '24px 0 24px 24px' : '24px 0 0 0')};
@@ -69,7 +71,7 @@ const SocialLinks = styled.div`
   `}
   justify-content: center;
 `
-const SocialLink = styled.a`
+const SocialLink = styled(motion.a)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,11 +141,11 @@ class Header extends React.Component {
   render() {
     return (
       <Wrapper>
-        <LogoWrapper>
+        <LogoWrapper {...ARRIVE_FROM_TOP}>
           <Name>Andrew Schneider</Name>
           <Role>Web Developer</Role>
         </LogoWrapper>
-        <div>
+        <motion.div {...ARRIVE_FROM_TOP}>
           <SocialLinks>
             <SocialLink
               href="https://theonist.com"
@@ -153,6 +155,7 @@ class Header extends React.Component {
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
               aria-label="Andrew's Blog"
+              {...ROTATE_ON_HOVER}
             >
               <SvgWrapper>
                 <InlineSvg>
@@ -168,6 +171,7 @@ class Header extends React.Component {
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
               aria-label="Andrew's GitHub profile"
+              {...ROTATE_ON_HOVER}
             >
               <SvgWrapper>
                 <InlineSvg>
@@ -183,6 +187,7 @@ class Header extends React.Component {
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
               aria-label="Andrew's LinkedIn profile"
+              {...ROTATE_ON_HOVER}
             >
               <SvgWrapper>
                 <InlineSvg>
@@ -198,6 +203,7 @@ class Header extends React.Component {
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
               aria-label="Send an email to Andrew"
+              {...ROTATE_ON_HOVER}
             >
               <SvgWrapper>
                 <InlineSvg>
@@ -212,7 +218,7 @@ class Header extends React.Component {
               <Icon glyph="arrow" size={24} />
             </TooltipIcon>
           </Tooltip>
-        </div>
+        </motion.div>
       </Wrapper>
     )
   }
