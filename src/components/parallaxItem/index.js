@@ -9,11 +9,7 @@ import {
 import { RANGE, SPRING_CONFIG } from './constants'
 import { calculateMinHeight } from './helpers'
 
-export default function ParallaxItem({
-  className,
-  children,
-  extraOffset = 500,
-}) {
+export default function ParallaxItem({ children, extraOffset = 500 }) {
   const { scrollY } = useViewportScroll()
   const ref = useRef()
   const [offsetTop, setOffsetTop] = useState(0)
@@ -42,8 +38,8 @@ export default function ParallaxItem({
   )
 
   return (
-    <div style={{ minHeight }} className={className}>
-      <motion.div id="parallax" ref={ref} initial={{ y: 0 }} style={{ y }}>
+    <div style={{ minHeight }}>
+      <motion.div ref={ref} initial={{ y: 0 }} style={{ y }}>
         {children}
       </motion.div>
     </div>
