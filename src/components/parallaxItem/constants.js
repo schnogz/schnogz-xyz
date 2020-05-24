@@ -1,9 +1,7 @@
-import { rand } from './helpers'
-
+// https://www.framer.com/api/animation/#spring
 export const SPRING_CONFIG = {
-  damping: 100,
-  stiffness: 100,
-  mass: rand(1, 3),
+  damping: 10,
+  stiffness: 50,
+  mass: 1,
 }
-
-export const RANGE = 0.3 // parallax range of movement. 1 represents maximum (100%)
+export const RANGE = 0.2
