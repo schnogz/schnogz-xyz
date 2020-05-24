@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ParallaxItem from './parallaxItem/index'
 import LastFm from './../config/lastFm'
 import { darkMode } from '../styles/theme'
+import media from 'utils/media-queries'
 
 const Wrapper = styled.div`
   flex-direction: column;
@@ -11,6 +12,9 @@ const AlbumListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  ${media.xs`
+    justify-content: center;
+  `};
 `
 const Header = styled.p`
   margin-bottom: 1.75rem;
@@ -56,6 +60,7 @@ const Text = styled.div`
 const TextBold = styled.div`
   font-size: 0.95rem;
   font-weight: 700;
+  width: 170px;
 `
 
 const ALBUMS_URI = `https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&user=${LastFm.name}&api_key=${LastFm.apiKey}&limit=6&period=7day&format=json`
