@@ -7,13 +7,23 @@ import {
 } from 'framer-motion'
 
 import { RANGE, SPRING_CONFIG } from './constants'
-import { calculateMinHeight } from './helpers'
+import {
+  calculateMinHeight,
+  setTransformRange,
+  setTransformValues,
+} from './helpers'
 
-export default function ParallaxItem({ children, extraOffset = 500 }) {
-  const { scrollY } = useViewportScroll()
+export default function ParallaxItem({ children }) {
   const ref = useRef()
   const [offsetTop, setOffsetTop] = useState(0)
   const [minHeight, setMinHeight] = useState('auto')
+  const { scrollY } = useViewportScroll()
+  const transformValue = useTransform(
+    scrollY,
+    setTransformRange(offsetTop),
+    setTransformValues(RANGE)
+  )
+  const y = useSpring(transformValue, SPRING_CONFIG)
 
   useLayoutEffect(() => {
     if (!ref.current) return null
@@ -21,21 +31,10 @@ export default function ParallaxItem({ children, extraOffset = 500 }) {
       setOffsetTop(ref.current.offsetTop)
       setMinHeight(calculateMinHeight(RANGE)(ref.current.offsetHeight))
     }
-
     onResize()
     window.addEventListener('resize', onResize)
-
     return () => window.removeEventListener('resize', onResize)
   }, [ref])
-
-  const y = useSpring(
-    useTransform(
-      scrollY,
-      [offsetTop - extraOffset, offsetTop + extraOffset],
-      ['0%', `${RANGE * 100}%`]
-    ),
-    SPRING_CONFIG
-  )
 
   return (
     <div style={{ minHeight }}>
