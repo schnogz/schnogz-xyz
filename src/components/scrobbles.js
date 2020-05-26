@@ -12,7 +12,7 @@ const AlbumListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  ${media.xs`
+  ${media.sm`
     justify-content: center;
   `};
 `
