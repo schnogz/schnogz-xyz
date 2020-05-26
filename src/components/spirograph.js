@@ -59,7 +59,10 @@ export default class Spirograph extends React.Component {
     this.plottingCanvas.height = this.canvasSize
 
     this.newSpirograph()
-    window.requestAnimationFrame(this.draw)
+    // dont start drawing until loading animation completes
+    setTimeout(() => {
+      window.requestAnimationFrame(this.draw)
+    }, 2000)
   }
 
   componentWillUnmount() {

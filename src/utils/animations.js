@@ -1,8 +1,8 @@
 export const ROTATE_WHILE_TAP = {
-  initial: { opacity: 0, scale: 0.9 },
+  initial: { opacity: 0, scale: 0 },
   animate: { scale: 1, opacity: 1 },
-  transition: { duration: 3 },
-  whileTap: { opacity: 0, rotate: 180 },
+  transition: { duration: 1.5 },
+  whileTap: { scale: 0.5, rotate: 180 },
 }
 
 export const ROTATE_ON_HOVER = {
@@ -18,6 +18,6 @@ export const ARRIVE_FROM_TOP = {
   initial: { y: -50, opacity: 0 },
   transition: {
     ease: 'easeInOut',
-    duration: 0.5,
+    duration: 1,
   },
 }

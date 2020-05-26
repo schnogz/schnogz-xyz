@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+
 import ParallaxItem from './parallaxItem/index'
 import LastFm from './../config/lastFm'
 import { darkMode } from '../styles/theme'
@@ -17,7 +18,7 @@ const AlbumListWrapper = styled.div`
   `};
 `
 const Header = styled.p`
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 `
 const Album = styled.div`
   display: flex;
