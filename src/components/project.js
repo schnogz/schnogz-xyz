@@ -67,7 +67,7 @@ const Abstract = styled.p`
 export default (props) => {
   const { abstract, link, logo, subtitle, title } = props
   return (
-    <ParallaxItem extraOffset={700}>
+    <ParallaxItem>
       <ProjectWrapper>
         <Logo>{logo}</Logo>
         <Description>

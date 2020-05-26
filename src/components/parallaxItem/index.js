@@ -26,14 +26,8 @@ export default function ParallaxItem({ children }) {
   const y = useSpring(transformValue, SPRING_CONFIG)
 
   useLayoutEffect(() => {
-    if (!ref.current) return null
-    const onResize = () => {
-      setOffsetTop(ref.current.offsetTop)
-      setMinHeight(calculateMinHeight(RANGE)(ref.current.offsetHeight))
-    }
-    onResize()
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
+    setOffsetTop(ref.current.offsetTop)
+    setMinHeight(calculateMinHeight(RANGE)(ref.current.offsetHeight))
   }, [ref])
 
   return (
