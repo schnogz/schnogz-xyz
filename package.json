@@ -28,7 +28,7 @@
     "@n8tb1t/use-scroll-position": "1.0.43",
     "framer-motion": "1.11.0",
     "gatsby-plugin-preconnect": "1.0.5",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-github-calendar": "1.0.4",
