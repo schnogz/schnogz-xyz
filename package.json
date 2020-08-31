@@ -24,30 +24,30 @@
     "format": "prettier --write 'src/**/*.js'"
   },
   "dependencies": {
-    "@loadable/component": "5.12.0",
+    "@loadable/component": "5.13.1",
     "@n8tb1t/use-scroll-position": "1.0.43",
-    "framer-motion": "1.11.0",
-    "gatsby-plugin-preconnect": "1.0.5",
-    "lodash": "4.17.15",
+    "framer-motion": "2.6.5",
+    "gatsby-plugin-preconnect": "1.1.54",
+    "lodash": "4.17.20",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-github-calendar": "1.0.4",
-    "react-helmet": "5.2.1",
-    "react-tooltip": "4.2.1",
-    "styled-components": "5.1.0"
+    "react-github-calendar": "2.0.1",
+    "react-helmet": "6.1.0",
+    "react-tooltip": "4.2.9",
+    "styled-components": "5.1.1"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "1.10.7",
-    "gatsby": "2.20.14",
-    "gatsby-link": "2.3.2",
-    "gatsby-plugin-google-analytics": "2.2.2",
-    "gatsby-plugin-react-helmet": "3.2.1",
-    "gatsby-plugin-robots-txt": "1.5.0",
+    "babel-plugin-styled-components": "1.11.1",
+    "gatsby": "2.24.53",
+    "gatsby-link": "2.4.13",
+    "gatsby-plugin-google-analytics": "2.3.13",
+    "gatsby-plugin-react-helmet": "3.3.10",
+    "gatsby-plugin-robots-txt": "1.5.1",
     "gatsby-plugin-root-import": "2.0.5",
-    "gatsby-plugin-sitemap": "2.3.1",
-    "gatsby-plugin-styled-components": "3.2.1",
-    "husky": "4.2.3",
-    "lint-staged": "10.1.2",
-    "prettier": "2.0.4"
+    "gatsby-plugin-sitemap": "2.4.12",
+    "gatsby-plugin-styled-components": "3.3.10",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.13",
+    "prettier": "2.1.1"
   }
 }
