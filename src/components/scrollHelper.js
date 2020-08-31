@@ -38,7 +38,7 @@ const ScrollAnimation = styled.div`
   }
 `
 
-const VIEW_ORDER = ['#home', '#hello', '#stats', '#projects', '#experience']
+const VIEW_ORDER = ['#home', '#hello', '#lifestyle', '#projects', '#experience']
 
 export default () => {
   // update hash url on page scroll

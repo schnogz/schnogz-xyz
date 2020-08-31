@@ -10,7 +10,7 @@ import ScrollHelper from 'components/scrollHelper'
 // lazy loaded content
 const Hello = loadable(() => import('./../content/hello'))
 const Experience = loadable(() => import('./../content/experience'))
-const Stats = loadable(() => import('./../content/stats'))
+const Lifestyle = loadable(() => import('./../content/lifestyle'))
 const Projects = loadable(() => import('./../content/projects'))
 
 export default () => (
@@ -19,8 +19,8 @@ export default () => (
     <Section id="hello">
       <Hello />
     </Section>
-    <Section id="stats">
-      <Stats />
+    <Section id="lifestyle">
+      <Lifestyle />
     </Section>
     <Section id="projects">
       <Projects />

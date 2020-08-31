@@ -4,9 +4,9 @@ import TwoColumns from 'components/twoColumns'
 import SectionHeading from 'components/sectionHeading'
 import Project from 'components/project'
 
-import BlockchainLogo from 'img/blockchainLogo.png'
-import TargetLogo from 'img/targetLogo.png'
-import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
+import BlockchainLogo from 'img/logos/blockchainLogo.png'
+import TargetLogo from 'img/logos/targetLogo.png'
+import ThomsonReutersLogo from 'img/logos/thomsonReutersLogo.png'
 
 export default () => (
   <TwoColumns
