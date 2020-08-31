@@ -24,6 +24,7 @@
     "format": "prettier --write 'src/**/*.js'"
   },
   "dependencies": {
+    "@browniebroke/gatsby-image-gallery": "^3.5.1",
     "@loadable/component": "5.13.1",
     "@n8tb1t/use-scroll-position": "1.0.43",
     "framer-motion": "2.6.5",

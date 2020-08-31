@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-// import ParallaxItem from './parallaxItem/index'
 import LastFm from './../config/lastFm'
 import { darkMode } from '../styles/theme'
 
@@ -31,12 +30,12 @@ const CoverWrapper = styled.div`
   margin-bottom: 14px;
 `
 const AlbumCover = styled.img`
-  height: 160px;
-  width: 160px;
+  height: 165px;
+  width: 165px;
   border-radius: 2px;
-  -webkit-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
-  -moz-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
-  box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
+  -webkit-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.5);
+  -moz-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.5);
+  box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.5);
 `
 const PlayCount = styled.div`
   background-color: white;
@@ -122,7 +121,6 @@ export default () => {
       </Header>
       <AlbumListWrapper>
         {topAlbums.map((s) => (
-          // <ParallaxItem key={s.name}>
           <Album>
             <CoverWrapper>
               <AlbumCover
@@ -134,7 +132,6 @@ export default () => {
             <TextBold>{s.name}</TextBold>
             <Text>{s.artist.name}</Text>
           </Album>
-          // </ParallaxItem>
         ))}
       </AlbumListWrapper>
     </Wrapper>
