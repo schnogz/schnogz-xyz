@@ -28,7 +28,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
     font-weight: normal;
     font-style: normal;
   }
-
+  
   html {
     height: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -141,6 +141,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
   ::selection {
     background: rgba(0, 125, 255, .99);
     color: white;
+  }
+  
+  #___gatsby, #gatsby-focus-wrapper {
+    height: 100%;
   }
 `
 
