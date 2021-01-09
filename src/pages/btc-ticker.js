@@ -30,7 +30,7 @@ const PriceDisplay = styled.div`
 `
 
 const PriceIncrease = styled.div`
-  font-size: 1.8em;
+  font-size: 4em;
   color: #57c84d;
   min-height: 1.8em;
 `
