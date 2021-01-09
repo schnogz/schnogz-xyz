@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import GlobalStyle from '../styles/global-style'
+
+const updateColor = (priceChange) => keyframes`
+   0% { color: ${priceChange < 0 ? '#DC1C13' : '#2EB62C'} }
+   25% { color: ${priceChange < 0 ? '#EA4C46' : '#57C84D'} }
+   50% { color: ${priceChange < 0 ? '#F07470' : '#83D475'} }
+   75% { color: ${priceChange < 0 ? '#F1959B' : '#ABE098'} }
+   100% { color: #AFAFAF }
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,23 +17,26 @@ const Wrapper = styled.div`
   align-items: center;
   font-size: 5em;
   font-style: italic;
-  color: ${(props) => (props.priceChange ? 'red' : 'green')};
   height: 100%;
   width: 100%;
+  overflow: hidden;
+  color: #afafaf;
+  animation: ${({ priceChange }) => updateColor(priceChange)} 4s linear;
 
   @media all and (max-width: 699px) and (min-width: 520px) {
-    font-size: 7em;
+    font-size: 5.5em;
   }
   @media all and (max-width: 999px) and (min-width: 700px) {
-    font-size: 10em;
+    font-size: 8.5em;
   }
   @media all and (min-width: 1000px) {
-    font-size: 12em;
+    font-size: 10em;
   }
 `
 
-const connectWebsocket = (setPrice, setPriceChange) => {
-  const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade')
+let ws
+const connectWebsocket = (setPriceData) => {
+  ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade')
   let throttle = false
   let lastPrice = 0
 
@@ -34,13 +45,16 @@ const connectWebsocket = (setPrice, setPriceChange) => {
       throttle = true
       const message = JSON.parse(event.data)
       const formattedPrice = Number.parseFloat(message.p).toFixed(2)
-      console.log(lastPrice - formattedPrice)
-      setPriceChange(lastPrice >= formattedPrice)
-      setPrice(formattedPrice)
+      setPriceData({
+        price: formattedPrice,
+        priceChange: Number.parseFloat(
+          ((lastPrice - formattedPrice) * -1).toFixed(2)
+        ),
+      })
       lastPrice = formattedPrice
       setTimeout(() => {
         throttle = false
-      }, 5000)
+      }, 10000)
     }
   }
 
@@ -58,14 +72,18 @@ const connectWebsocket = (setPrice, setPriceChange) => {
 }
 
 export default () => {
-  const [price, setPrice] = useState(0)
-  const [priceChange, setPriceChange] = useState(false)
+  const [priceData, setPriceData] = useState({
+    price: 0,
+    priceChange: 0,
+  })
   useEffect(() => {
-    connectWebsocket(setPrice, setPriceChange)
+    connectWebsocket(setPriceData)
+    return () => ws.close()
   }, [])
+
   return (
     <>
-      <Wrapper priceChange={priceChange}>{price !== 0 && price}</Wrapper>
+      <Wrapper priceChange={priceData.priceChange}>{priceData.price}</Wrapper>
       <GlobalStyle />
     </>
   )
