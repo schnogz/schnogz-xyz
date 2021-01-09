@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   overflow: hidden;
 `
 const PriceDisplay = styled.div`
-  margin: 0.1em 0;
+  margin: 0.08em 0;
   font-size: 5em;
   font-style: italic;
   color: #afafaf;
@@ -30,12 +30,12 @@ const PriceDisplay = styled.div`
 `
 
 const PriceIncrease = styled.div`
-  font-size: 4em;
+  font-size: 4.25em;
   color: #57c84d;
   min-height: 1.8em;
 `
 const PriceDecrease = styled.div`
-  font-size: 1.8em;
+  font-size: 4.25em;
   color: #ea4c46;
   min-height: 1.8em;
 `
