@@ -1,37 +1,43 @@
 import React, { useEffect, useState } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import GlobalStyle from '../styles/global-style'
-
-const updateColor = (priceChange) => keyframes`
-   0% { color: ${priceChange < 0 ? '#DC1C13' : '#2EB62C'} }
-   25% { color: ${priceChange < 0 ? '#EA4C46' : '#57C84D'} }
-   50% { color: ${priceChange < 0 ? '#F07470' : '#83D475'} }
-   75% { color: ${priceChange < 0 ? '#F1959B' : '#ABE098'} }
-   100% { color: #AFAFAF }
-`
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  font-size: 5em;
-  font-style: italic;
   height: 100%;
   width: 100%;
   overflow: hidden;
+`
+const PriceDisplay = styled.div`
+  margin: 0.1em 0;
+  font-size: 5em;
+  font-style: italic;
   color: #afafaf;
-  animation: ${({ priceChange }) => updateColor(priceChange)} 4s linear;
 
   @media all and (max-width: 699px) and (min-width: 520px) {
-    font-size: 5.5em;
+    font-size: 5em;
   }
   @media all and (max-width: 999px) and (min-width: 700px) {
-    font-size: 8.5em;
+    font-size: 8em;
   }
   @media all and (min-width: 1000px) {
     font-size: 10em;
   }
+`
+
+const PriceIncrease = styled.div`
+  font-size: 1.8em;
+  color: #57c84d;
+  min-height: 1.8em;
+`
+const PriceDecrease = styled.div`
+  font-size: 1.8em;
+  color: #ea4c46;
+  min-height: 1.8em;
 `
 
 let ws
@@ -81,10 +87,18 @@ export default () => {
     return () => ws.close()
   }, [])
 
+  const { price, priceChange } = priceData
+
   return (
-    <>
-      <Wrapper priceChange={priceData.priceChange}>{priceData.price}</Wrapper>
+    <Wrapper>
+      <PriceIncrease>
+        {priceChange > 0 && <span>+ {priceChange}</span>}
+      </PriceIncrease>
+      <PriceDisplay>{price}</PriceDisplay>
+      <PriceDecrease>
+        {priceChange < 0 && <span>- {Math.abs(priceChange)}</span>}
+      </PriceDecrease>
       <GlobalStyle />
-    </>
+    </Wrapper>
   )
 }
