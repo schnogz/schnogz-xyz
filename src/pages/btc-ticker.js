@@ -77,7 +77,7 @@ const connectWebsocket = (setPriceData) => {
   }
 }
 
-export default () => {
+const BtcTicker = () => {
   const [priceData, setPriceData] = useState({
     price: 0,
     priceChange: 0,
@@ -102,3 +102,5 @@ export default () => {
     </Wrapper>
   )
 }
+
+export default BtcTicker

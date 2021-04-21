@@ -68,7 +68,8 @@ const calcAverage = (totalScrobbles = 1) => {
   const daysSinceStart = Math.round(Math.abs((startDate - new Date()) / oneDay))
   return (totalScrobbles / daysSinceStart).toFixed(2)
 }
-export default () => {
+
+const Scrobbles = () => {
   const [topAlbums, setAlbumData] = useState([])
   const [current, setCurrentData] = useState({})
   const totalScrobbles = (current['@attr'] && current['@attr'].total) || 1
@@ -140,3 +141,5 @@ export default () => {
     </Wrapper>
   )
 }
+
+export default Scrobbles

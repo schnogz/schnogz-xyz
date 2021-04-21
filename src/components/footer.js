@@ -20,7 +20,7 @@ const Name = styled.span`
   color: ${darkMode.seagreen};
 `
 
-export default () => (
+const Footer = () => (
   <Section paddingSmall>
     <FooterText>
       This website is open source! Fork it on{' '}
@@ -32,3 +32,5 @@ export default () => (
     </FooterText>
   </Section>
 )
+
+export default Footer

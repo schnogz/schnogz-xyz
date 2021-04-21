@@ -11,7 +11,7 @@ const CenteredError = styled.div`
   transform: translate(-50%, -50%);
 `
 
-export default () => (
+const FourOhFour = () => (
   <Page>
     <CenteredError>
       <h1>404</h1>
@@ -20,3 +20,5 @@ export default () => (
     </CenteredError>
   </Page>
 )
+
+export default FourOhFour

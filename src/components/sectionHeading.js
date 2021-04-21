@@ -32,4 +32,6 @@ const Heading = styled.h2`
     `}
 `
 
-export default (props) => <Heading>{props.children}</Heading>
+const SectionHeading = (props) => <Heading>{props.children}</Heading>
+
+export default SectionHeading

@@ -23,7 +23,7 @@ const RightColumn = styled.div`
   `}
 `
 
-export default (props) => {
+const TwoColumns = (props) => {
   const { leftColumn, rightColumn, wide } = props
   return (
     <Wrapper>
@@ -32,3 +32,5 @@ export default (props) => {
     </Wrapper>
   )
 }
+
+export default TwoColumns

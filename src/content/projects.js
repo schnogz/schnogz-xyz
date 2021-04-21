@@ -8,7 +8,7 @@ import TwoColumns from 'components/twoColumns'
 const EmojiIcon = styled.span`
   font-size: 70px;
 `
-export default () => (
+const Projects = () => (
   <TwoColumns
     wide
     leftColumn={<SectionHeading>Projects</SectionHeading>}
@@ -98,3 +98,5 @@ export default () => (
     }
   />
 )
+
+export default Projects

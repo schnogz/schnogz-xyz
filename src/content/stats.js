@@ -58,7 +58,7 @@ const ghCalTheme = {
 
 const currentYear = new Date().getFullYear()
 
-export default () => (
+const Stats = () => (
   <TwoColumns
     wide
     leftColumn={<SectionHeading>Stats</SectionHeading>}
@@ -130,3 +130,5 @@ export default () => (
     }
   />
 )
+
+export default Stats

@@ -8,7 +8,7 @@ import BlockchainLogo from 'img/blockchainLogo.png'
 import TargetLogo from 'img/targetLogo.png'
 import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 
-export default () => (
+const Experience = () => (
   <TwoColumns
     wide
     leftColumn={<SectionHeading>Experience</SectionHeading>}
@@ -60,3 +60,5 @@ export default () => (
     }
   />
 )
+
+export default Experience

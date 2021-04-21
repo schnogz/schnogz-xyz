@@ -29,7 +29,7 @@ const Container = styled.div`
   width: 100%;
 `
 
-export default (props) => {
+const SingleSection = (props) => {
   const { children, id, paddingSmall } = props
   return (
     <Section id={id}>
@@ -37,3 +37,5 @@ export default (props) => {
     </Section>
   )
 }
+
+export default SingleSection
