@@ -36,7 +36,8 @@ export const Glyph = ({ glyph }) => {
     default:
   }
 }
-export default (props) => {
+
+const Icons = (props) => {
   const { size = 32, glyph } = props
   return (
     <SvgWrapper size={size} className={'icon'}>
@@ -58,3 +59,5 @@ export default (props) => {
     </SvgWrapper>
   )
 }
+
+export default Icons

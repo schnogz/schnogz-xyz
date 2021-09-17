@@ -40,7 +40,7 @@ const ScrollAnimation = styled.div`
 
 const VIEW_ORDER = ['#home', '#hello', '#lifestyle', '#projects', '#experience']
 
-export default () => {
+const ScrollHelper = () => {
   // update hash url on page scroll
   useScrollPosition(({ currPos }) => {
     // get offsets of sections
@@ -88,3 +88,5 @@ export default () => {
 
   return <ScrollAnimation onClick={handleScrollToNext} />
 }
+
+export default ScrollHelper

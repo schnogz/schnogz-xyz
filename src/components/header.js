@@ -196,7 +196,7 @@ class Header extends React.Component {
               </SvgWrapper>
             </SocialLink>
             <SocialLink
-              href="mailto:andrew.mark.schneider@gmail.com?subject=Hey Andrew!"
+              href="mailto:andrew@blockchain.com?subject=Hey Andrew!"
               target="blank"
               onMouseOver={() => this.showTooltip('Email')}
               onFocus={() => this.showTooltip('Email')}

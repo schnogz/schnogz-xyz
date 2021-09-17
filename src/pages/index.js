@@ -13,7 +13,7 @@ const Experience = loadable(() => import('./../content/experience'))
 const Lifestyle = loadable(() => import('./../content/lifestyle'))
 const Projects = loadable(() => import('./../content/projects'))
 
-export default () => (
+const SinglePage = () => (
   <Page>
     <Hero />
     <Section id="hello">
@@ -32,3 +32,5 @@ export default () => (
     <ScrollHelper />
   </Page>
 )
+
+export default SinglePage

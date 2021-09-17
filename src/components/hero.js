@@ -15,9 +15,11 @@ const HeroSection = styled.section`
   overflow: hidden;
 `
 
-export default () => (
+const Hero = () => (
   <HeroSection id="home">
     <Spirograph speed={0.075} />
     <Header />
   </HeroSection>
 )
+
+export default Hero

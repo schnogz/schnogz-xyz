@@ -61,10 +61,12 @@ const ghCalTheme = {
   grade0: '#D6EAF8',
 }
 
-export default () => (
+const currentYear = new Date().getFullYear()
+
+const Stats = () => (
   <TwoColumns
     wide
-    leftColumn={<SectionHeading>Lifestyle</SectionHeading>}
+    leftColumn={<SectionHeading>Stats</SectionHeading>}
     rightColumn={
       <>
         <Heading>
@@ -100,9 +102,33 @@ export default () => (
             {'.  '}
             I'm always looking for the next project, so please reach out if
             you'd like to collaborate.
-          </GithubIntro>
-          <GitHubCalendar fontSize="18" theme={ghCalTheme} username="schnogz">
-            <ReactTooltip delayShow={25} html />
+          </GithubInto>
+          <GitHubCalendar
+            blockMargin={4}
+            fontSize="18"
+            fullYear={false}
+            theme={ghCalTheme}
+            username="schnogz"
+          >
+            <ReactTooltip backgroundColor="black" delayShow={50} html />
+          </GitHubCalendar>
+          <GitHubCalendar
+            blockMargin={4}
+            fontSize="18"
+            theme={ghCalTheme}
+            username="schnogz"
+            years={[currentYear - 1]}
+          >
+            <ReactTooltip backgroundColor="black" delayShow={50} html />
+          </GitHubCalendar>
+          <GitHubCalendar
+            blockMargin={4}
+            fontSize="18"
+            theme={ghCalTheme}
+            username="schnogz"
+            years={[currentYear - 2]}
+          >
+            <ReactTooltip backgroundColor="black" delayShow={50} html />
           </GitHubCalendar>
         </GithubSection>
         <PhotosSection>
@@ -120,3 +146,5 @@ export default () => (
     }
   />
 )
+
+export default Stats

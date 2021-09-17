@@ -21,7 +21,7 @@ const Heading = styled.span`
   `}
 `
 
-export default () => (
+const Hello = () => (
   <TwoColumns
     wide
     leftColumn={<SectionHeading>Hello</SectionHeading>}
@@ -51,3 +51,5 @@ export default () => (
     }
   />
 )
+
+export default Hello
