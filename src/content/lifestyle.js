@@ -2,9 +2,9 @@ import React from 'react'
 import GitHubCalendar from 'react-github-calendar'
 import ReactTooltip from 'react-tooltip'
 import styled from 'styled-components'
-import '@browniebroke/gatsby-image-gallery/dist/style.css'
+// import '@browniebroke/gatsby-image-gallery/dist/style.css'
 
-import ImageGallery from 'components/imageGallery'
+// import ImageGallery from 'components/imageGallery'
 import TwoColumns from 'components/twoColumns'
 import SectionHeading from 'components/sectionHeading'
 import Scrobbles from 'components/scrobbles'
@@ -28,9 +28,9 @@ const Heading = styled.span`
 const ScrobbleSection = styled.div`
   padding: 0 0 2.5rem;
 `
-const PhotosSection = styled.div`
-  padding-top: 2.5rem;
-`
+// const PhotosSection = styled.div`
+//   padding-top: 2.5rem;
+// `
 const GithubSection = styled.div`
   padding-top: 0.5rem;
 
@@ -54,14 +54,12 @@ const Emoji = styled.span`
 const ghCalTheme = {
   background: 'transparent',
   text: darkMode.grey,
-  grade4: '#00448B',
-  grade3: '#3377BE',
-  grade2: '#4D91D8',
-  grade1: '#7FC3FF',
-  grade0: '#D6EAF8',
+  level4: '#004f9b',
+  level3: '#3377BE',
+  level2: '#4D91D8',
+  level1: '#7FC3FF',
+  level0: '#D6EAF8',
 }
-
-const currentYear = new Date().getFullYear()
 
 const Stats = () => (
   <TwoColumns
@@ -102,46 +100,28 @@ const Stats = () => (
             {'.  '}
             I'm always looking for the next project, so please reach out if
             you'd like to collaborate.
-          </GithubInto>
+          </GithubIntro>
           <GitHubCalendar
-            blockMargin={4}
-            fontSize="18"
+            blockMargin={3}
+            fontSize={16}
             fullYear={false}
             theme={ghCalTheme}
             username="schnogz"
           >
             <ReactTooltip backgroundColor="black" delayShow={50} html />
           </GitHubCalendar>
-          <GitHubCalendar
-            blockMargin={4}
-            fontSize="18"
-            theme={ghCalTheme}
-            username="schnogz"
-            years={[currentYear - 1]}
-          >
-            <ReactTooltip backgroundColor="black" delayShow={50} html />
-          </GitHubCalendar>
-          <GitHubCalendar
-            blockMargin={4}
-            fontSize="18"
-            theme={ghCalTheme}
-            username="schnogz"
-            years={[currentYear - 2]}
-          >
-            <ReactTooltip backgroundColor="black" delayShow={50} html />
-          </GitHubCalendar>
         </GithubSection>
-        <PhotosSection>
-          <Heading>
-            Won't stop shootin'
-            <Emoji>
-              <span role="img" aria-label="camera emoji">
-                ️📸
-              </span>
-            </Emoji>
-          </Heading>
-          <ImageGallery />
-        </PhotosSection>
+        {/*<PhotosSection>*/}
+        {/*  <Heading>*/}
+        {/*    Won't stop shootin'*/}
+        {/*    <Emoji>*/}
+        {/*      <span role="img" aria-label="camera emoji">*/}
+        {/*        ️📸*/}
+        {/*      </span>*/}
+        {/*    </Emoji>*/}
+        {/*  </Heading>*/}
+        {/*  <ImageGallery />*/}
+        {/*</PhotosSection>*/}
       </>
     }
   />

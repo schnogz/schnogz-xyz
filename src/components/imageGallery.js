@@ -21,7 +21,7 @@ const PhotosIntro = styled.p`
   margin: 0.25rem 0 1.75rem;
 `
 
-export default () => {
+const ImageGallery = () => {
   const imagesQuery = useStaticQuery(graphql`
     query MyQuery {
       allFile(filter: { relativeDirectory: { eq: "personal" } }) {
@@ -65,3 +65,5 @@ export default () => {
     </>
   )
 }
+
+export default ImageGallery
