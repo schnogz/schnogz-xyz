@@ -20,17 +20,17 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@loadable/component": "5.14.1",
+    "@loadable/component": "5.15.2",
     "@n8tb1t/use-scroll-position": "2.0.3",
     "framer-motion": "4.1.6",
-    "gatsby-plugin-preconnect": "1.2.0",
+    "gatsby-plugin-preconnect": "1.3.0",
     "lodash": "4.17.21",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-github-calendar": "2.0.2",
     "react-helmet": "6.1.0",
-    "react-tooltip": "4.2.17",
-    "styled-components": "5.2.3"
+    "react-tooltip": "4.2.21",
+    "styled-components": "5.3.6"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "1.12.0",
@@ -38,12 +38,12 @@
     "gatsby-link": "3.3.0",
     "gatsby-plugin-google-analytics": "3.3.0",
     "gatsby-plugin-react-helmet": "4.3.0",
-    "gatsby-plugin-robots-txt": "1.5.6",
-    "gatsby-plugin-root-import": "2.0.6",
+    "gatsby-plugin-robots-txt": "1.7.1",
+    "gatsby-plugin-root-import": "2.0.8",
     "gatsby-plugin-sitemap": "3.3.0",
     "gatsby-plugin-styled-components": "4.3.0",
     "husky": "6.0.0",
     "lint-staged": "10.5.4",
-    "prettier": "2.2.1"
+    "prettier": "2.7.1"
   }
 }
