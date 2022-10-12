@@ -13,13 +13,15 @@ export const InlineSvg = styled.svg`
   fill: currentColor;
 `
 
+const buildCssSize = (props) => (props.size ? `${props.size}px` : '32px')
+
 export const SvgWrapper = styled.div`
   display: inline-block;
-  flex: 0 0 ${(props) => (props.size ? `${props.size}px` : '32px')};
-  width: ${(props) => (props.size ? `${props.size}px` : '32px')};
-  height: ${(props) => (props.size ? `${props.size}px` : '32px')};
-  min-width: ${(props) => (props.size ? `${props.size}px` : '32px')};
-  min-height: ${(props) => (props.size ? `${props.size}px` : '32px')};
+  flex: 0 0 ${(props) => buildCssSize(props)};
+  width: ${(props) => buildCssSize(props)};
+  height: ${(props) => buildCssSize(props)};
+  min-width: ${(props) => buildCssSize(props)};
+  min-height: ${(props) => buildCssSize(props)};
   position: relative;
   color: inherit;
 `
@@ -40,7 +42,7 @@ export const Glyph = ({ glyph }) => {
 const Icons = (props) => {
   const { size = 32, glyph } = props
   return (
-    <SvgWrapper size={size} className={'icon'}>
+    <SvgWrapper size={size} className="icon">
       <InlineSvg
         fillRule="evenodd"
         clipRule="evenodd"
