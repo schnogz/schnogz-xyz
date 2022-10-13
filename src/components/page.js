@@ -38,14 +38,14 @@ class Page extends React.Component {
           />
           <meta
             property="og:image"
-            content="https://www.schnogz.com/static/profile.jpeg"
+            content="https://www.schnogz.xyz/static/profile.jpeg"
           />
           <meta
             property="og:description"
             content="Andrew Schneider's personal website"
           />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://schnogz.com" />
+          <meta property="og:url" content="https://schnogz.xyz" />
           <meta property="og:title" content="Andrew Schneider" />
           <link
             rel="apple-touch-icon"
