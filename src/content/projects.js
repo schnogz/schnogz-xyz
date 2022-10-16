@@ -26,14 +26,14 @@ const Projects = () => (
             }
             subtitle={
               <a
-                href="https://theonist.com"
+                href="https://blog.schnogz.xyz"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                https://theonist.com
+                https://blog.schnogz.xyz
               </a>
             }
-            title="The Onist Blog"
+            title="Blog"
           />
           <Project
             abstract="A website that decodes Ethereum blockchain transaction (including ERC20) hashes into readable JSON."

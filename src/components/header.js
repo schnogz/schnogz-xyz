@@ -148,7 +148,7 @@ class Header extends React.Component {
         <motion.div {...ARRIVE_FROM_TOP}>
           <SocialLinks>
             <SocialLink
-              href="https://theonist.com"
+              href="https://blog.schnogz.xyz"
               target="blank"
               onMouseOver={() => this.showTooltip('Blog')}
               onFocus={() => this.showTooltip('Blog')}
