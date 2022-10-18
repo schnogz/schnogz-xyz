@@ -28,15 +28,6 @@ const ScrobbleSection = styled.div`
 `
 const GithubSection = styled.div`
   padding-top: 0.5rem;
-
-  & > article > div.react-github-calendar__title {
-    display: none;
-  }
-
-  & > article > div > div.react-github-calendar__meta {
-    font-size: 1rem;
-    color: ${darkMode.grey};
-  }
 `
 const GithubInto = styled.p`
   margin: 0.25rem 0 1.75rem;
@@ -47,13 +38,11 @@ const Emoji = styled.span`
 `
 
 const ghCalTheme = {
-  background: 'transparent',
-  text: darkMode.grey,
-  grade4: '#00448B',
-  grade3: '#3377BE',
-  grade2: '#4D91D8',
-  grade1: '#7FC3FF',
-  grade0: '#D6EAF8',
+  level4: '#00448B',
+  level3: '#3377BE',
+  level2: '#4D91D8',
+  level1: '#7FC3FF',
+  level0: '#D6EAF8',
 }
 
 const currentYear = new Date().getFullYear()
@@ -100,28 +89,33 @@ const Stats = () => (
           </GithubInto>
           <GitHubCalendar
             blockMargin={4}
-            fontSize="18"
-            fullYear={false}
+            fontSize={13}
+            hideColorLegend
+            style={{ margin: '48px 0 32px' }}
             theme={ghCalTheme}
+            year={2022}
             username="schnogz"
           >
             <ReactTooltip backgroundColor="black" delayShow={50} html />
           </GitHubCalendar>
           <GitHubCalendar
             blockMargin={4}
-            fontSize="18"
+            fontSize={13}
+            hideColorLegend
+            style={{ marginBottom: '32px' }}
             theme={ghCalTheme}
+            year={2021}
             username="schnogz"
-            years={[currentYear - 1]}
           >
             <ReactTooltip backgroundColor="black" delayShow={50} html />
           </GitHubCalendar>
           <GitHubCalendar
             blockMargin={4}
-            fontSize="18"
+            fontSize={13}
+            hideColorLegend
             theme={ghCalTheme}
+            year={2020}
             username="schnogz"
-            years={[currentYear - 2]}
           >
             <ReactTooltip backgroundColor="black" delayShow={50} html />
           </GitHubCalendar>
