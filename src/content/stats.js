@@ -45,8 +45,6 @@ const ghCalTheme = {
   level0: '#D6EAF8',
 }
 
-const currentYear = new Date().getFullYear()
-
 const Stats = () => (
   <TwoColumns
     wide

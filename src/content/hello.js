@@ -36,14 +36,15 @@ const Hello = () => (
         </Heading>
         <p>
           I'm a web developer that strives to bring the ideas of the people
-          around me to life. Building scalable web applications that are
-          delightfully responsive down to that last pixel is what I live for.
+          around me to life. Pushing the boundaries of web forward, and
+          transitioning it to web3 and blockchain technology, is what gets me
+          out of bed in the morning.
         </p>
         <p style={{ marginBottom: 0 }}>
-          Currently leading development on an open source cryptocurrency wallet
-          for{' '}
-          <a href="https://blockchain.com" target="blank">
-            Blockchain.com
+          Currently building the future of web3 on-chain messaging and user
+          engagement at{' '}
+          <a href="https://dispatch.xyz" target="blank">
+            Dispatch
           </a>
           .
         </p>
