@@ -4,7 +4,7 @@ export const darkMode = {
   blue: '#3A99FC',
   blueDark: '#00448B',
   grey: '#C5C6C7',
-  greyDark: '#434343',
+  greyDark: '#575656',
   seagreen: '#66FCF1',
   seagreenDark: '#45A29E',
 }
