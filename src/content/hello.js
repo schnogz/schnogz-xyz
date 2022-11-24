@@ -35,7 +35,7 @@ const Hello = () => (
           </span>
         </Heading>
         <p>
-          I'm a web developer that strives to bring the ideas of the people
+          I'm a web3 developer that strives to bring the ideas of the people
           around me to life. Pushing the boundaries of web forward, and
           transitioning it to web3 and blockchain technology, is what gets me
           out of bed in the morning.
