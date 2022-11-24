@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { darkMode, fontSize } from 'styles/theme'
-// import ParallaxItem from './parallaxItem/index'
 import media from 'utils/media-queries'
 
 const ProjectWrapper = styled.div`
@@ -67,7 +66,6 @@ const Abstract = styled.p`
 const Project = (props) => {
   const { abstract, link, logo, subtitle, title } = props
   return (
-    // <ParallaxItem extraOffset={700}>
     <ProjectWrapper>
       <Logo>{logo}</Logo>
       <Description>
@@ -77,7 +75,6 @@ const Project = (props) => {
         {link}
       </Description>
     </ProjectWrapper>
-    // </ParallaxItem>
   )
 }
 

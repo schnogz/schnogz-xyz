@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-// import ParallaxItem from './parallaxItem/index'
 import LastFm from './../config/lastFm'
 import { darkMode } from '../styles/theme'
 
@@ -123,7 +122,6 @@ const Scrobbles = () => {
       </Header>
       <AlbumListWrapper>
         {topAlbums.map((s) => (
-          // <ParallaxItem key={s.name}>
           <Album>
             <CoverWrapper>
               <AlbumCover
@@ -135,7 +133,6 @@ const Scrobbles = () => {
             <TextBold>{s.name}</TextBold>
             <Text>{s.artist.name}</Text>
           </Album>
-          // </ParallaxItem>
         ))}
       </AlbumListWrapper>
     </Wrapper>
