@@ -25,7 +25,9 @@ const Description = styled.div`
     margin-top: 32px;
   }
 `
-const Title = styled.h3`
+
+// TODO: get linkout to work
+const Title = styled.a`
   color: ${darkMode.grey};
   font-size: ${fontSize.f6};
   font-weight: 700;
@@ -64,12 +66,14 @@ const Abstract = styled.p`
 `
 
 const Project = (props) => {
-  const { abstract, link, logo, subtitle, title } = props
+  const { abstract, link, logo, subtitle, title, url } = props
   return (
     <ProjectWrapper>
       <Logo>{logo}</Logo>
       <Description>
-        <Title>{title}</Title>
+        <Title href={url} target="_blank" rel="noreferrer">
+          {title}
+        </Title>
         <Subtitle>{subtitle}</Subtitle>
         <Abstract>{abstract}</Abstract>
         {link}

@@ -7,6 +7,7 @@ import Project from 'components/project'
 import BlockchainLogo from 'img/blockchainLogo.png'
 import TargetLogo from 'img/targetLogo.png'
 import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
+import IexLogo from 'img/iexLogo.png'
 
 const Experience = () => (
   <TwoColumns
@@ -14,6 +15,20 @@ const Experience = () => (
     leftColumn={<SectionHeading>Experience</SectionHeading>}
     rightColumn={
       <>
+        {/*<Project*/}
+        {/*  abstract="The most trusted crypto company, helping millions across the globe access and store cryptocurrencies."*/}
+        {/*  logo={*/}
+        {/*    <img*/}
+        {/*      alt="IEX Logo"*/}
+        {/*      height="50px"*/}
+        {/*      rel="preload"*/}
+        {/*      src={IexLogo}*/}
+        {/*      width="70px"*/}
+        {/*    />*/}
+        {/*  }*/}
+        {/*  subtitle="Feb 2018 - Present"*/}
+        {/*  title="Dispatch (IEX)"*/}
+        {/*/>*/}
         <Project
           abstract="The most trusted crypto company, helping millions across the globe access and store cryptocurrencies."
           logo={
@@ -25,7 +40,7 @@ const Experience = () => (
               width="75px"
             />
           }
-          subtitle="Feb 2018 - Present"
+          subtitle="Feb 2018 - Aug 2022"
           title="Blockchain.com"
         />
         <Project
