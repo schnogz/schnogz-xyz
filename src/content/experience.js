@@ -15,20 +15,21 @@ const Experience = () => (
     leftColumn={<SectionHeading>Experience</SectionHeading>}
     rightColumn={
       <>
-        {/*<Project*/}
-        {/*  abstract="The most trusted crypto company, helping millions across the globe access and store cryptocurrencies."*/}
-        {/*  logo={*/}
-        {/*    <img*/}
-        {/*      alt="IEX Logo"*/}
-        {/*      height="50px"*/}
-        {/*      rel="preload"*/}
-        {/*      src={IexLogo}*/}
-        {/*      width="70px"*/}
-        {/*    />*/}
-        {/*  }*/}
-        {/*  subtitle="Feb 2018 - Present"*/}
-        {/*  title="Dispatch (IEX)"*/}
-        {/*/>*/}
+        <Project
+          abstract="On-chain messaging protocol and analytics platform for web3 projects."
+          logo={
+            <img
+              alt="IEX Logo"
+              height="50px"
+              rel="preload"
+              src={IexLogo}
+              width="70px"
+              style={{ marginLeft: '10px' }}
+            />
+          }
+          subtitle="Aug 2022 - Present"
+          title="Dispatch.xyz @ IEX"
+        />
         <Project
           abstract="The most trusted crypto company, helping millions across the globe access and store cryptocurrencies."
           logo={
