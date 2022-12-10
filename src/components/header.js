@@ -1,12 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import { FiBookOpen, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { motion } from 'framer-motion'
-import { FiBookOpen, FiMail, FiGithub, FiLinkedin } from 'react-icons/fi'
+import styled from 'styled-components'
 
 import Icon from 'components/icons'
 import { darkMode, fontSize } from 'styles/theme'
-import media from 'utils/media-queries'
 import { ARRIVE_FROM_TOP, ROTATE_ON_HOVER } from 'utils/animations'
+import media from 'utils/media-queries'
 
 const Wrapper = styled.div`
   display: flex;
@@ -134,8 +134,8 @@ class Header extends React.Component {
         <motion.div {...ARRIVE_FROM_TOP}>
           <SocialLinks>
             <SocialLink
-              href="https://blog.schnogz.xyz"
-              target="blank"
+              href='https://blog.schnogz.xyz'
+              target='blank'
               onMouseOver={() => this.showTooltip('Blog')}
               onFocus={() => this.showTooltip('Blog')}
               onMouseLeave={this.hideTooltip}
@@ -143,11 +143,11 @@ class Header extends React.Component {
               aria-label="Andrew's Blog"
               {...ROTATE_ON_HOVER}
             >
-              <FiBookOpen size="18px" />
+              <FiBookOpen size='18px' />
             </SocialLink>
             <SocialLink
-              href="https://github.com/schnogz"
-              target="blank"
+              href='https://github.com/schnogz'
+              target='blank'
               onMouseOver={() => this.showTooltip('GitHub')}
               onFocus={() => this.showTooltip('GitHub')}
               onMouseLeave={this.hideTooltip}
@@ -155,11 +155,11 @@ class Header extends React.Component {
               aria-label="Andrew's GitHub profile"
               {...ROTATE_ON_HOVER}
             >
-              <FiGithub size="18px" />
+              <FiGithub size='18px' />
             </SocialLink>
             <SocialLink
-              href="https://www.linkedin.com/in/andrewmarkschneider/"
-              target="blank"
+              href='https://www.linkedin.com/in/andrewmarkschneider/'
+              target='blank'
               onMouseOver={() => this.showTooltip('LinkedIn')}
               onFocus={() => this.showTooltip('LinkedIn')}
               onMouseLeave={this.hideTooltip}
@@ -167,25 +167,25 @@ class Header extends React.Component {
               aria-label="Andrew's LinkedIn profile"
               {...ROTATE_ON_HOVER}
             >
-              <FiLinkedin size="18px" />
+              <FiLinkedin size='18px' />
             </SocialLink>
             <SocialLink
-              href="mailto:andrew.mark.schneider@proton.me?subject=Hey Andrew!"
-              target="blank"
+              href='mailto:andrew.mark.schneider@proton.me?subject=Hey Andrew!'
+              target='blank'
               onMouseOver={() => this.showTooltip('Email')}
               onFocus={() => this.showTooltip('Email')}
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
-              aria-label="Send an email to Andrew"
+              aria-label='Send an email to Andrew'
               {...ROTATE_ON_HOVER}
             >
-              <FiMail size="18px" />
+              <FiMail size='18px' />
             </SocialLink>
           </SocialLinks>
           <Tooltip visible={this.state.tooltipIsVisible}>
             <TooltipText>{this.state.tooltipText}</TooltipText>
             <TooltipIcon>
-              <Icon glyph="arrow" size={24} />
+              <Icon glyph='arrow' size={24} />
             </TooltipIcon>
           </Tooltip>
         </motion.div>

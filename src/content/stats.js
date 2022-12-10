@@ -3,11 +3,11 @@ import GitHubCalendar from 'react-github-calendar'
 import ReactTooltip from 'react-tooltip'
 import styled from 'styled-components'
 
-import TwoColumns from 'components/twoColumns'
-import SectionHeading from 'components/sectionHeading'
 import Scrobbles from 'components/scrobbles'
-import media from 'utils/media-queries'
+import SectionHeading from 'components/sectionHeading'
+import TwoColumns from 'components/twoColumns'
 import { darkMode, fontSize } from 'styles/theme'
+import media from 'utils/media-queries'
 
 const Heading = styled.span`
   font-size: ${fontSize.f6};
@@ -38,11 +38,11 @@ const Emoji = styled.span`
 `
 
 const ghCalTheme = {
-  level4: '#00448B',
-  level3: '#3377BE',
-  level2: '#4D91D8',
-  level1: '#7FC3FF',
   level0: '#D6EAF8',
+  level1: '#7FC3FF',
+  level2: '#4D91D8',
+  level3: '#3377BE',
+  level4: '#00448B',
 }
 
 const Stats = () => (
@@ -52,9 +52,9 @@ const Stats = () => (
     rightColumn={
       <>
         <Heading>
-          Won't stop groovin'
+          Won&apos;t stop groovin&apos;
           <Emoji>
-            <span role="img" aria-label="dance emoji">
+            <span role='img' aria-label='dance emoji'>
               🕺🏻
             </span>
           </Emoji>
@@ -63,27 +63,23 @@ const Stats = () => (
           <Scrobbles />
         </ScrobbleSection>
         <Heading>
-          Won't stop improvin'
+          Won&apos;t stop improvin&apos;
           <Emoji>
-            <span role="img" aria-label="weight lifter emoji">
+            <span role='img' aria-label='weight lifter emoji'>
               🏋️‍♂️
             </span>
           </Emoji>
         </Heading>
         <GithubSection>
           <GithubInto>
-            As you can see in the calendar below, I contribute a ton of code to
-            (mostly) open sourced projects on{' '}
-            <a
-              href="https://github.com/schnogz"
-              rel="noopener noreferrer"
-              target="blank"
-            >
+            As you can see in the calendar below, I contribute a ton of code to (mostly) open
+            sourced projects on{' '}
+            <a href='https://github.com/schnogz' rel='noopener noreferrer' target='blank'>
               GitHub
             </a>
             {'.  '}
-            I'm always looking for the next project, so please reach out if
-            you'd like to collaborate.
+            I&apos;m always looking for the next project, so please reach out if you&apos;d like to
+            collaborate.
           </GithubInto>
           <GitHubCalendar
             blockMargin={4}
@@ -92,9 +88,9 @@ const Stats = () => (
             style={{ margin: '48px 0 32px' }}
             theme={ghCalTheme}
             year={2022}
-            username="schnogz"
+            username='schnogz'
           >
-            <ReactTooltip backgroundColor="black" delayShow={50} html />
+            <ReactTooltip backgroundColor='black' delayShow={50} html />
           </GitHubCalendar>
           <GitHubCalendar
             blockMargin={4}
@@ -103,9 +99,9 @@ const Stats = () => (
             style={{ marginBottom: '32px' }}
             theme={ghCalTheme}
             year={2021}
-            username="schnogz"
+            username='schnogz'
           >
-            <ReactTooltip backgroundColor="black" delayShow={50} html />
+            <ReactTooltip backgroundColor='black' delayShow={50} html />
           </GitHubCalendar>
           <GitHubCalendar
             blockMargin={4}
@@ -113,9 +109,9 @@ const Stats = () => (
             hideColorLegend
             theme={ghCalTheme}
             year={2020}
-            username="schnogz"
+            username='schnogz'
           >
-            <ReactTooltip backgroundColor="black" delayShow={50} html />
+            <ReactTooltip backgroundColor='black' delayShow={50} html />
           </GitHubCalendar>
         </GithubSection>
       </>

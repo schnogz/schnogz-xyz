@@ -53,9 +53,7 @@ const connectWebsocket = (setPriceData) => {
       const formattedPrice = Number.parseFloat(message.p).toFixed(2)
       setPriceData({
         price: formattedPrice,
-        priceChange: Number.parseFloat(
-          ((lastPrice - formattedPrice) * -1).toFixed(2)
-        ),
+        priceChange: Number.parseFloat(((lastPrice - formattedPrice) * -1).toFixed(2)),
       })
       lastPrice = formattedPrice
       setTimeout(() => {
@@ -91,13 +89,9 @@ const BtcTicker = () => {
 
   return (
     <Wrapper>
-      <PriceIncrease>
-        {priceChange > 0 && <span>+ {priceChange}</span>}
-      </PriceIncrease>
+      <PriceIncrease>{priceChange > 0 && <span>+ {priceChange}</span>}</PriceIncrease>
       <PriceDisplay>{price}</PriceDisplay>
-      <PriceDecrease>
-        {priceChange < 0 && <span>- {Math.abs(priceChange)}</span>}
-      </PriceDecrease>
+      <PriceDecrease>{priceChange < 0 && <span>- {Math.abs(priceChange)}</span>}</PriceDecrease>
       <GlobalStyle />
     </Wrapper>
   )

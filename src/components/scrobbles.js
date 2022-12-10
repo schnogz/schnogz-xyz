@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import LastFm from './../config/lastFm'
 import { darkMode } from '../styles/theme'
+import LastFm from './../config/lastFm'
 
 const Wrapper = styled.div`
   flex-direction: column;
@@ -72,14 +72,13 @@ const Scrobbles = () => {
   const [topAlbums, setAlbumData] = useState([])
   const [current, setCurrentData] = useState({})
   const totalScrobbles = (current['@attr'] && current['@attr'].total) || 1
-  const totalScrobblesFormatted = new Intl.NumberFormat(
-    navigator.language
-  ).format(totalScrobbles)
+  const totalScrobblesFormatted = new Intl.NumberFormat(navigator.language).format(totalScrobbles)
 
   useEffect(() => {
     fetch(ALBUMS_URI)
       .then((response) => {
         if (response.ok) return response.json()
+        // eslint-disable-next-line no-restricted-syntax
         throw new Error('error')
       })
       .then((data) => setAlbumData(data.topalbums.album))
@@ -90,6 +89,7 @@ const Scrobbles = () => {
     fetch(CURRENT_URI)
       .then((response) => {
         if (response.ok) return response.json()
+        // eslint-disable-next-line no-restricted-syntax
         throw new Error('error')
       })
       .then((data) => setCurrentData(data.recenttracks))
@@ -99,9 +99,7 @@ const Scrobbles = () => {
   if (topAlbums.error || topAlbums.current) {
     return (
       <Wrapper>
-        <Header>
-          Damn! I failed to fetch my own music listening history from LastFM.
-        </Header>
+        <Header>Damn! I failed to fetch my own music listening history from LastFM.</Header>
       </Wrapper>
     )
   }
@@ -110,24 +108,17 @@ const Scrobbles = () => {
     <Wrapper>
       <Header>
         I have scrobbled {totalScrobblesFormatted} times to{' '}
-        <a
-          href="https://www.last.fm/user/schnogz"
-          rel="noopener noreferrer"
-          target="blank"
-        >
+        <a href='https://www.last.fm/user/schnogz' rel='noopener noreferrer' target='blank'>
           LastFM
         </a>{' '}
-        since May 8, 2011. That's an average of {calcAverage(totalScrobbles)}{' '}
-        songs per day. Here are my top albums from last week.
+        since May 8, 2011. That&apos;s an average of {calcAverage(totalScrobbles)} songs per day.
+        Here are my top albums from last week.
       </Header>
       <AlbumListWrapper>
         {topAlbums.map((s) => (
-          <Album>
+          <Album key={s.name}>
             <CoverWrapper>
-              <AlbumCover
-                src={s.image[3]['#text']}
-                alt={s.name + 'album cover'}
-              />
+              <AlbumCover src={s.image[3]['#text']} alt={s.name + 'album cover'} />
               <PlayCount>{s.playcount} spins</PlayCount>
             </CoverWrapper>
             <TextBold>{s.name}</TextBold>

@@ -16,7 +16,7 @@
   "dependencies": {
     "@loadable/component": "5.15.2",
     "@n8tb1t/use-scroll-position": "2.0.3",
-    "framer-motion": "7.6.19",
+    "framer-motion": "6.5.1",
     "gatsby-plugin-preconnect": "1.4.0",
     "lodash": "4.17.21",
     "react": "17.0.2",
@@ -46,6 +46,7 @@
     "eslint-plugin-simple-import-sort": "8.0.0",
     "eslint-plugin-sort-destructure-keys": "1.4.0",
     "eslint-plugin-sort-keys-fix": "1.1.2",
+    "eslint-import-resolver-alias": "1.1.2",
     "gatsby": "4.24.4",
     "gatsby-link": "4.24.1",
     "gatsby-plugin-google-analytics": "4.24.0",

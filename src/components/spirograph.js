@@ -1,7 +1,7 @@
-import debounce from 'lodash/debounce'
 import React from 'react'
-import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import debounce from 'lodash/debounce'
+import styled from 'styled-components'
 
 import { darkMode } from 'styles/theme'
 import { ROTATE_WHILE_TAP } from 'utils/animations'
@@ -79,14 +79,12 @@ export default class Spirograph extends React.Component {
     return [numerator / gcd, denominator / gcd]
   }
 
+  // eslint-disable-next-line no-promise-executor-return
   delay = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
   newSpirograph() {
     // display config
-    this.size = Math.min(
-      498,
-      Math.min(window.innerWidth / 2.8, window.innerHeight / 2.8)
-    )
+    this.size = Math.min(498, Math.min(window.innerWidth / 2.8, window.innerHeight / 2.8))
     this.dotSize = 7
     this.spiroColor = darkMode.blue
     this.circleColor = darkMode.blackLight
@@ -101,8 +99,7 @@ export default class Spirograph extends React.Component {
     // get random gear values
     const randomM = Math.floor(Math.random() * (100 - 3)) + 3
     const randomN =
-      Math.floor(Math.random() * (randomM / 2 - randomM / 10)) +
-      Math.floor(randomM / 10 + 1)
+      Math.floor(Math.random() * (randomM / 2 - randomM / 10)) + Math.floor(randomM / 10 + 1)
     this.N = this.reduce(randomN, randomM)[0]
     this.M = this.reduce(randomN, randomM)[1]
     this.gearRadius = this.N / this.M
@@ -117,16 +114,12 @@ export default class Spirograph extends React.Component {
     this.spiroX =
       this.centerX +
       ((1 - this.gearRadius) * Math.cos(this.angle) +
-        this.f *
-          this.gearRadius *
-          Math.cos((1 / this.gearRadius - 1) * this.angle)) *
+        this.f * this.gearRadius * Math.cos((1 / this.gearRadius - 1) * this.angle)) *
         this.size
     this.spiroY =
       this.centerY +
       ((1 - this.gearRadius) * Math.sin(this.angle) -
-        this.f *
-          this.gearRadius *
-          Math.sin((1 / this.gearRadius - 1) * this.angle)) *
+        this.f * this.gearRadius * Math.sin((1 / this.gearRadius - 1) * this.angle)) *
         this.size
     this.mctx.strokeStyle = this.circleColor
 
@@ -142,12 +135,7 @@ export default class Spirograph extends React.Component {
     if (this.hasUnmounted === false) {
       // ----------- MOVING CANVAS ----------
       // clear moving canvas
-      this.mctx.clearRect(
-        0,
-        0,
-        this.movingCanvas.width,
-        this.movingCanvas.height
-      )
+      this.mctx.clearRect(0, 0, this.movingCanvas.width, this.movingCanvas.height)
 
       // gear
       this.mctx.beginPath()
@@ -156,7 +144,7 @@ export default class Spirograph extends React.Component {
         this.centerY + this.gearY,
         this.gearRadius * this.size,
         0,
-        2 * Math.PI
+        2 * Math.PI,
       )
       this.mctx.stroke()
 
@@ -167,7 +155,7 @@ export default class Spirograph extends React.Component {
         this.centerY + this.gearY,
         this.f * this.gearRadius * this.size,
         0,
-        2 * Math.PI
+        2 * Math.PI,
       )
       this.mctx.stroke()
 
@@ -176,19 +164,15 @@ export default class Spirograph extends React.Component {
       this.mctx.arc(
         this.centerX +
           ((1 - this.gearRadius) * Math.cos(this.angle) +
-            this.f *
-              this.gearRadius *
-              Math.cos((1 / this.gearRadius - 1) * this.angle)) *
+            this.f * this.gearRadius * Math.cos((1 / this.gearRadius - 1) * this.angle)) *
             this.size,
         this.centerY +
           ((1 - this.gearRadius) * Math.sin(this.angle) -
-            this.f *
-              this.gearRadius *
-              Math.sin((1 / this.gearRadius - 1) * this.angle)) *
+            this.f * this.gearRadius * Math.sin((1 / this.gearRadius - 1) * this.angle)) *
             this.size,
         this.dotSize,
         0,
-        2 * Math.PI
+        2 * Math.PI,
       )
       this.mctx.stroke()
 
@@ -197,35 +181,25 @@ export default class Spirograph extends React.Component {
       if (this.angle - this.speed < this.N * 2 * Math.PI) {
         // pick a random color every so often
         if (Math.random() >= 0.95) {
-          this.pctx.strokeStyle =
-            '#' + Math.floor(Math.random() * 16777215).toString(16)
+          this.pctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16)
         }
         this.pctx.beginPath()
         this.pctx.moveTo(this.spiroX, this.spiroY)
         this.spiroX =
           this.centerX +
           ((1 - this.gearRadius) * Math.cos(this.angle) +
-            this.f *
-              this.gearRadius *
-              Math.cos((1 / this.gearRadius - 1) * this.angle)) *
+            this.f * this.gearRadius * Math.cos((1 / this.gearRadius - 1) * this.angle)) *
             this.size
         this.spiroY =
           this.centerY +
           ((1 - this.gearRadius) * Math.sin(this.angle) -
-            this.f *
-              this.gearRadius *
-              Math.sin((1 / this.gearRadius - 1) * this.angle)) *
+            this.f * this.gearRadius * Math.sin((1 / this.gearRadius - 1) * this.angle)) *
             this.size
         this.pctx.lineTo(this.spiroX, this.spiroY)
         this.pctx.stroke()
       } else {
         // if completed, start new spirograph
-        this.mctx.clearRect(
-          0,
-          0,
-          this.movingCanvas.width,
-          this.movingCanvas.height
-        )
+        this.mctx.clearRect(0, 0, this.movingCanvas.width, this.movingCanvas.height)
         this.delay(3000)
           .then(() => this.newSpirograph())
           .then(() => window.requestAnimationFrame(this.draw))
@@ -247,9 +221,7 @@ export default class Spirograph extends React.Component {
     return (
       <Wrapper {...ROTATE_WHILE_TAP}>
         <CanvasWrapper>
-          <canvas
-            ref={(plottingCanvas) => (this.plottingCanvas = plottingCanvas)}
-          />
+          <canvas ref={(plottingCanvas) => (this.plottingCanvas = plottingCanvas)} />
         </CanvasWrapper>
         <CanvasWrapper>
           <canvas ref={(movingCanvas) => (this.movingCanvas = movingCanvas)} />

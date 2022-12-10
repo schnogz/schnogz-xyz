@@ -71,7 +71,7 @@ const Project = (props) => {
     <ProjectWrapper>
       <Logo>{logo}</Logo>
       <Description>
-        <Title href={url} target="_blank" rel="noreferrer">
+        <Title href={url} target='_blank' rel='noreferrer'>
           {title}
         </Title>
         <Subtitle>{subtitle}</Subtitle>

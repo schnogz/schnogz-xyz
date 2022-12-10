@@ -4,9 +4,8 @@ import TTNormsProBoldWoff from 'fonts/TTNormsProBold.woff'
 import TTNormsProBoldWoff2 from 'fonts/TTNormsProBold.woff2'
 import TTNormsProRegularWoff from 'fonts/TTNormsProRegular.woff'
 import TTNormsProRegularWoff2 from 'fonts/TTNormsProRegular.woff2'
-
-import media from 'utils/media-queries'
 import { darkMode, fontSize } from 'styles/theme'
+import media from 'utils/media-queries'
 
 const GlobalStyle = createGlobalStyle`
 

@@ -30,6 +30,7 @@ module.exports = {
     'consistent-return': ['error'],
     'ghost/ember/use-ember-get-and-set': 'off',
     'ghost/sort-imports-es6-autofix/sort-imports-es6': 'off',
+    'ghost/ember/require-fetch-import': 'off',
     'import/export': 'off',
     'import/extensions': 'off',
     'import/first': 'error',
@@ -43,12 +44,7 @@ module.exports = {
     'no-inner-declarations': 'off',
     'object-curly-spacing': ['error', 'always'],
     'prettier/prettier': 'error',
-    'react/prop-types': [
-      'error',
-      {
-        ignore: ['children'],
-      },
-    ],
+    'react/prop-types': 'off',
     'require-jsdoc': 'off',
     semi: ['error', 'never'],
     'simple-import-sort/exports': 'error',
@@ -57,6 +53,9 @@ module.exports = {
       {
         groups: [
           ['^react', '^@?\\w'],
+          [
+            "^(components|config|content|fonts|img|pages|styles|utils)(/.*|$)"
+          ],
           ['^\\.', '^[^.]'],
         ],
       },
@@ -68,6 +67,16 @@ module.exports = {
   },
   settings: {
     propWrapperFunctions: ['forbidExtraProps'],
+    'import/resolver': {
+      alias: [
+        ['components', './src/components'],
+        ['fonts', './src/fonts'],
+        ['img', './src/img'],
+        ['pages', './src/pages'],
+        ['styles', './src/styles'],
+        ['utils', './src/utils'],
+      ],
+    },
     react: {
       version: 'detect',
     },

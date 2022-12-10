@@ -1,5 +1,5 @@
-import loadable from '@loadable/component'
 import React from 'react'
+import loadable from '@loadable/component'
 import styled from 'styled-components'
 
 import Header from 'components/header'
@@ -16,7 +16,7 @@ const HeroSection = styled.section`
 `
 
 const Hero = () => (
-  <HeroSection id="home">
+  <HeroSection id='home'>
     <Spirograph speed={0.075} />
     <Header />
   </HeroSection>
