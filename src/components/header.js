@@ -84,21 +84,6 @@ const SocialLink = styled(motion.a)`
     color: ${darkMode.seagreen};
   }
 `
-const SvgWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 24px;
-  min-height: 24px;
-  color: inherit;
-  background: inherit;
-`
-const InlineSvg = styled.svg`
-  height: 24px;
-  width: 24px;
-  color: inherit;
-  fill: currentColor;
-`
 const Tooltip = styled.div`
   color: ${darkMode.seagreen};
   padding: 2px 24px 0 24px;
