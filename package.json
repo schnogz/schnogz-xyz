@@ -5,10 +5,10 @@
   "author": "Andrew Schneider",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
     "clean": "gatsby clean",
+    "ci:build": "gatsby build",
+    "ci:lint": "eslint ./src/**/*.js --max-warnings=0",
     "format": "prettier --write 'src/**/*.js'",
-    "lint": "eslint ./src/**/*.js",
     "lint:fix": "eslint ./src/**/*.js --fix",
     "prepare": "husky install",
     "start:dev": "gatsby develop"
