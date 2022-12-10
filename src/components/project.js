@@ -41,7 +41,7 @@ const Title = styled.a`
   `}
 `
 const Subtitle = styled.h5`
-  color: ${darkMode.greyDark};
+  color: ${darkMode.seagreenDark};
   font-size: ${fontSize.f1};
   font-weight: 200;
   margin: 0 0 16px;
