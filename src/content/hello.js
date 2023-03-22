@@ -46,6 +46,11 @@ const Hello = () => (
           </a>
           .
         </p>
+        <iframe
+          src='https://sdk.dispatch.xyz/?source=schnogz&useAdsServer=true&hideFooterActions=true'
+          width='330'
+          height='644'
+        ></iframe>
       </>
     }
   />
