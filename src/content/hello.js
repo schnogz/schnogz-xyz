@@ -46,14 +46,6 @@ const Hello = () => (
           </a>
           .
         </p>
-        <div style={{ marginTop: '25px' }}>
-          <iframe
-            src='https://sdk-staging.dispatch.xyz/?source=schnogz&useAdsServer=true'
-            frameBorder='0'
-            width='330'
-            height='644'
-          ></iframe>
-        </div>
       </>
     }
   />
