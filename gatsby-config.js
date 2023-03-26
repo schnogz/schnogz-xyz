@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-load-script',
       options: {
-        src: 'https://public.dispatch.co/scripts/mobile-embed-v8.min.js',
+        src: 'https://public.dispatch.co/scripts/mobile-embed-v9.min.js',
       },
     },
   ],
