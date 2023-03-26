@@ -6045,6 +6045,13 @@ gatsby-plugin-google-analytics@4.24.0:
     minimatch "3.0.4"
     web-vitals "^1.1.2"
 
+gatsby-plugin-load-script@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-load-script/-/gatsby-plugin-load-script-1.1.0.tgz#b73dc8248ad0e3565d3f848bfd1ecd64f2b7aad2"
+  integrity sha512-EoXUtWX4aBO4zD61xMHIIlQti4FNYmH0KgBkhac+kNMLI64cjzLc0iD7zPrFnzjYR454XAN/GJBa7M7N/VYSpw==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 gatsby-plugin-page-creator@^4.24.1:
   version "4.24.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-4.24.1.tgz#1088c2c4ea115f65008ebc0fb21da1403c6326d1"
