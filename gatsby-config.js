@@ -36,11 +36,5 @@ module.exports = {
         domains: ['https://www.google-analytics.com'],
       },
     },
-    {
-      resolve: 'gatsby-plugin-load-script',
-      options: {
-        src: 'https://public.dispatch.co/scripts/mobile-embed-v11.min.js',
-      },
-    },
   ],
 }
