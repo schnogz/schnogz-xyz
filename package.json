@@ -14,7 +14,7 @@
     "start:dev": "gatsby develop"
   },
   "dependencies": {
-    "@loadable/component": "5.15.2",
+    "@loadable/component": "5.15.3",
     "@n8tb1t/use-scroll-position": "2.0.3",
     "framer-motion": "6.5.1",
     "gatsby-plugin-preconnect": "1.4.0",
