@@ -78,7 +78,7 @@ const Scrobbles = () => {
     fetch(ALBUMS_URI)
       .then((response) => {
         if (response.ok) return response.json()
-        // eslint-disable-next-line no-restricted-syntax
+        // eslint-disable-next-line no-restricted-syntax, ghost/ghost-custom/no-native-error
         throw new Error('error')
       })
       .then((data) => setAlbumData(data.topalbums.album))
@@ -89,7 +89,7 @@ const Scrobbles = () => {
     fetch(CURRENT_URI)
       .then((response) => {
         if (response.ok) return response.json()
-        // eslint-disable-next-line no-restricted-syntax
+        // eslint-disable-next-line no-restricted-syntax, ghost/ghost-custom/no-native-error
         throw new Error('error')
       })
       .then((data) => setCurrentData(data.recenttracks))
