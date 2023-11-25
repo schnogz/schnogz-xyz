@@ -19,7 +19,7 @@ const Experience = () => (
           logo={
             <img
               alt='Dispatch Logo'
-              height='50px'
+              height='70px'
               rel='preload'
               src={DispatchLogo}
               width='70px'
