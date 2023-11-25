@@ -4,7 +4,7 @@ import Project from 'components/project'
 import SectionHeading from 'components/sectionHeading'
 import TwoColumns from 'components/twoColumns'
 import BlockchainLogo from 'img/blockchainLogo.png'
-import IexLogo from 'img/iexLogo.png'
+import DispatchLogo from 'img/dispatchLogo.png'
 import TargetLogo from 'img/targetLogo.png'
 import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 
@@ -15,19 +15,19 @@ const Experience = () => (
     rightColumn={
       <>
         <Project
-          abstract='On-chain messaging protocol and analytics platform for web3 projects.'
+          abstract='E-commerce startup meeting customers where they via embeddable ads and shoppable content.'
           logo={
             <img
-              alt='IEX Logo'
+              alt='Dispatch Logo'
               height='50px'
               rel='preload'
-              src={IexLogo}
+              src={DispatchLogo}
               width='70px'
               style={{ marginLeft: '10px' }}
             />
           }
           subtitle='Aug 2022 - Present'
-          title='Dispatch.xyz @ IEX'
+          title='Dispatch'
         />
         <Project
           abstract='The most trusted crypto company, helping millions across the globe access and store cryptocurrencies.'

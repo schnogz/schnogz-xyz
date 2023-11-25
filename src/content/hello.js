@@ -35,13 +35,14 @@ const Hello = () => (
           </span>
         </Heading>
         <p>
-          I&apos;m a web3 developer that strives to bring the ideas of the people around me to life.
-          Pushing the boundaries of web forward, and transitioning it to web3 and blockchain
-          technology, is what gets me out of bed in the morning.
+          I&apos;m a web developer that strives to bring the ideas of the people around me to life.
+          Pushing the boundaries, building secure applications and decentralising the web is what
+          gets me out of bed in the morning.
         </p>
         <p style={{ marginBottom: 0 }}>
-          Currently building the future of web3 on-chain messaging and user engagement at{' '}
-          <a href='https://dispatch.xyz' target='blank'>
+          Currently building the future of e-commerce ads via embedded checkouts and shoppable
+          content at{' '}
+          <a href='https://dispatch.co' target='blank'>
             Dispatch
           </a>
           .
