@@ -129,7 +129,7 @@ class Header extends React.Component {
       <Wrapper>
         <LogoWrapper {...ARRIVE_FROM_TOP}>
           <Name>Andrew Schneider</Name>
-          <Role>Web3 Developer</Role>
+          <Role>Web(3) Developer</Role>
         </LogoWrapper>
         <motion.div {...ARRIVE_FROM_TOP}>
           <SocialLinks>
