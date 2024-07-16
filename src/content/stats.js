@@ -1,6 +1,6 @@
 import React from 'react'
 import GitHubCalendar from 'react-github-calendar'
-import ReactTooltip from 'react-tooltip'
+import { Tooltip as MuiTooltip } from '@mui/material'
 import styled from 'styled-components'
 
 import Scrobbles from 'components/scrobbles'
@@ -37,13 +37,30 @@ const Emoji = styled.span`
   margin-left: 12px;
 `
 
-const ghCalTheme = {
-  level0: '#D6EAF8',
-  level1: '#7FC3FF',
-  level2: '#4D91D8',
-  level3: '#3377BE',
-  level4: '#00448B',
-}
+const ghYearsToShow = [2024, 2022, 2021, 2020]
+
+// there are some style overrides defined in global-styles.js
+const GhCalendar = ({ year }) => (
+  <GitHubCalendar
+    blockMargin={3}
+    blockRadius={2}
+    blockSize={8}
+    theme={{
+      dark: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
+      light: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
+    }}
+    fontSize={12}
+    maxLevel={4}
+    renderBlock={(block, activity) => (
+      <MuiTooltip title={`${activity.count} activities on ${activity.date}`} disableInteractive>
+        {block}
+      </MuiTooltip>
+    )}
+    style={{ color: 'white', marginTop: '24px' }}
+    year={year}
+    username='schnogz'
+  />
+)
 
 const Stats = () => (
   <TwoColumns
@@ -81,38 +98,9 @@ const Stats = () => (
             I&apos;m always looking for the next project, so please reach out if you&apos;d like to
             collaborate.
           </GithubInto>
-          <GitHubCalendar
-            blockMargin={4}
-            fontSize={13}
-            hideColorLegend
-            style={{ margin: '48px 0 32px' }}
-            theme={ghCalTheme}
-            year={2022}
-            username='schnogz'
-          >
-            <ReactTooltip backgroundColor='black' delayShow={50} html />
-          </GitHubCalendar>
-          <GitHubCalendar
-            blockMargin={4}
-            fontSize={13}
-            hideColorLegend
-            style={{ marginBottom: '32px' }}
-            theme={ghCalTheme}
-            year={2021}
-            username='schnogz'
-          >
-            <ReactTooltip backgroundColor='black' delayShow={50} html />
-          </GitHubCalendar>
-          <GitHubCalendar
-            blockMargin={4}
-            fontSize={13}
-            hideColorLegend
-            theme={ghCalTheme}
-            year={2020}
-            username='schnogz'
-          >
-            <ReactTooltip backgroundColor='black' delayShow={50} html />
-          </GitHubCalendar>
+          {ghYearsToShow.map((year) => (
+            <GhCalendar key={year} year={year} />
+          ))}
         </GithubSection>
       </>
     }

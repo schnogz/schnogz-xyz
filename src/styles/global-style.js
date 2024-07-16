@@ -8,7 +8,6 @@ import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
 const GlobalStyle = createGlobalStyle`
-
     // normalize.css
     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
         display: block;
@@ -376,19 +375,25 @@ const GlobalStyle = createGlobalStyle`
     #___gatsby, #gatsby-focus-wrapper {
         height: 100%;
     }
+    
+    // GH CALENDAR STYLES
+    .react-activity-calendar__scroll-container > svg {
+        height: 96px;
+    }
+    
+    .react-activity-calendar__footer {
+        display: flex;
+        justify-content: space-between;
+    }
 
     .react-activity-calendar__legend-month > text {
-        font-size: 16px;
-        font-weight: 600;
-        color: #434343;
+        font-size: 14px;
+        color: #C5C6C7;
     }
 
     .react-activity-calendar__count {
-        text-align: right;
-        width: 100%;
-        font-size: 13px;
-        font-weight: 500;
-        color: #6e6e6e;
+        font-size: 14px;
+        color: #C5C6C7;
     }
 `
 
