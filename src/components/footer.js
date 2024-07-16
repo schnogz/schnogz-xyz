@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Section from 'components/section'
-import { darkMode, fontSize } from 'styles/theme'
+import { fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
 const FooterText = styled.div`
@@ -16,9 +16,6 @@ const FooterText = styled.div`
     font-size: ${fontSize.f1};
   `}
 `
-const Name = styled.span`
-  color: ${darkMode.seagreen};
-`
 
 const Footer = () => (
   <Section paddingSmall>
@@ -28,7 +25,7 @@ const Footer = () => (
         GitHub
       </a>{' '}
       🤓
-      <br />© {new Date().getFullYear()} <Name>Andrew Schneider</Name>
+      <br />© {new Date().getFullYear()} Andrew Schneider
     </FooterText>
   </Section>
 )
