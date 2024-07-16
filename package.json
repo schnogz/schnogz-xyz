@@ -8,10 +8,10 @@
     "clean": "gatsby clean",
     "ci:build": "gatsby build",
     "ci:lint": "eslint ./src/**/*.js --max-warnings=0",
+    "dev": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "lint:fix": "eslint ./src/**/*.js --fix",
-    "prepare": "husky install",
-    "start:dev": "gatsby develop"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@loadable/component": "5.16.4",
