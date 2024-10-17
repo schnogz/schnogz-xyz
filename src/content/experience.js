@@ -15,7 +15,7 @@ const Experience = () => (
     rightColumn={
       <>
         <Project
-          abstract='E-commerce startup meeting customers where they via embeddable ads and shoppable content.'
+          abstract='E-commerce startup meeting customers where they are via embeddable ads and shoppable content. Originally focused on EVM on-chain messaging for protocols and smart contracts.'
           logo={
             <img
               alt='Dispatch Logo'
@@ -26,7 +26,7 @@ const Experience = () => (
               style={{ marginLeft: '10px' }}
             />
           }
-          subtitle='Aug 2022 - Present'
+          subtitle='Aug 2022 - Oct 2024'
           title='Dispatch'
         />
         <Project
