@@ -9,6 +9,8 @@ import QuestionLogo from 'img/questionLogo.png'
 import TargetLogo from 'img/targetLogo.png'
 import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 
+import resume from '../static/Andrew_Schneider_Resume.pdf'
+
 const Experience = () => (
   <TwoColumns
     wide
@@ -17,6 +19,8 @@ const Experience = () => (
       <>
         <Project
           abstract='Currently job hunting due to lack of funding at my last startup (Dispatch).  Looking for work in the Web3 space. Please reach out if you’re hiring or headhunting!'
+          linkText='My Resume'
+          link={resume}
           logo={
             <img
               alt='Question mark Logo'

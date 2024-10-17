@@ -65,8 +65,14 @@ const Abstract = styled.p`
   margin-bottom: 16px;
 `
 
+const Link = styled.p`
+  margin-top: -12px;
+  font-size: 16px;
+  font-weight: bolder;
+`
+
 const Project = (props) => {
-  const { abstract, link, logo, subtitle, title, url } = props
+  const { abstract, link, linkText, logo, subtitle, title, url } = props
   return (
     <ProjectWrapper>
       <Logo>{logo}</Logo>
@@ -76,7 +82,13 @@ const Project = (props) => {
         </Title>
         <Subtitle>{subtitle}</Subtitle>
         <Abstract>{abstract}</Abstract>
-        {link}
+        {link && linkText && (
+          <Link>
+            <a target='_blank' href={link} rel='noreferrer'>
+              {linkText}
+            </a>
+          </Link>
+        )}
       </Description>
     </ProjectWrapper>
   )
