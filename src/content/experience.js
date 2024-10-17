@@ -5,6 +5,7 @@ import SectionHeading from 'components/sectionHeading'
 import TwoColumns from 'components/twoColumns'
 import BlockchainLogo from 'img/blockchainLogo.png'
 import DispatchLogo from 'img/dispatchLogo.png'
+import QuestionLogo from 'img/questionLogo.png'
 import TargetLogo from 'img/targetLogo.png'
 import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 
@@ -14,6 +15,21 @@ const Experience = () => (
     leftColumn={<SectionHeading>Experience</SectionHeading>}
     rightColumn={
       <>
+        <Project
+          abstract='Currently job hunting due to lack of funding at my last startup (Dispatch).  Looking for work in the Web3 space. Please reach out if you’re hiring or headhunting!'
+          logo={
+            <img
+              alt='Question mark Logo'
+              height='70px'
+              rel='preload'
+              src={QuestionLogo}
+              width='70px'
+              style={{ marginLeft: '10px' }}
+            />
+          }
+          subtitle='Oct 2024 - Present'
+          title='Job Searching'
+        />
         <Project
           abstract='E-commerce startup meeting customers where they are via embeddable ads and shoppable content. Originally focused on EVM on-chain messaging for protocols and smart contracts.'
           logo={
