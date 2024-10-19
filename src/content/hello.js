@@ -6,6 +6,8 @@ import TwoColumns from 'components/twoColumns'
 import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
+import resume from '../static/Andrew_Schneider_Resume.pdf'
+
 const Heading = styled.span`
   font-size: ${fontSize.f6};
   color: ${darkMode.grey};
@@ -35,17 +37,18 @@ const Hello = () => (
           </span>
         </Heading>
         <p>
-          I&apos;m a web developer that strives to bring the ideas of the people around me to life.
-          Pushing the boundaries, building secure applications and decentralising the web is what
-          gets me out of bed in the morning.
+          I&apos;m a frontend developer focused on the Web3 space that strives to bring the ideas of
+          the people around me to life. Pushing the boundaries, building secure applications and
+          decentralising the web is what gets me out of bed in the morning.
+        </p>
+        <p>
+          Currently job hunting due to lack of funding at my last startup (Dispatch). I am ideally
+          looking for work in the Web3 space. Please reach out if you’re hiring or headhunting!
         </p>
         <p style={{ marginBottom: 0 }}>
-          Currently building the future of e-commerce ads via embedded checkouts and shoppable
-          content at{' '}
-          <a href='https://dispatch.co' target='blank'>
-            Dispatch
+          <a href={resume} target='_blank' rel='noreferrer'>
+            Resume
           </a>
-          .
         </p>
       </>
     }
