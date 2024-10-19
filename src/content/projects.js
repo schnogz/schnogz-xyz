@@ -49,7 +49,7 @@ const Projects = () => (
           title='Blockchain.com Payload Extractor'
         />
         <Project
-          abstract='A website that decodes Ethereum blockchain transaction (including ERC20) hashes into readable JSON.'
+          abstract='A website that decodes Ethereum blockchain transaction hashes (including ERC20) into readable JSON.'
           logo={
             <EmojiIcon role='img' aria-label='open lock emoji'>
               <span role='img' aria-label='open lock emoji'>

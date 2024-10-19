@@ -47,7 +47,7 @@ const Hello = () => (
         </p>
         <p style={{ marginBottom: 0 }}>
           <a href={resume} target='_blank' rel='noreferrer'>
-            Resume
+            Updated Resume
           </a>
         </p>
       </>
