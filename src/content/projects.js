@@ -33,7 +33,7 @@ const Projects = () => (
           title='iTerm2 Blockchain Stats'
         />
         <Project
-          abstract='Node.js CLI tool to extract an encrypted Blockchain.com wallet payload from a wallet GUID.'
+          abstract='Node.js CLI tool to extract an encrypted Blockchain.com wallet payload from an account GUID.'
           logo={
             <EmojiIcon>
               <span role='img' aria-label='wallet emoji'>
