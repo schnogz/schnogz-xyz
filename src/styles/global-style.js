@@ -1,9 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import TTNormsProBoldWoff from 'fonts/TTNormsProBold.woff'
-import TTNormsProBoldWoff2 from 'fonts/TTNormsProBold.woff2'
-import TTNormsProRegularWoff from 'fonts/TTNormsProRegular.woff'
-import TTNormsProRegularWoff2 from 'fonts/TTNormsProRegular.woff2'
 import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
@@ -242,29 +238,13 @@ const GlobalStyle = createGlobalStyle`
         border-spacing: 0;
     }
 
-    @font-face {
-        font-family: 'TTNormsPro';
-        src: url(${TTNormsProBoldWoff}) format('woff');
-        src: url(${TTNormsProBoldWoff2}) format('woff2');
-        font-weight: 700;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'TTNormsPro';
-        src: url(${TTNormsProRegularWoff}) format('woff');
-        src: url(${TTNormsProRegularWoff2}) format('woff2');
-        font-weight: normal;
-        font-style: normal;
-    }
-
     html {
         height: 100%;
         -webkit-tap-highlight-color: transparent;
     }
 
     body {
-        font-family: 'TTNormsPro', system-ui, sans-serif;
+        font-family: system-ui, sans-serif;
         height: 100%;
         background-color: ${darkMode.black};
         color: ${darkMode.grey};
