@@ -5,6 +5,7 @@ import SectionHeading from 'components/sectionHeading'
 import TwoColumns from 'components/twoColumns'
 import BlockchainLogo from 'img/blockchainLogo.png'
 import DispatchLogo from 'img/dispatchLogo.png'
+import GeminiLogo from 'img/geminiLogo2.png'
 import TargetLogo from 'img/targetLogo.png'
 import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 
@@ -14,6 +15,21 @@ const Experience = () => (
     leftColumn={<SectionHeading>Experience</SectionHeading>}
     rightColumn={
       <>
+        <Project
+          abstract='A full-reserve and highly-regulated cryptocurrency exchange and custodian. Focused on providing innovative security solutions to protect your crypto.'
+          logo={
+            <img
+              alt='Gemini Logo'
+              height='70px'
+              rel='preload'
+              src={GeminiLogo}
+              width='70px'
+              style={{ marginLeft: '10px' }}
+            />
+          }
+          subtitle='Dec 2024 - Present'
+          title='Gemini'
+        />
         <Project
           abstract='E-commerce startup meeting customers where they are via embeddable ads and shoppable content. Originally focused on EVM on-chain messaging for protocols and smart contracts.'
           logo={
