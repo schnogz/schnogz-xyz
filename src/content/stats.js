@@ -1,5 +1,5 @@
 import React from 'react'
-import GitHubCalendar from 'react-github-calendar'
+import { GitHubCalendar } from 'react-github-calendar'
 import { Tooltip as MuiTooltip } from '@mui/material'
 import styled from 'styled-components'
 

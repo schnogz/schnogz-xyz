@@ -1,5 +1,5 @@
 import React from 'react'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import { useWindowScrollPosition } from '@n8tb1t/use-scroll-position'
 import styled, { keyframes } from 'styled-components'
 
 import { darkMode } from 'styles/theme'
@@ -42,7 +42,7 @@ const VIEW_ORDER = ['#home', '#hello', '#stats', '#projects', '#experience']
 
 const ScrollHelper = () => {
   // update hash url on page scroll
-  useScrollPosition(({ currPos }) => {
+  useWindowScrollPosition(({ currPos }) => {
     // get offsets of sections
     const viewScrollOffsets = VIEW_ORDER.map((view) => {
       const el = document.querySelector(view)
