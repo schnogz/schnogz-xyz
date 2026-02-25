@@ -37,7 +37,7 @@ const Emoji = styled.span`
   margin-left: 12px;
 `
 
-const ghYearsToShow = [2024, 2022, 2021, 2020]
+const ghYearsToShow = [2025, 2024, 2022, 2021, 2020]
 
 // there are some style overrides defined in global-styles.js
 const GhCalendar = ({ year }) => (
