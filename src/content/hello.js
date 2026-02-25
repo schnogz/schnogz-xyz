@@ -35,9 +35,10 @@ const Hello = () => (
           </span>
         </Heading>
         <p>
-          I&apos;m a frontend developer focused on the Web3 space that strives to bring the ideas of
-          the people around me to life. Pushing the boundaries, building secure applications and
-          decentralising the web is what gets me out of bed in the morning.
+          I&apos;m an experienced frontend engineer who contributes across the entire stack, with a
+          focus on the Web3 space. I thrive on turning ambitious ideas into production-ready
+          products — pushing boundaries, building secure applications, and helping decentralize the
+          web is what drives me.
         </p>
       </>
     }
