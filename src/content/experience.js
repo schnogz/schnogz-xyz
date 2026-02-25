@@ -27,7 +27,7 @@ const Experience = () => (
               style={{ marginLeft: '10px' }}
             />
           }
-          subtitle='Dec 2024 - Present'
+          subtitle='Dec 2024 - Feb 2026'
           title='Gemini'
         />
         <Project
