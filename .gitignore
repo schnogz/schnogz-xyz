@@ -6,6 +6,7 @@ public/
 .cache/
 *.log
 package-lock.json
+.claude/
 
 # IDE
 .idea/

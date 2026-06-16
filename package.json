@@ -11,23 +11,23 @@
     "dev": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "lint:fix": "eslint ./src/**/*.js --fix",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "@loadable/component": "5.16.7",
-    "@mui/material": "7.3.9",
+    "@mui/material": "9.1.1",
     "@n8tb1t/use-scroll-position": "4.0.0",
-    "framer-motion": "12.35.0",
+    "framer-motion": "12.40.0",
     "gatsby-plugin-preconnect": "1.4.0",
-    "lodash": "4.17.23",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "react-github-calendar": "5.0.5",
+    "lodash": "4.18.1",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-github-calendar": "5.0.6",
     "react-helmet": "6.1.0",
     "react-icons": "5.6.0",
-    "styled-components": "6.3.11"
+    "styled-components": "6.4.2"
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
@@ -39,16 +39,16 @@
     "@babel/plugin-transform-runtime": "7.29.0",
     "@babel/preset-env": "7.29.0",
     "@babel/preset-react": "7.28.5",
-    "babel-plugin-styled-components": "2.1.4",
+    "babel-plugin-styled-components": "2.3.0",
     "eslint": "8.43.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-import-resolver-alias": "1.1.2",
-    "eslint-plugin-ghost": "2.18.1",
-    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-ghost": "3.5.0",
+    "eslint-plugin-import": "2.32.0",
     "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.37.1",
-    "eslint-plugin-simple-import-sort": "10.0.0",
-    "eslint-plugin-sort-destructure-keys": "1.5.0",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-simple-import-sort": "13.0.0",
+    "eslint-plugin-sort-destructure-keys": "3.0.0",
     "eslint-plugin-sort-keys-fix": "1.1.2",
     "gatsby": "5.16.1",
     "gatsby-plugin-google-analytics": "5.16.0",
@@ -57,7 +57,7 @@
     "gatsby-plugin-root-import": "2.0.9",
     "gatsby-plugin-sitemap": "6.16.0",
     "gatsby-plugin-styled-components": "6.16.0",
-    "husky": "8.0.3",
+    "husky": "9.1.7",
     "prettier": "2.8.8"
   }
 }

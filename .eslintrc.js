@@ -29,6 +29,8 @@ module.exports = {
     ],
     'consistent-return': ['error'],
     'ghost/ember/use-ember-get-and-set': 'off',
+    'ghost/filenames/match-exported-class': 'off',
+    'ghost/filenames/match-regex': 'off',
     'ghost/sort-imports-es6-autofix/sort-imports-es6': 'off',
     'ghost/ember/require-fetch-import': 'off',
     'import/export': 'off',
