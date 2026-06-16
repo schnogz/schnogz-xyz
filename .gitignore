@@ -13,3 +13,12 @@ package-lock.json
 
 # OSX
 .DS_Store
+
+# Yarn 4 (Berry) — keep .yarn/releases tracked; ignore caches & state
+.yarn/*
+!.yarn/releases
+!.yarn/patches
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

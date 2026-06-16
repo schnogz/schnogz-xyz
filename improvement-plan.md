@@ -72,5 +72,5 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 
 ## 🟢 Toolchain / repo hygiene
 
-- [ ] **27. Yarn 1 → Yarn 4 (or pnpm).** Yarn 1 is in maintenance mode. Yarn 4 has lockfile-level integrity, plug'n'play (optional), and is materially faster. pnpm gives you stricter dependency resolution and disk savings. Either is a net upgrade.
+- [x] **27. Yarn 1 → Yarn 4 (or pnpm).** Yarn 1 is in maintenance mode. Yarn 4 has lockfile-level integrity, plug'n'play (optional), and is materially faster. pnpm gives you stricter dependency resolution and disk savings. Either is a net upgrade.
 - [x] **28. No `lint-staged`.** The pre-commit hook runs `yarn ci:lint` over the entire `src/`. With `lint-staged` it would only lint changed files — faster commits.

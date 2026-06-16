@@ -16,9 +16,11 @@ Andrew Schneider's personal portfolio at https://schnogz.xyz — a Gatsby 5 + Re
 - **@loadable/component** for code-split content sections on the index page
 - **@mui/material** (used only for the tooltip on the GitHub calendar)
 - **react-github-calendar** for the contribution heatmaps
-- **Yarn** for package management (yarn.lock is the source of truth — do not introduce package-lock.json)
+- **Yarn 4** (Berry) with the `node-modules` linker — managed via Corepack. The pinned version lives in `packageManager` in `package.json` and `.yarn/releases/yarn-4.17.0.cjs` (committed). Don't introduce `package-lock.json`.
 
 ## Commands
+
+First-time setup on a fresh clone: `corepack enable` (one-time per machine), then `yarn install`. Corepack reads `packageManager` from `package.json` and uses the pinned Yarn 4 binary from `.yarn/releases/`.
 
 | Script | What it does |
 | --- | --- |
@@ -33,7 +35,7 @@ Andrew Schneider's personal portfolio at https://schnogz.xyz — a Gatsby 5 + Re
 
 ## Deploy
 
-Push to `origin master` → AWS Amplify picks it up (`amplify.yml`) → runs `yarn` then `yarn ci:build`, serves `/public`. **Never push to master without an explicit ask** — every push is a production deploy.
+Push to `origin master` → AWS Amplify picks it up (`amplify.yml`) → `corepack enable` + `yarn install --immutable` + `yarn ci:build`, serves `/public`. **Never push to master without an explicit ask** — every push is a production deploy.
 
 A Husky **`pre-push`** hook runs `yarn typecheck && yarn ci:build` before the push goes out. If either fails, the push is aborted. Bypass only as a last resort with `git push --no-verify`.
 

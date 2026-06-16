@@ -3,7 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        - 'yarn'
+        - 'corepack enable'
+        - 'yarn install --immutable'
     build:
       commands:
         - 'yarn ci:build'
