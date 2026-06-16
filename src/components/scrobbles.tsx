@@ -33,8 +33,6 @@ const AlbumCover = styled.img`
   height: 160px;
   width: 160px;
   border-radius: 2px;
-  -webkit-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
-  -moz-box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
   box-shadow: 0 0 22px 4px rgba(0, 68, 139, 0.75);
 `
 const PlayCount = styled.div`
@@ -151,7 +149,14 @@ const Scrobbles = () => {
         {topAlbums.map((s) => (
           <Album key={s.name}>
             <CoverWrapper>
-              <AlbumCover src={s.image[3]['#text']} alt={s.name + 'album cover'} />
+              <AlbumCover
+                src={s.image[3]['#text']}
+                alt={s.name + 'album cover'}
+                width={160}
+                height={160}
+                loading='lazy'
+                decoding='async'
+              />
               <PlayCount>{s.playcount} spins</PlayCount>
             </CoverWrapper>
             <TextBold>{s.name}</TextBold>

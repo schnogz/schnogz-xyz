@@ -15,9 +15,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@emotion/react": "11.14.0",
-    "@emotion/styled": "11.14.1",
-    "@mui/material": "9.1.1",
     "framer-motion": "12.40.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",

@@ -1,6 +1,5 @@
 import React from 'react'
 import { GitHubCalendar } from 'react-github-calendar'
-import { Tooltip as MuiTooltip } from '@mui/material'
 import styled from 'styled-components'
 
 import Scrobbles from 'components/scrobbles'
@@ -56,11 +55,14 @@ const GhCalendar = ({ year }: { year: number }) => (
       }}
       fontSize={12}
       maxLevel={4}
-      renderBlock={(block, activity) => (
-        <MuiTooltip title={`${activity.count} activities on ${activity.date}`} disableInteractive>
-          {block}
-        </MuiTooltip>
-      )}
+      // SVG <title> renders as a native browser tooltip on hover — free, accessible, no JS
+      renderBlock={(block, activity) =>
+        React.cloneElement(
+          block,
+          {},
+          <title>{`${activity.count} activities on ${activity.date}`}</title>,
+        )
+      }
       year={year}
       username='schnogz'
     />
