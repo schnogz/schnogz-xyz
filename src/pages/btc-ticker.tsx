@@ -50,49 +50,65 @@ type BinanceTradeMessage = {
   p: string
 }
 
-let ws: WebSocket
-const connectWebsocket = (setPriceData: (data: PriceData) => void) => {
-  ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade')
-  let throttle = false
-  let lastPrice = 0
-
-  ws.onmessage = (event: MessageEvent<string>) => {
-    if (!throttle) {
-      throttle = true
-      const message = JSON.parse(event.data) as BinanceTradeMessage
-      const formattedPrice = Number.parseFloat(message.p).toFixed(2)
-      setPriceData({
-        price: formattedPrice,
-        priceChange: Number.parseFloat(((lastPrice - Number(formattedPrice)) * -1).toFixed(2)),
-      })
-      lastPrice = Number(formattedPrice)
-      setTimeout(() => {
-        throttle = false
-      }, 10000)
-    }
-  }
-
-  ws.onclose = () => {
-    setTimeout(() => {
-      connectWebsocket(setPriceData)
-    }, 10000)
-  }
-
-  ws.onerror = () => {
-    setTimeout(() => {
-      connectWebsocket(setPriceData)
-    }, 10000)
-  }
-}
+const WS_URL = 'wss://stream.binance.com:9443/ws/btcusdt@trade'
+const THROTTLE_MS = 10_000
+const RECONNECT_MS = 10_000
 
 const BtcTicker = () => {
   const [priceData, setPriceData] = useState<PriceData>({
     price: 0,
     priceChange: 0,
   })
+
   useEffect(() => {
-    connectWebsocket(setPriceData)
-    return () => ws.close()
+    let ws: WebSocket | null = null
+    let throttleTimer: ReturnType<typeof setTimeout> | null = null
+    let reconnectTimer: ReturnType<typeof setTimeout> | null = null
+    let cancelled = false
+    let throttled = false
+    let lastPrice = 0
+
+    const scheduleReconnect = () => {
+      if (cancelled) return
+      reconnectTimer = setTimeout(connect, RECONNECT_MS)
+    }
+
+    function connect() {
+      if (cancelled) return
+      ws = new WebSocket(WS_URL)
+
+      ws.onmessage = (event: MessageEvent<string>) => {
+        if (throttled) return
+        throttled = true
+        const message = JSON.parse(event.data) as BinanceTradeMessage
+        const formattedPrice = Number.parseFloat(message.p).toFixed(2)
+        setPriceData({
+          price: formattedPrice,
+          priceChange: Number.parseFloat(((lastPrice - Number(formattedPrice)) * -1).toFixed(2)),
+        })
+        lastPrice = Number(formattedPrice)
+        throttleTimer = setTimeout(() => {
+          throttled = false
+        }, THROTTLE_MS)
+      }
+
+      ws.onclose = scheduleReconnect
+      ws.onerror = scheduleReconnect
+    }
+
+    connect()
+
+    return () => {
+      cancelled = true
+      if (throttleTimer !== null) clearTimeout(throttleTimer)
+      if (reconnectTimer !== null) clearTimeout(reconnectTimer)
+      if (ws !== null) {
+        // null out handlers so close() doesn't trigger a reconnect on the way out
+        ws.onclose = null
+        ws.onerror = null
+        ws.close()
+      }
+    }
   }, [])
 
   const { price, priceChange } = priceData

@@ -84,7 +84,7 @@ static/             # Site-level static assets served as-is (favicons, manifest,
 
 ### Import aliases
 
-Path aliases are defined in `tsconfig.json` (`paths`) and mirrored in `gatsby-config.js` (`gatsby-plugin-root-import`) and `eslint.config.js` (`settings['import/resolver'].typescript` reads `tsconfig.json` directly). Use them — do not write deep relative imports.
+Path aliases work because `gatsby-node.ts` adds `src/` to webpack's `resolve.modules`, so any direct subdirectory of `src/` is importable as a root (`components/header`, `styles/theme`, etc.). TypeScript resolves the same names via `tsconfig.json` `paths`, and ESLint via `eslint-import-resolver-typescript` (which reads `tsconfig.json` directly). Use them — do not write deep relative imports.
 
 ```ts
 import Header from 'components/header'
@@ -95,7 +95,7 @@ import { ARRIVE_FROM_TOP } from 'utils/animations'
 
 Aliases: `components`, `config`, `content`, `fonts`, `img`, `pages`, `styles`, `utils`.
 
-If you add a new top-level folder under `src/`, register it in **three** places: `tsconfig.json` (`paths`), `gatsby-config.js` (`gatsby-plugin-root-import` options), and the second import-sort group regex in `eslint.config.js`.
+If you add a new top-level folder under `src/`, register it in **two** places: `tsconfig.json` (`paths`) and the second import-sort group regex in `eslint.config.js`. (Webpack resolution is automatic via `resolve.modules` in `gatsby-node.ts`.)
 
 ### TypeScript
 

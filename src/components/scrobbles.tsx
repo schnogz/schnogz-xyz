@@ -80,6 +80,25 @@ const calcAverage = (totalScrobbles = 1) => {
   return (totalScrobbles / daysSinceStart).toFixed(2)
 }
 
+const fetchJsonOr = async <T,>(
+  url: string,
+  onSuccess: (data: T) => void,
+  onError: () => void,
+  isCancelled: () => boolean,
+) => {
+  try {
+    const response = await fetch(url)
+    if (!response.ok) throw new Error('not ok')
+    const data = (await response.json()) as T
+    if (!isCancelled()) onSuccess(data)
+  } catch {
+    if (!isCancelled()) onError()
+  }
+}
+
+type TopAlbumsResponse = { topalbums: { album: LastFmAlbum[] } }
+type RecentTracksResponse = { recenttracks: { '@attr'?: { total: string } } }
+
 const Scrobbles = () => {
   const [topAlbums, setAlbumData] = useState<AlbumsState>([])
   const [current, setCurrentData] = useState<CurrentState>({})
@@ -89,23 +108,25 @@ const Scrobbles = () => {
   )
 
   useEffect(() => {
-    fetch(ALBUMS_URI)
-      .then((response) => {
-        if (response.ok) return response.json()
-        throw new Error('error')
-      })
-      .then((data) => setAlbumData(data.topalbums.album))
-      .catch(() => setAlbumData({ error: true }))
-  }, [])
+    let cancelled = false
+    const isCancelled = () => cancelled
 
-  useEffect(() => {
-    fetch(CURRENT_URI)
-      .then((response) => {
-        if (response.ok) return response.json()
-        throw new Error('error')
-      })
-      .then((data) => setCurrentData(data.recenttracks))
-      .catch(() => setCurrentData({ error: true }))
+    void fetchJsonOr<TopAlbumsResponse>(
+      ALBUMS_URI,
+      (data) => setAlbumData(data.topalbums.album),
+      () => setAlbumData({ error: true }),
+      isCancelled,
+    )
+    void fetchJsonOr<RecentTracksResponse>(
+      CURRENT_URI,
+      (data) => setCurrentData(data.recenttracks),
+      () => setCurrentData({ error: true }),
+      isCancelled,
+    )
+
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   if ('error' in topAlbums) {

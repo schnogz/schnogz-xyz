@@ -1,17 +1,13 @@
 import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import Project from 'components/project'
 import SectionHeading from 'components/sectionHeading'
 import TwoColumns from 'components/twoColumns'
-import BlockchainLogo from 'img/blockchainLogo.png'
-import DispatchLogo from 'img/dispatchLogo.png'
-import GeminiLogo from 'img/geminiLogo2.png'
-import TargetLogo from 'img/targetLogo.png'
-import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 
 // optical alignment nudge for logos whose visual center sits to the right of their bounding box
-const NudgedLogo = styled.img`
+const NudgedLogo = styled.div`
   margin-left: 10px;
 `
 
@@ -24,13 +20,9 @@ const Experience = () => (
         <Project
           abstract='A full-reserve and highly-regulated cryptocurrency exchange and custodian. Focused on providing innovative security solutions to protect your crypto.'
           logo={
-            <NudgedLogo
-              alt='Gemini Logo'
-              height='70px'
-              rel='preload'
-              src={GeminiLogo}
-              width='70px'
-            />
+            <NudgedLogo>
+              <StaticImage alt='Gemini Logo' src='../img/geminiLogo2.png' width={70} height={70} />
+            </NudgedLogo>
           }
           subtitle='Dec 2024 - Feb 2026'
           title='Gemini'
@@ -38,13 +30,14 @@ const Experience = () => (
         <Project
           abstract='E-commerce startup meeting customers where they are via embeddable ads and shoppable content. Originally focused on EVM on-chain messaging for protocols and smart contracts.'
           logo={
-            <NudgedLogo
-              alt='Dispatch Logo'
-              height='70px'
-              rel='preload'
-              src={DispatchLogo}
-              width='70px'
-            />
+            <NudgedLogo>
+              <StaticImage
+                alt='Dispatch Logo'
+                src='../img/dispatchLogo.png'
+                width={70}
+                height={70}
+              />
+            </NudgedLogo>
           }
           subtitle='Aug 2022 - Oct 2024'
           title='Dispatch'
@@ -52,12 +45,11 @@ const Experience = () => (
         <Project
           abstract='The most trusted crypto company, helping millions across the globe access and store cryptocurrencies.'
           logo={
-            <img
+            <StaticImage
               alt='Blockchain.com Logo'
-              height='75px'
-              rel='preload'
-              src={BlockchainLogo}
-              width='75px'
+              src='../img/blockchainLogo.png'
+              width={75}
+              height={75}
             />
           }
           subtitle='Feb 2018 - Aug 2022'
@@ -65,19 +57,20 @@ const Experience = () => (
         />
         <Project
           abstract='One of the world’s most recognized brands as well as one of America’s leading retailers and technological innovators.'
-          logo={<img alt='Target Logo' height='70px' rel='preload' src={TargetLogo} width='70px' />}
+          logo={
+            <StaticImage alt='Target Logo' src='../img/targetLogo.png' width={70} height={70} />
+          }
           subtitle='Sept 2016 - Feb 2018'
           title='Target'
         />
         <Project
           abstract='A world leading provider of news and information-based tools helping professionals reinvent themselves in the digital age.'
           logo={
-            <img
+            <StaticImage
               alt='Thomson Reuters logo'
-              height='70px'
-              rel='preload'
-              src={ThomsonReutersLogo}
-              width='70px'
+              src='../img/thomsonReutersLogo.png'
+              width={70}
+              height={70}
             />
           }
           subtitle='Jan 2012 - Sept 2016'

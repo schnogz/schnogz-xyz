@@ -15,12 +15,12 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 **Highest architectural value:**
 
 - [x] #6 — Spirograph class → hooks (biggest legacy code)
-- [ ] #14 — `gatsby-plugin-image` (biggest perf win)
+- [x] #14 — `gatsby-plugin-image` (biggest perf win)
 - [x] #17 — Per-page Head + structured data (biggest SEO win)
 
 **Worth doing eventually:**
 
-- [ ] #8, #10 — Remove deps that are no longer pulling weight (#7 done alongside #20)
+- [x] #8, #10 — Remove deps that are no longer pulling weight (#7 done alongside #20)
 
 ---
 
@@ -41,18 +41,18 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 ## 🟡 Outdated dependencies / patterns
 
 - [x] **7. `@loadable/component` → `React.lazy` + `Suspense`.** Gatsby 5 supports native React.lazy with SSR. `@loadable/component` was the Gatsby 4-era workaround that's no longer needed. Used in `pages/index.tsx` (4 imports) and `components/hero.tsx`. Removing it saves a dep and a babel plugin. *(Completed alongside #20 — all uses were eager-imported instead of lazy-loaded, and the dep was removed.)*
-- [ ] **8. `@n8tb1t/use-scroll-position` is replaceable.** Used only by `components/scrollHelper.tsx`. The same behavior is achievable with a 5-line `useEffect` + `IntersectionObserver`, which is **more performant** than the polling approach (no scroll listener firing on every frame).
-- [ ] **9. `scrollHelper.tsx` uses `window.history.pushState` directly.** Gatsby ships `navigate()` from `gatsby` which integrates with the SPA router. Direct `pushState` bypasses Gatsby's route awareness.
-- [ ] **10. `gatsby-plugin-root-import` is mostly redundant.** Path aliases are now duplicated across `gatsby-config.js` and `tsconfig.json` (paths). Gatsby 5 can read tsconfig paths if you wire `onCreateWebpackConfig`, or drop the plugin and use only relative imports past a certain depth. Either route eliminates the "register in 3 places" rule.
-- [ ] **11. Module-level `let ws: WebSocket` in `pages/btc-ticker.tsx:52`.** Anti-pattern — module scope outlives the component, causes bugs under HMR and React Strict Mode double-mounting. Should be `useRef<WebSocket | null>(null)` inside the component. Same for the no-cleanup `setTimeout` reconnect loop.
-- [ ] **12. `scrobbles.tsx` has two near-identical `useEffect`+`fetch` blocks.** Could extract a small `useFetch` hook, or use Gatsby's GraphQL sourcing at build time so the LastFM call doesn't run client-side (faster paint, no in-flight skeleton).
+- [x] **8. `@n8tb1t/use-scroll-position` is replaceable.** Used only by `components/scrollHelper.tsx`. The same behavior is achievable with a 5-line `useEffect` + `IntersectionObserver`, which is **more performant** than the polling approach (no scroll listener firing on every frame).
+- [x] **9. `scrollHelper.tsx` uses `window.history.pushState` directly.** Gatsby ships `navigate()` from `gatsby` which integrates with the SPA router. Direct `pushState` bypasses Gatsby's route awareness. *(Click handler now uses `navigate()`; natural-scroll URL sync uses `replaceState` to avoid back-button clutter — pushState was a latent bug.)*
+- [x] **10. `gatsby-plugin-root-import` is mostly redundant.** Path aliases are now duplicated across `gatsby-config.js` and `tsconfig.json` (paths). Gatsby 5 can read tsconfig paths if you wire `onCreateWebpackConfig`, or drop the plugin and use only relative imports past a certain depth. Either route eliminates the "register in 3 places" rule. *(Replaced with `resolve.modules: ['src', 'node_modules']` in `gatsby-node.ts` — adding a new alias root now means one edit each in `tsconfig` + `eslint.config`, no third place.)*
+- [x] **11. Module-level `let ws: WebSocket` in `pages/btc-ticker.tsx:52`.** Anti-pattern — module scope outlives the component, causes bugs under HMR and React Strict Mode double-mounting. Should be `useRef<WebSocket | null>(null)` inside the component. Same for the no-cleanup `setTimeout` reconnect loop. *(Whole lifecycle now lives inside the useEffect with explicit cleanup that closes the socket and clears both pending timeouts.)*
+- [x] **12. `scrobbles.tsx` has two near-identical `useEffect`+`fetch` blocks.** Could extract a small `useFetch` hook, or use Gatsby's GraphQL sourcing at build time so the LastFM call doesn't run client-side (faster paint, no in-flight skeleton). *(Extracted a small `fetchJsonOr` helper; the two effects collapse to one with proper cancel-on-unmount cleanup — also fixed the "setState on unmounted component" warning the original had.)*
 
 ## 🟡 Gatsby 5 features you're not using
 
-- [ ] **13. `gatsby-config.ts` / `gatsby-node.ts`.** Now that the rest of the codebase is TS, the configs can be too. Gatsby 5 supports both natively. (`amplify.yml` doesn't care.)
-- [ ] **14. `gatsby-plugin-image` + `<StaticImage>`.** Your company/project logos in `src/img/` are raw PNGs (geminiLogo2.png is 90KB, questionLogo.png is 58KB). `gatsby-plugin-image` would emit responsive AVIF/WebP, lazy-load below the fold, and serve placeholders during load. Big LCP win for the Experience section.
-- [ ] **15. Gatsby Slices API.** `components/head.tsx`, `components/footer.tsx`, and `components/header.tsx` are rendered on every page — perfect Slice candidates (cached separately from page content, instant updates when only the slice changes).
-- [ ] **16. `gatsby-plugin-robots-txt` could be replaced by `static/robots.txt`.** A static file is simpler than a plugin for a one-line robots policy.
+- [x] **13. `gatsby-config.ts` / `gatsby-node.ts`.** Now that the rest of the codebase is TS, the configs can be too. Gatsby 5 supports both natively. (`amplify.yml` doesn't care.) *(Both converted. `gatsby-node.ts` is new — it carries the webpack `resolve.modules` aliasing that used to be the `gatsby-plugin-root-import` plugin.)*
+- [x] **14. `gatsby-plugin-image` + `<StaticImage>`.** Your company/project logos in `src/img/` are raw PNGs (geminiLogo2.png is 90KB, questionLogo.png is 58KB). `gatsby-plugin-image` would emit responsive AVIF/WebP, lazy-load below the fold, and serve placeholders during load. Big LCP win for the Experience section. *(5 company logos in `experience.tsx` now use `<StaticImage>`; sharp emits responsive WebP + PNG fallback. Also deleted the 2 unused logos `iexLogo.png` and `questionLogo.png` and the orphan `src/types/images.d.ts` — `StaticImage` doesn't need PNG module declarations.)*
+- [x] **15. Gatsby Slices API.** `components/head.tsx`, `components/footer.tsx`, and `components/header.tsx` are rendered on every page — perfect Slice candidates (cached separately from page content, instant updates when only the slice changes). *(Evaluated and skipped — initial premise was wrong: `Header` and `Footer` only render on `pages/index.tsx`, and `Head` exports aren't slice-eligible. Slices' value is cache-invalidation isolation across many pages, which doesn't apply to a 3-page site where the shared components live on only 1 page.)*
+- [x] **16. `gatsby-plugin-robots-txt` could be replaced by `static/robots.txt`.** A static file is simpler than a plugin for a one-line robots policy. *(Generated content matches the previous plugin output byte-for-byte.)*
 
 ## 🟡 SEO / accessibility / performance
 

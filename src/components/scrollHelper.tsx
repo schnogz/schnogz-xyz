@@ -1,5 +1,5 @@
-import React from 'react'
-import { useWindowScrollPosition } from '@n8tb1t/use-scroll-position'
+import React, { useEffect } from 'react'
+import { navigate } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 
 import { darkMode } from 'styles/theme'
@@ -38,35 +38,42 @@ const ScrollAnimation = styled.div`
   }
 `
 
-const VIEW_ORDER = ['#home', '#hello', '#stats', '#projects', '#experience'] as const
+const VIEW_ORDER = ['home', 'hello', 'stats', 'projects', 'experience'] as const
 
 const ScrollHelper = () => {
-  useWindowScrollPosition(({ currPos }: { currPos: { x: number; y: number } }) => {
-    const viewScrollOffsets = VIEW_ORDER.map((view) => {
-      const el = document.querySelector(view) as HTMLElement | null
-      return el ? el.offsetTop : 0
-    })
-    const scrollOffsetY = Math.abs(currPos.y)
-    viewScrollOffsets.some((viewOffset, index) => {
-      if (scrollOffsetY > viewOffset && scrollOffsetY < viewScrollOffsets[index + 1]) {
-        window.history.pushState(null, '', VIEW_ORDER[index])
-        return true
-      }
-      if (index === viewScrollOffsets.length - 1 && scrollOffsetY > viewOffset) {
-        window.history.pushState(null, '', VIEW_ORDER[VIEW_ORDER.length - 1])
-      }
-      return false
-    })
-  })
+  useEffect(() => {
+    const sections = VIEW_ORDER.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => el !== null,
+    )
+    if (sections.length === 0) return undefined
+
+    // fire when a section's top crosses the viewport midpoint
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const newHash = `#${entry.target.id}`
+            if (window.location.hash !== newHash) {
+              // replaceState (not pushState) so natural scrolling doesn't pollute browser history
+              window.history.replaceState(null, '', newHash)
+            }
+            break
+          }
+        }
+      },
+      { rootMargin: '-50% 0px -50% 0px', threshold: 0 },
+    )
+
+    sections.forEach((s) => observer.observe(s))
+    return () => observer.disconnect()
+  }, [])
 
   const handleScrollToNext = () => {
-    const currentViewIdx = VIEW_ORDER.findIndex((view) => view === window.location.hash)
+    const currentHash = window.location.hash.replace('#', '')
+    const currentIdx = VIEW_ORDER.findIndex((view) => view === currentHash)
     const nextView =
-      currentViewIdx === VIEW_ORDER.length - 1 ? VIEW_ORDER[0] : VIEW_ORDER[currentViewIdx + 1]
-    const target = document.querySelector(nextView) as HTMLElement | null
-    if (!target) return
-    const newPosition = target.offsetTop + 10
-    window.scrollTo({ behavior: 'smooth', top: newPosition })
+      currentIdx === VIEW_ORDER.length - 1 ? VIEW_ORDER[0] : VIEW_ORDER[currentIdx + 1]
+    void navigate(`#${nextView}`)
   }
 
   return <ScrollAnimation onClick={handleScrollToNext} />
