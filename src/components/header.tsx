@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { type IconType } from 'react-icons'
-import { FiBookOpen, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { FiBookOpen, FiFileText, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
@@ -59,7 +59,7 @@ const SocialLinks = styled.div`
   display: grid;
   justify-content: center;
   grid-column-gap: 4px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   padding: 15px 24px 0 24px;
   ${media.sm`
     padding: 4px 0 0 0;
@@ -125,6 +125,12 @@ const SOCIAL_LINKS: SocialLinkConfig[] = [
     ariaLabel: "Andrew's LinkedIn profile",
     href: 'https://www.linkedin.com/in/andrewmarkschneider/',
     label: 'LinkedIn',
+  },
+  {
+    Icon: FiFileText,
+    ariaLabel: "Andrew's resume (PDF)",
+    href: '/Andrew_Schneider_Resume.pdf',
+    label: 'Resume',
   },
   {
     Icon: FiMail,

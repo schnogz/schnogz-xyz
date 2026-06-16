@@ -1565,7 +1565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.29.2, @babel/runtime@npm:^7.4.3, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.29.2, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.29.7
   resolution: "@babel/runtime@npm:7.29.7"
   checksum: 10c0/ca11572f7146b21e0bde6a9ed4bb6a89eafbee5f0944c7eb54d0d8a2dac962c33638a1d611e14faa71dfbb92b4b5f9236232208568a6b7d5c6f3f39ddb91771e
@@ -8239,21 +8239,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-google-analytics@npm:5.16.0":
-  version: 5.16.0
-  resolution: "gatsby-plugin-google-analytics@npm:5.16.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.20.13"
-    minimatch: "npm:^3.1.2"
-    web-vitals: "npm:^1.1.2"
-  peerDependencies:
-    gatsby: ^5.0.0-next
-    react: ^18.0.0 || ^19.0.0 || ^0.0.0
-    react-dom: ^18.0.0 || ^19.0.0 || ^0.0.0
-  checksum: 10c0/719417190bf3c933dc66156bb6c0a7bbc0a690411b33c4150678c16a63089dba1af256efb4dddc63e02e716bbd1ba567eeaff08451ef29665981d5131751cc28
-  languageName: node
-  linkType: hard
-
 "gatsby-plugin-page-creator@npm:^5.16.0":
   version: 5.16.0
   resolution: "gatsby-plugin-page-creator@npm:5.16.0"
@@ -8272,17 +8257,6 @@ __metadata:
   peerDependencies:
     gatsby: ^5.0.0-next
   checksum: 10c0/5ca0509ecc37687a15ab744e5fca9547072a832225ea3e9bee2d79abe86299b1dee7f2c5b0061c63505aa0d1dda7c93a56da9215a82f1dcc9bb6ddc5080f9e15
-  languageName: node
-  linkType: hard
-
-"gatsby-plugin-preconnect@npm:1.4.0":
-  version: 1.4.0
-  resolution: "gatsby-plugin-preconnect@npm:1.4.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.4.3"
-  peerDependencies:
-    gatsby: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
-  checksum: 10c0/c80f3ff9a1ec82c09ea44d7c6c7fb74f52a2f3753decae115559c6c5d9738d51b688fb7140bd43d9d6c3cde63d47ede38ad49c33a77b66a042a33548026c937b
   languageName: node
   linkType: hard
 
@@ -13216,8 +13190,6 @@ __metadata:
     eslint-plugin-sort-keys-fix: "npm:1.1.2"
     framer-motion: "npm:12.40.0"
     gatsby: "npm:5.16.1"
-    gatsby-plugin-google-analytics: "npm:5.16.0"
-    gatsby-plugin-preconnect: "npm:1.4.0"
     gatsby-plugin-robots-txt: "npm:1.8.0"
     gatsby-plugin-root-import: "npm:2.0.9"
     gatsby-plugin-sitemap: "npm:6.16.0"
@@ -14948,13 +14920,6 @@ __metadata:
   version: 1.2.2
   resolution: "weak-lru-cache@npm:1.2.2"
   checksum: 10c0/744847bd5b96ca86db1cb40d0aea7e92c02bbdb05f501181bf9c581e82fa2afbda32a327ffbe75749302b8492ab449f1c657ca02410d725f5d412d1e6c607d72
-  languageName: node
-  linkType: hard
-
-"web-vitals@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "web-vitals@npm:1.1.2"
-  checksum: 10c0/9521ea2e8ca2e4446ba8e3d5430b0c9a9a07e0d6f468a90dc5fab2bab524fb1a699f3874ea392c9e35a63dcf3651b40130d58ebd78e53a406cb9622049bf1403
   languageName: node
   linkType: hard
 

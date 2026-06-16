@@ -6,9 +6,9 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 
 **Quick wins (~15 min total, removes 2 deps, fixes broken behavior):**
 
-- [ ] #1 — GA tracking is dead
-- [ ] #2 — Orphan resume PDF
-- [ ] #3 — Wasted preconnect
+- [x] #1 — GA tracking is dead
+- [x] #2 — Orphan resume PDF
+- [x] #3 — Wasted preconnect
 - [x] #21 — `target='blank'` → `target='_blank'`
 - [x] #18 — Drop IE6–9 hacks from global-style
 
@@ -28,9 +28,9 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 
 ## 🔴 Dead / broken code
 
-- [ ] **1. Google Analytics tracking is dead.** `gatsby-plugin-google-analytics` has a deprecation notice in its own README pointing at `gatsby-plugin-google-gtag`. The tracking ID `UA-62555232-1` in `gatsby-config.js:31` is a Universal Analytics property — UA stopped collecting data on **July 1, 2023**. This plugin is now a no-op. Either swap to `gatsby-plugin-google-gtag` with a GA4 measurement ID or remove the plugin entirely.
-- [ ] **2. Orphan resume PDF.** `src/static/Andrew_Schneider_Resume.pdf` is in the wrong directory — Gatsby only auto-serves the **root** `static/` folder, not `src/static/`. The file has zero references in the source. Either move to `static/` and link to it, or delete the file and `src/static/`.
-- [ ] **3. Wasted preconnect.** `gatsby-plugin-preconnect` is wired up to preconnect to `https://www.google-analytics.com`, but the analytics plugin above doesn't send anything there anymore. Either remove the plugin or update both together.
+- [x] **1. Google Analytics tracking is dead.** `gatsby-plugin-google-analytics` has a deprecation notice in its own README pointing at `gatsby-plugin-google-gtag`. The tracking ID `UA-62555232-1` in `gatsby-config.js:31` is a Universal Analytics property — UA stopped collecting data on **July 1, 2023**. This plugin is now a no-op. Either swap to `gatsby-plugin-google-gtag` with a GA4 measurement ID or remove the plugin entirely. *(Removed — site went analytics-free.)*
+- [x] **2. Orphan resume PDF.** `src/static/Andrew_Schneider_Resume.pdf` is in the wrong directory — Gatsby only auto-serves the **root** `static/` folder, not `src/static/`. The file has zero references in the source. Either move to `static/` and link to it, or delete the file and `src/static/`. *(Moved to root `static/`, src/static/ deleted, and linked from Header social row with a FiFileText icon.)*
+- [x] **3. Wasted preconnect.** `gatsby-plugin-preconnect` is wired up to preconnect to `https://www.google-analytics.com`, but the analytics plugin above doesn't send anything there anymore. Either remove the plugin or update both together. *(Plugin removed alongside #1.)*
 
 ## 🟡 React modernization (class → hooks)
 

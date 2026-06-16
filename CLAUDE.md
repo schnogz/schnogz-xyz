@@ -75,10 +75,9 @@ src/
 │   └── media-queries.ts # max-width media template tagged-template helper (generic over Props)
 ├── types/
 │   └── images.d.ts     # `*.png` / `*.jpg` / `*.svg` module declarations
-├── img/            # Company / project logos imported as modules
-└── static/         # Resume PDF (served as-is)
+└── img/            # Company / project logos imported as modules
 
-static/             # Site-level static assets (favicons, manifest, profile.jpeg)
+static/             # Site-level static assets served as-is (favicons, manifest, profile.jpeg, resume PDF)
 ```
 
 ## Conventions and gotchas
