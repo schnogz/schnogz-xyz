@@ -1,10 +1,8 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import styled from 'styled-components'
 
 import Header from 'components/header'
-
-const Spirograph = loadable(() => import('./spirograph'))
+import Spirograph from 'components/spirograph'
 
 const HeroSection = styled.section`
   display: flex;

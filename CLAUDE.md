@@ -13,7 +13,6 @@ Andrew Schneider's personal portfolio at https://schnogz.xyz — a Gatsby 5 + Re
 - **TypeScript 5.7** in `strict: true` mode
 - **styled-components 6** with a `createGlobalStyle` global sheet (`src/styles/global-style.ts`)
 - **framer-motion** for entrance and hover animations
-- **@loadable/component** for code-split content sections on the index page
 - **@mui/material** (used only for the tooltip on the GitHub calendar)
 - **react-github-calendar** for the contribution heatmaps
 - **Yarn 4** (Berry) with the `node-modules` linker — managed via Corepack. The pinned version lives in `packageManager` in `package.json` and `.yarn/releases/yarn-4.17.0.cjs` (committed). Don't introduce `package-lock.json`.
@@ -44,7 +43,7 @@ A Husky **`pre-push`** hook runs `yarn typecheck && yarn ci:build` before the pu
 ```
 src/
 ├── pages/          # Gatsby routes
-│   ├── index.tsx       # Single-page portfolio (lazy-loads content sections)
+│   ├── index.tsx       # Single-page portfolio (eager-imports content sections — they all render above the fold)
 │   ├── btc-ticker.tsx  # Standalone realtime Binance BTC price page
 │   └── 404.tsx
 ├── components/     # Reusable UI primitives
@@ -61,7 +60,7 @@ src/
 │   ├── scrollHelper.tsx # Floating scroll dot + URL-hash sync as user scrolls
 │   ├── icons.tsx       # Inline SVG glyph wrapper (just an arrow today)
 │   └── footer.tsx
-├── content/        # Page sections (lazy-loaded by index.tsx)
+├── content/        # Page sections imported by index.tsx
 │   ├── hello.tsx
 │   ├── stats.tsx       # Scrobbles + GitHubCalendar (multiple years)
 │   ├── projects.tsx    # Side projects
@@ -103,7 +102,7 @@ If you add a new top-level folder under `src/`, register it in **three** places:
 
 - `strict: true` is on. Add explicit prop types / interfaces for components; avoid `any`. Cast through `unknown` if you genuinely need it.
 - For styled-components props: `styled.div<{ visible: boolean }>` — keep prop types alongside the styled declaration.
-- The `@types/loadable__component` package ships its own (older) `@types/react`. We pin our version via `resolutions.@types/react` in `package.json` to keep React 19 typings consistent across the tree. Don't remove that resolution.
+- The `resolutions.@types/react` entry in `package.json` exists to keep React 19 typings consistent across the tree when a transitive ships its own older `@types/react`. Don't remove it without verifying nothing has regressed.
 - `utils/media-queries.ts` is generic per-call: `${media.lg<{ paddingSmall?: boolean }>\`…\`}`. Pass the prop generic if the inner template uses style functions that read props.
 
 ### Linting is strict — match the existing style or the pre-commit hook will reject
@@ -131,7 +130,7 @@ The Husky `pre-commit` runs `yarn ci:lint` with `--max-warnings=0`. Notable rule
 
 - Page meta uses **Gatsby's `<Head>` API** (not `react-helmet`). Each page in `src/pages/` re-exports the shared head: `export { default as Head } from 'components/head'`. Edit `components/head.tsx` to change site-wide meta.
 - `components/page.tsx` is a thin wrapper that just renders `<GlobalStyle>` + children. Routes that should share the base styling render through `<Page>` (see `pages/index.tsx`, `pages/404.tsx`). `pages/btc-ticker.tsx` intentionally bypasses `<Page>` and renders its own `<GlobalStyle>` for a clean look. Keyboard-only focus rings come from a `:focus-visible` rule in `global-style.ts` — no JS needed.
-- The index page lazy-loads each content section with `@loadable/component`. When adding a new section: import via `loadable(() => import('../content/foo'))`, wrap in `<Section id='foo'>`, and add the hash to `VIEW_ORDER` in `components/scrollHelper.tsx` so the scroll helper updates the URL hash and can jump there.
+- The index page eager-imports each content section. When adding a new section: import normally from `content/foo`, wrap in `<Section id='foo'>`, and add the hash to `VIEW_ORDER` in `components/scrollHelper.tsx` so the scroll helper updates the URL hash and can jump there.
 
 ### Browser-only APIs
 

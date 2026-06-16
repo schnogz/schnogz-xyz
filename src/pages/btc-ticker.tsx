@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+import SiteHead from 'components/head'
 import GlobalStyle from 'styles/global-style'
 
 const Wrapper = styled.div`
@@ -107,4 +108,7 @@ const BtcTicker = () => {
 }
 
 export default BtcTicker
-export { default as Head } from 'components/head'
+
+export const Head = () => (
+  <SiteHead title='BTC ticker — schnogz.xyz' description='Realtime Bitcoin price.' />
+)

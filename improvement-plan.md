@@ -10,17 +10,17 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 - [ ] #2 — Orphan resume PDF
 - [ ] #3 — Wasted preconnect
 - [x] #21 — `target='blank'` → `target='_blank'`
-- [ ] #18 — Drop IE6–9 hacks from global-style
+- [x] #18 — Drop IE6–9 hacks from global-style
 
 **Highest architectural value:**
 
 - [x] #6 — Spirograph class → hooks (biggest legacy code)
 - [ ] #14 — `gatsby-plugin-image` (biggest perf win)
-- [ ] #17 — Per-page Head + structured data (biggest SEO win)
+- [x] #17 — Per-page Head + structured data (biggest SEO win)
 
 **Worth doing eventually:**
 
-- [ ] #7, #8, #10 — Remove three deps that are no longer pulling weight
+- [ ] #8, #10 — Remove deps that are no longer pulling weight (#7 done alongside #20)
 
 ---
 
@@ -40,7 +40,7 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 
 ## 🟡 Outdated dependencies / patterns
 
-- [ ] **7. `@loadable/component` → `React.lazy` + `Suspense`.** Gatsby 5 supports native React.lazy with SSR. `@loadable/component` was the Gatsby 4-era workaround that's no longer needed. Used in `pages/index.tsx` (4 imports) and `components/hero.tsx`. Removing it saves a dep and a babel plugin.
+- [x] **7. `@loadable/component` → `React.lazy` + `Suspense`.** Gatsby 5 supports native React.lazy with SSR. `@loadable/component` was the Gatsby 4-era workaround that's no longer needed. Used in `pages/index.tsx` (4 imports) and `components/hero.tsx`. Removing it saves a dep and a babel plugin. *(Completed alongside #20 — all uses were eager-imported instead of lazy-loaded, and the dep was removed.)*
 - [ ] **8. `@n8tb1t/use-scroll-position` is replaceable.** Used only by `components/scrollHelper.tsx`. The same behavior is achievable with a 5-line `useEffect` + `IntersectionObserver`, which is **more performant** than the polling approach (no scroll listener firing on every frame).
 - [ ] **9. `scrollHelper.tsx` uses `window.history.pushState` directly.** Gatsby ships `navigate()` from `gatsby` which integrates with the SPA router. Direct `pushState` bypasses Gatsby's route awareness.
 - [ ] **10. `gatsby-plugin-root-import` is mostly redundant.** Path aliases are now duplicated across `gatsby-config.js` and `tsconfig.json` (paths). Gatsby 5 can read tsconfig paths if you wire `onCreateWebpackConfig`, or drop the plugin and use only relative imports past a certain depth. Either route eliminates the "register in 3 places" rule.
@@ -56,10 +56,10 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 
 ## 🟡 SEO / accessibility / performance
 
-- [ ] **17. `components/head.tsx` is identical across all three pages.** Page-specific titles (`schnogz.xyz`, `404 — schnogz.xyz`, `BTC — schnogz.xyz`) would help SEO and tab-switching UX. The OpenGraph image has no `og:image:width` / `og:image:height` (most social embedders want them). No `twitter:card` tag. No structured data (JSON-LD `Person` schema would be apt for a portfolio).
-- [ ] **18. `global-style.ts` has ~50 lines of legacy IE6–9 hacks** (`_zoom: 1`, `*display`, `*margin-left`, `-ms-text-size-adjust`, `_font-family`, `[hidden] { display: none }`, etc.). Safe to delete. Or replace the whole hand-rolled normalize with the [`modern-normalize`](https://github.com/sindresorhus/modern-normalize) package (12 lines) or just drop normalization — modern browsers are uniform.
-- [ ] **19. `canvas` in Spirograph has no accessible name.** Add `role='img'` + `aria-label`, plus a hidden text fallback.
-- [ ] **20. Lazy-loading the content sections may hurt LCP.** Every section on `pages/index.tsx` is wrapped in `loadable()`, but they all render above the fold on the initial visit. Lazy-loading means more network round-trips before LCP. Worth measuring; the simpler eager-import may be faster.
+- [x] **17. `components/head.tsx` is identical across all three pages.** Page-specific titles (`schnogz.xyz`, `404 — schnogz.xyz`, `BTC — schnogz.xyz`) would help SEO and tab-switching UX. The OpenGraph image has no `og:image:width` / `og:image:height` (most social embedders want them). No `twitter:card` tag. No structured data (JSON-LD `Person` schema would be apt for a portfolio).
+- [x] **18. `global-style.ts` has ~50 lines of legacy IE6–9 hacks** (`_zoom: 1`, `*display`, `*margin-left`, `-ms-text-size-adjust`, `_font-family`, `[hidden] { display: none }`, etc.). Safe to delete. Or replace the whole hand-rolled normalize with the [`modern-normalize`](https://github.com/sindresorhus/modern-normalize) package (12 lines) or just drop normalization — modern browsers are uniform.
+- [x] **19. `canvas` in Spirograph has no accessible name.** Add `role='img'` + `aria-label`, plus a hidden text fallback. *(Chose `aria-hidden='true'` instead — the animation is purely decorative, so hiding it from AT is more correct than naming it.)*
+- [x] **20. Lazy-loading the content sections may hurt LCP.** Every section on `pages/index.tsx` is wrapped in `loadable()`, but they all render above the fold on the initial visit. Lazy-loading means more network round-trips before LCP. Worth measuring; the simpler eager-import may be faster.
 
 ## 🟢 Code-quality cleanups (low risk)
 

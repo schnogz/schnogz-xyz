@@ -226,7 +226,7 @@ const Spirograph = ({ speed }: SpirographProps) => {
   }, [speed])
 
   return (
-    <Wrapper {...ROTATE_WHILE_TAP}>
+    <Wrapper {...ROTATE_WHILE_TAP} aria-hidden='true'>
       <CanvasWrapper>
         <canvas ref={plottingCanvasRef} />
       </CanvasWrapper>

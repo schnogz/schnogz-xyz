@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+import SiteHead from 'components/head'
 import Page from 'components/page'
 
 const CenteredError = styled.div`
@@ -22,4 +23,5 @@ const FourOhFour = () => (
 )
 
 export default FourOhFour
-export { default as Head } from 'components/head'
+
+export const Head = () => <SiteHead title='404 — schnogz.xyz' description='Page not found.' />

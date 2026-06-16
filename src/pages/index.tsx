@@ -1,17 +1,15 @@
 import React from 'react'
-import loadable from '@loadable/component'
 
 import Footer from 'components/footer'
+import SiteHead from 'components/head'
 import Hero from 'components/hero'
 import Page from 'components/page'
 import ScrollHelper from 'components/scrollHelper'
 import Section from 'components/section'
-
-// lazy loaded content
-const Hello = loadable(() => import('../content/hello'))
-const Experience = loadable(() => import('../content/experience'))
-const Stats = loadable(() => import('../content/stats'))
-const Projects = loadable(() => import('../content/projects'))
+import Experience from 'content/experience'
+import Hello from 'content/hello'
+import Projects from 'content/projects'
+import Stats from 'content/stats'
 
 const SinglePage = () => (
   <Page>
@@ -34,4 +32,5 @@ const SinglePage = () => (
 )
 
 export default SinglePage
-export { default as Head } from 'components/head'
+
+export const Head = () => <SiteHead includePersonSchema />
