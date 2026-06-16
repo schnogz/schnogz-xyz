@@ -8,17 +8,17 @@ import { darkMode, fontSize } from 'styles/theme'
 import { ARRIVE_FROM_TOP, ROTATE_ON_HOVER } from 'utils/animations'
 import media from 'utils/media-queries'
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ article?: boolean }>`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex: 0 0 auto;
   z-index: 10;
   height: ${(props) => (props.article ? '74px' : '')};
-  ${media.lg`
+  ${media.lg<{ article?: boolean }>`
     height: ${(props) => (props.article ? '64px' : '')};
   `}
-  ${media.sm`
+  ${media.sm<{ article?: boolean }>`
     display: ${(props) => (props.article ? 'flex' : 'block')};
   `};
   ${media.xs`
@@ -26,9 +26,9 @@ const Wrapper = styled.div`
     height: 112px;
   `}
 `
-const LogoWrapper = styled(motion.div)`
+const LogoWrapper = styled(motion.div)<{ article?: boolean }>`
   padding: 24px 0 30px 30px;
-  ${media.sm`
+  ${media.sm<{ article?: boolean }>`
     padding: ${(props) => (props.article ? '24px 0 24px 24px' : '24px 0 0 0')};
   `};
   ${media.xs`
@@ -58,13 +58,13 @@ const Role = styled.div`
     font-size: ${fontSize.f6};
   `};
 `
-const SocialLinks = styled.div`
+const SocialLinks = styled.div<{ article?: boolean }>`
   display: grid;
   justify-content: center;
   grid-column-gap: 4px;
   grid-template-columns: auto auto auto auto;
   padding: 15px 24px 0 24px;
-  ${media.sm`
+  ${media.sm<{ article?: boolean }>`
     padding: ${(props) => (props.article ? '15px 12px 0 8px' : '4px 0 0 0')};
     grid-column-gap: 0;
   `}
@@ -84,7 +84,7 @@ const SocialLink = styled(motion.a)`
     color: ${darkMode.seagreen};
   }
 `
-const Tooltip = styled.div`
+const Tooltip = styled.div<{ visible: boolean }>`
   color: ${darkMode.seagreen};
   padding: 2px 24px 0 24px;
   display: flex;
@@ -103,8 +103,13 @@ const TooltipIcon = styled.div`
 `
 const TooltipText = styled.div``
 
-class Header extends React.Component {
-  constructor(props) {
+type HeaderState = {
+  tooltipIsVisible: boolean
+  tooltipText: string
+}
+
+class Header extends React.Component<object, HeaderState> {
+  constructor(props: object) {
     super(props)
     this.state = {
       tooltipIsVisible: false,
@@ -112,7 +117,7 @@ class Header extends React.Component {
     }
   }
 
-  showTooltip = (tooltipText) => {
+  showTooltip = (tooltipText: string) => {
     this.setState({
       tooltipIsVisible: true,
       tooltipText: tooltipText,
@@ -124,6 +129,7 @@ class Header extends React.Component {
       tooltipIsVisible: false,
     })
   }
+
   render() {
     return (
       <Wrapper>

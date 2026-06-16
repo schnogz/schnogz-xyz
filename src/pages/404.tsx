@@ -22,3 +22,4 @@ const FourOhFour = () => (
 )
 
 export default FourOhFour
+export { default as Head } from 'components/head'

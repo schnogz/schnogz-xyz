@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import styled from 'styled-components'
 
 import media from 'utils/media-queries'
@@ -16,14 +16,20 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div``
 
-const RightColumn = styled.div`
+const RightColumn = styled.div<{ wide?: boolean }>`
   max-width: ${(props) => (props.wide ? '620px' : '544px')};
   ${media.md`
     max-width: 544px;
   `}
 `
 
-const TwoColumns = (props) => {
+type TwoColumnsProps = {
+  leftColumn: ReactNode
+  rightColumn: ReactNode
+  wide?: boolean
+}
+
+const TwoColumns = (props: TwoColumnsProps) => {
   const { leftColumn, rightColumn, wide } = props
   return (
     <Wrapper>

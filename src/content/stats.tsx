@@ -40,7 +40,7 @@ const Emoji = styled.span`
 const ghYearsToShow = [2025, 2024, 2022, 2021, 2020]
 
 // there are some style overrides defined in global-styles.js
-const GhCalendar = ({ year }) => (
+const GhCalendar = ({ year }: { year: number }) => (
   <GitHubCalendar
     blockMargin={3}
     blockRadius={2}

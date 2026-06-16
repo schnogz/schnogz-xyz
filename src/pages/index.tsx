@@ -8,10 +8,10 @@ import ScrollHelper from 'components/scrollHelper'
 import Section from 'components/section'
 
 // lazy loaded content
-const Hello = loadable(() => import('./../content/hello'))
-const Experience = loadable(() => import('./../content/experience'))
-const Stats = loadable(() => import('./../content/stats'))
-const Projects = loadable(() => import('./../content/projects'))
+const Hello = loadable(() => import('../content/hello'))
+const Experience = loadable(() => import('../content/experience'))
+const Stats = loadable(() => import('../content/stats'))
+const Projects = loadable(() => import('../content/projects'))
 
 const SinglePage = () => (
   <Page>
@@ -34,3 +34,4 @@ const SinglePage = () => (
 )
 
 export default SinglePage
+export { default as Head } from 'components/head'

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import GlobalStyle from '../styles/global-style'
+import GlobalStyle from 'styles/global-style'
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,22 +40,31 @@ const PriceDecrease = styled.div`
   min-height: 1.8em;
 `
 
-let ws
-const connectWebsocket = (setPriceData) => {
+type PriceData = {
+  price: string | number
+  priceChange: number
+}
+
+type BinanceTradeMessage = {
+  p: string
+}
+
+let ws: WebSocket
+const connectWebsocket = (setPriceData: (data: PriceData) => void) => {
   ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade')
   let throttle = false
   let lastPrice = 0
 
-  ws.onmessage = (event) => {
+  ws.onmessage = (event: MessageEvent<string>) => {
     if (!throttle) {
       throttle = true
-      const message = JSON.parse(event.data)
+      const message = JSON.parse(event.data) as BinanceTradeMessage
       const formattedPrice = Number.parseFloat(message.p).toFixed(2)
       setPriceData({
         price: formattedPrice,
-        priceChange: Number.parseFloat(((lastPrice - formattedPrice) * -1).toFixed(2)),
+        priceChange: Number.parseFloat(((lastPrice - Number(formattedPrice)) * -1).toFixed(2)),
       })
-      lastPrice = formattedPrice
+      lastPrice = Number(formattedPrice)
       setTimeout(() => {
         throttle = false
       }, 10000)
@@ -64,19 +73,19 @@ const connectWebsocket = (setPriceData) => {
 
   ws.onclose = () => {
     setTimeout(() => {
-      connectWebsocket()
+      connectWebsocket(setPriceData)
     }, 10000)
   }
 
   ws.onerror = () => {
     setTimeout(() => {
-      connectWebsocket()
+      connectWebsocket(setPriceData)
     }, 10000)
   }
 }
 
 const BtcTicker = () => {
-  const [priceData, setPriceData] = useState({
+  const [priceData, setPriceData] = useState<PriceData>({
     price: 0,
     priceChange: 0,
   })
@@ -98,3 +107,4 @@ const BtcTicker = () => {
 }
 
 export default BtcTicker
+export { default as Head } from 'components/head'

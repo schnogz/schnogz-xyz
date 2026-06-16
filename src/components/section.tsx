@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { darkMode } from 'styles/theme'
@@ -16,20 +16,26 @@ const Section = styled.section`
   justify-content: center;
 `
 
-const Container = styled.div`
+const Container = styled.div<{ paddingSmall?: boolean }>`
   border-top: 1px solid ${darkMode.greyDark};
   max-width: 916px;
   padding: ${(props) => (props.paddingSmall ? '42px 0' : '128px 0')};
   ${media.lg`
-    padding: padding: ${(props) => (props.paddingSmall ? '42px 0' : '112px 0')};
+    padding: padding: ${(props: { paddingSmall?: boolean }) => (props.paddingSmall ? '42px 0' : '112px 0')};
   `}
   ${media.sm`
-    padding: padding: ${(props) => (props.paddingSmall ? '10px 0' : '64px 0')};
+    padding: padding: ${(props: { paddingSmall?: boolean }) => (props.paddingSmall ? '10px 0' : '64px 0')};
   `}
   width: 100%;
 `
 
-const SingleSection = (props) => {
+type SingleSectionProps = {
+  children: ReactNode
+  id?: string
+  paddingSmall?: boolean
+}
+
+const SingleSection = (props: SingleSectionProps) => {
   const { children, id, paddingSmall } = props
   return (
     <Section id={id}>

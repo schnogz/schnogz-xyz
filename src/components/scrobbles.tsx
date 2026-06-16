@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import { darkMode } from '../styles/theme'
-import LastFm from './../config/lastFm'
+import LastFm from 'config/lastFm'
+import { darkMode } from 'styles/theme'
 
 const Wrapper = styled.div`
   flex-direction: column;
@@ -58,21 +58,33 @@ const TextBold = styled.div`
   font-weight: 700;
 `
 
+type LastFmAlbum = {
+  artist: { name: string }
+  image: Array<{ '#text': string }>
+  name: string
+  playcount: string
+}
+
+type AlbumsState = LastFmAlbum[] | { error: true }
+type CurrentState = { '@attr'?: { total: string } } | { error: true }
+
 const ALBUMS_URI = `https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&user=${LastFm.name}&api_key=${LastFm.apiKey}&limit=6&period=7day&format=json`
 const CURRENT_URI = `https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${LastFm.name}&api_key=${LastFm.apiKey}&limit=1&format=json`
 
 const calcAverage = (totalScrobbles = 1) => {
   const oneDay = 24 * 60 * 60 * 1000 // hours*minutes*seconds*milliseconds
   const startDate = new Date(2011, 5, 8) // May 8, 2011
-  const daysSinceStart = Math.round(Math.abs((startDate - new Date()) / oneDay))
+  const daysSinceStart = Math.round(Math.abs((startDate.getTime() - new Date().getTime()) / oneDay))
   return (totalScrobbles / daysSinceStart).toFixed(2)
 }
 
 const Scrobbles = () => {
-  const [topAlbums, setAlbumData] = useState([])
-  const [current, setCurrentData] = useState({})
-  const totalScrobbles = (current['@attr'] && current['@attr'].total) || 1
-  const totalScrobblesFormatted = new Intl.NumberFormat(navigator.language).format(totalScrobbles)
+  const [topAlbums, setAlbumData] = useState<AlbumsState>([])
+  const [current, setCurrentData] = useState<CurrentState>({})
+  const totalScrobbles = ('@attr' in current && current['@attr']?.total) || '1'
+  const totalScrobblesFormatted = new Intl.NumberFormat(navigator.language).format(
+    Number(totalScrobbles),
+  )
 
   useEffect(() => {
     fetch(ALBUMS_URI)
@@ -94,7 +106,7 @@ const Scrobbles = () => {
       .catch(() => setCurrentData({ error: true }))
   }, [])
 
-  if (topAlbums.error || topAlbums.current) {
+  if ('error' in topAlbums) {
     return (
       <Wrapper>
         <Header>Damn! I failed to fetch my own music listening history from LastFM.</Header>
@@ -109,8 +121,8 @@ const Scrobbles = () => {
         <a href='https://www.last.fm/user/schnogz' rel='noopener noreferrer' target='blank'>
           LastFM
         </a>{' '}
-        since May 8, 2011. That&apos;s an average of {calcAverage(totalScrobbles)} songs per day.
-        Here are my top albums from last week.
+        since May 8, 2011. That&apos;s an average of {calcAverage(Number(totalScrobbles))} songs per
+        day. Here are my top albums from last week.
       </Header>
       <AlbumListWrapper>
         {topAlbums.map((s) => (

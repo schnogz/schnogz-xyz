@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { darkMode, fontSize } from 'styles/theme'
@@ -26,7 +26,6 @@ const Description = styled.div`
   }
 `
 
-// TODO: get linkout to work
 const Title = styled.a`
   color: ${darkMode.grey};
   font-size: ${fontSize.f6};
@@ -71,7 +70,17 @@ const Link = styled.p`
   font-weight: bolder;
 `
 
-const Project = (props) => {
+type ProjectProps = {
+  abstract: string
+  link?: string
+  linkText?: string
+  logo: ReactNode
+  subtitle: ReactNode
+  title: string
+  url?: string
+}
+
+const Project = (props: ProjectProps) => {
   const { abstract, link, linkText, logo, subtitle, title, url } = props
   return (
     <ProjectWrapper>

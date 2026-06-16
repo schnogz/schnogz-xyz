@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
+type SvgWrapperProps = {
+  size?: number
+}
+
 export const InlineSvg = styled.svg`
   position: absolute;
   top: 0;
@@ -13,9 +17,9 @@ export const InlineSvg = styled.svg`
   fill: currentColor;
 `
 
-const buildCssSize = (props) => (props.size ? `${props.size}px` : '32px')
+const buildCssSize = (props: SvgWrapperProps) => (props.size ? `${props.size}px` : '32px')
 
-export const SvgWrapper = styled.div`
+export const SvgWrapper = styled.div<SvgWrapperProps>`
   display: inline-block;
   flex: 0 0 ${(props) => buildCssSize(props)};
   width: ${(props) => buildCssSize(props)};
@@ -33,7 +37,12 @@ const ArrowGlyph = () => (
   />
 )
 
-const Icons = (props) => {
+type IconsProps = {
+  glyph: string
+  size?: number
+}
+
+const Icons = (props: IconsProps) => {
   const { glyph, size = 32 } = props
   return (
     <SvgWrapper size={size} className='icon'>
@@ -46,7 +55,6 @@ const Icons = (props) => {
         aria-labelledby='title'
         viewBox='0 0 32 32'
         preserveAspectRatio='xMidYMid meet'
-        fit
         id={glyph}
       >
         <title id='title'>{glyph}</title>

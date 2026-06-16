@@ -4,13 +4,14 @@ Guidance for Claude working in this repo. Read this before making changes.
 
 ## What this is
 
-Andrew Schneider's personal portfolio at https://schnogz.xyz — a Gatsby 5 + React 19 site deployed via AWS Amplify. Single-page layout (Hero, Hello, Stats, Projects, Experience) plus a standalone `/btc-ticker` page and a 404.
+Andrew Schneider's personal portfolio at https://schnogz.xyz — a Gatsby 5 + React 19 + TypeScript site deployed via AWS Amplify. Single-page layout (Hero, Hello, Stats, Projects, Experience) plus a standalone `/btc-ticker` page and a 404.
 
 ## Stack
 
-- **Gatsby 5.16** (static site, `gatsby develop` / `gatsby build`)
+- **Gatsby 5.16** (static site, `gatsby develop` / `gatsby build`) — built-in TypeScript via Parcel
 - **React 19** with class components (`Page`, `Header`, `Spirograph`) and function components mixed
-- **styled-components 6** with a `createGlobalStyle` global sheet (`src/styles/global-style.js`)
+- **TypeScript 5.7** in `strict: true` mode
+- **styled-components 6** with a `createGlobalStyle` global sheet (`src/styles/global-style.ts`)
 - **framer-motion** for entrance and hover animations
 - **@loadable/component** for code-split content sections on the index page
 - **@mui/material** (used only for the tooltip on the GitHub calendar)
@@ -24,49 +25,55 @@ Andrew Schneider's personal portfolio at https://schnogz.xyz — a Gatsby 5 + Re
 | `yarn` | Install deps |
 | `yarn dev` | Start Gatsby dev server at http://localhost:8000 |
 | `yarn ci:build` | Production build (`gatsby build`) — what Amplify runs |
-| `yarn ci:lint` | ESLint with `--max-warnings=0`. Husky runs this on pre-commit. |
+| `yarn ci:lint` | ESLint with `--max-warnings=0` across `src/**/*.{js,ts,tsx}`. Husky runs this on pre-commit. |
+| `yarn typecheck` | `tsc --noEmit` |
 | `yarn lint:fix` | ESLint with `--fix` |
-| `yarn format` | Prettier write across `src/**/*.js` |
+| `yarn format` | Prettier write across `src/**/*.{js,ts,tsx}` |
 | `yarn clean` | `gatsby clean` (clears `.cache/` and `public/`) |
 
 ## Deploy
 
 Push to `origin master` → AWS Amplify picks it up (`amplify.yml`) → runs `yarn` then `yarn ci:build`, serves `/public`. **Never push to master without an explicit ask** — every push is a production deploy.
 
+A Husky **`pre-push`** hook runs `yarn typecheck && yarn ci:build` before the push goes out. If either fails, the push is aborted. Bypass only as a last resort with `git push --no-verify`.
+
 ## Project layout
 
 ```
 src/
 ├── pages/          # Gatsby routes
-│   ├── index.js        # Single-page portfolio (lazy-loads content sections)
-│   ├── btc-ticker.js   # Standalone realtime Binance BTC price page
-│   └── 404.js
+│   ├── index.tsx       # Single-page portfolio (lazy-loads content sections)
+│   ├── btc-ticker.tsx  # Standalone realtime Binance BTC price page
+│   └── 404.tsx
 ├── components/     # Reusable UI primitives
-│   ├── page.js         # Top-level wrapper: Helmet meta + GlobalStyle + tab-key outlines
-│   ├── header.js       # Logo + social links with tooltips
-│   ├── hero.js         # Full-viewport landing with Spirograph + Header
-│   ├── spirograph.js   # Canvas-based hypotrochoid animation (class component, raw 2D ctx)
-│   ├── section.js      # Centered max-916px content container with top border
-│   ├── sectionHeading.js
-│   ├── twoColumns.js   # Heading-left / content-right grid (responsive collapses on md)
-│   ├── project.js      # Logo + title/subtitle/abstract row, used by Projects and Experience
-│   ├── scrobbles.js    # LastFM top-albums + total-scrobbles fetch
-│   ├── scrollHelper.js # Floating scroll dot + URL-hash sync as user scrolls
-│   ├── icons.js        # Inline SVG glyph wrapper (just an arrow today)
-│   └── footer.js
-├── content/        # Page sections (lazy-loaded by index.js)
-│   ├── hello.js
-│   ├── stats.js        # Scrobbles + GitHubCalendar (multiple years)
-│   ├── projects.js     # Side projects
-│   └── experience.js   # Work history
+│   ├── page.tsx        # Top-level wrapper: GlobalStyle + tab-key outlines
+│   ├── head.tsx        # Shared <Head> meta — re-exported by each page
+│   ├── header.tsx      # Logo + social links with tooltips
+│   ├── hero.tsx        # Full-viewport landing with Spirograph + Header
+│   ├── spirograph.tsx  # Canvas-based hypotrochoid animation (class, raw 2D ctx)
+│   ├── section.tsx     # Centered max-916px content container with top border
+│   ├── sectionHeading.tsx
+│   ├── twoColumns.tsx  # Heading-left / content-right grid (responsive collapses on md)
+│   ├── project.tsx     # Logo + title/subtitle/abstract row, used by Projects and Experience
+│   ├── scrobbles.tsx   # LastFM top-albums + total-scrobbles fetch
+│   ├── scrollHelper.tsx # Floating scroll dot + URL-hash sync as user scrolls
+│   ├── icons.tsx       # Inline SVG glyph wrapper (just an arrow today)
+│   └── footer.tsx
+├── content/        # Page sections (lazy-loaded by index.tsx)
+│   ├── hello.tsx
+│   ├── stats.tsx       # Scrobbles + GitHubCalendar (multiple years)
+│   ├── projects.tsx    # Side projects
+│   └── experience.tsx  # Work history
 ├── config/
-│   └── lastFm.js       # LastFM API key + username
+│   └── lastFm.ts       # LastFM API key + username
 ├── styles/
-│   ├── theme.js        # darkMode color palette + fontSize scale (f1..f11)
-│   └── global-style.js # createGlobalStyle: normalize + base typography
+│   ├── theme.ts        # darkMode color palette + fontSize scale (f1..f11), `as const`
+│   └── global-style.ts # createGlobalStyle: normalize + base typography
 ├── utils/
-│   ├── animations.js   # framer-motion preset objects (ROTATE_*, ARRIVE_FROM_TOP)
-│   └── media-queries.js  # max-width media template tagged-template helper
+│   ├── animations.ts   # framer-motion preset objects (ROTATE_*, ARRIVE_FROM_TOP)
+│   └── media-queries.ts # max-width media template tagged-template helper (generic over Props)
+├── types/
+│   └── images.d.ts     # `*.png` / `*.jpg` / `*.svg` module declarations
 ├── img/            # Company / project logos imported as modules
 └── static/         # Resume PDF (served as-is)
 
@@ -77,43 +84,53 @@ static/             # Site-level static assets (favicons, manifest, profile.jpeg
 
 ### Import aliases
 
-Root imports are configured in `gatsby-config.js` via `gatsby-plugin-root-import` and mirrored in `.eslintrc.js`. Use them — do not write deep relative imports.
+Path aliases are defined in `tsconfig.json` (`paths`) and mirrored in `gatsby-config.js` (`gatsby-plugin-root-import`) and `eslint.config.js` (`settings['import/resolver'].typescript` reads `tsconfig.json` directly). Use them — do not write deep relative imports.
 
-```js
+```ts
 import Header from 'components/header'
 import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 import { ARRIVE_FROM_TOP } from 'utils/animations'
 ```
 
-Aliases: `components`, `content`, `fonts`, `img`, `layouts`, `pages`, `src`, `styles`, `utils`.
+Aliases: `components`, `config`, `content`, `fonts`, `img`, `pages`, `styles`, `utils`.
+
+If you add a new top-level folder under `src/`, register it in **three** places: `tsconfig.json` (`paths`), `gatsby-config.js` (`gatsby-plugin-root-import` options), and the second import-sort group regex in `eslint.config.js`.
+
+### TypeScript
+
+- `strict: true` is on. Add explicit prop types / interfaces for components; avoid `any`. Cast through `unknown` if you genuinely need it.
+- Class components with fields initialized outside the constructor use definite-assignment assertions (`field!: Type`) — see `spirograph.tsx`. Constructor-initialized fields use normal assignment.
+- For styled-components props: `styled.div<{ visible: boolean }>` — keep prop types alongside the styled declaration.
+- The `@types/loadable__component` package ships its own (older) `@types/react`. We pin our version via `resolutions.@types/react` in `package.json` to keep React 19 typings consistent across the tree. Don't remove that resolution.
+- `utils/media-queries.ts` is generic per-call: `${media.lg<{ paddingSmall?: boolean }>\`…\`}`. Pass the prop generic if the inner template uses style functions that read props.
 
 ### Linting is strict — match the existing style or the pre-commit hook will reject
 
 The Husky `pre-commit` runs `yarn ci:lint` with `--max-warnings=0`. Notable rules to respect:
 
 - **No semicolons** (`semi: never`)
-- **Single quotes** for JS strings, **single quotes** for JSX attributes
+- **Single quotes** for strings, **single quotes** for JSX attributes
 - **Trailing commas** everywhere multi-line (`'all'`)
 - **`simple-import-sort/imports`** — groups: (1) `react` + npm packages, (2) the aliased project paths (`components|config|content|fonts|img|pages|styles|utils`), (3) relative + bare. Run `yarn lint:fix` if unsure.
 - **`sort-keys`** ascending alphabetical for any object literal with ≥2 keys (case-sensitive, non-natural)
 - **`sort-destructure-keys`** alphabetical
 - **`arrow-body-style: as-needed`** — no `=> { return … }` when an expression body works
 - **`import/no-extraneous-dependencies`** — anything imported must be in `package.json` (no peer-dep cheating)
-
-If you add a new top-level folder under `src/`, register it in **three** places: `gatsby-config.js` (`gatsby-plugin-root-import` options), `eslint.config.js` (`settings['import/resolver'].alias.map`), and add it to the second import-sort group regex in `eslint.config.js`.
+- **`@typescript-eslint/no-unused-vars`** — args prefixed with `_` are ignored
 
 ### Styling
 
 - **No CSS files** — everything is styled-components. New styles go either inline (one-off) or in a `styled.X` at the top of the component file. Match the existing pattern: declare styled components first, then the React component.
-- **Use theme tokens** from `styles/theme.js` (`darkMode.*`, `fontSize.f1..f11`) — don't hardcode hex or px font sizes.
-- **Responsive** via `utils/media-queries` — `${media.lg`…`}`, `${media.md`…`}`, etc. Breakpoints (in em, max-width): `xs=350`, `sm=600`, `md=900`, `lg=1300`, `xl=1700`.
-- **Animations** use the presets in `utils/animations.js` spread onto framer-motion components: `<motion.div {...ARRIVE_FROM_TOP} />`. Add new presets there rather than inlining.
+- **Use theme tokens** from `styles/theme` (`darkMode.*`, `fontSize.f1..f11`) — don't hardcode hex or px font sizes.
+- **Responsive** via `utils/media-queries` — `${media.lg\`…\`}`, `${media.md\`…\`}`, etc. Breakpoints (in em, max-width): `xs=350`, `sm=600`, `md=900`, `lg=1300`, `xl=1700`. If the inner template uses a prop callback, pass the generic: `${media.lg<{ foo?: boolean }>\`...\`}`.
+- **Animations** use the presets in `utils/animations.ts` spread onto framer-motion components: `<motion.div {...ARRIVE_FROM_TOP} />`. Add new presets there rather than inlining.
 
 ### Page lifecycle
 
-- `components/page.js` wraps every route with `<Helmet>` meta + `<GlobalStyle>`. Routes that should share metadata should render through `<Page>` (see `pages/index.js`, `pages/404.js`, but **not** `pages/btc-ticker.js` which intentionally renders its own `<GlobalStyle>` for a clean look).
-- The index page lazy-loads each content section with `@loadable/component`. When adding a new section: import via `loadable(() => import('./../content/foo'))`, wrap in `<Section id='foo'>`, and add the hash to `VIEW_ORDER` in `components/scrollHelper.js` so the scroll helper updates the URL hash and can jump there.
+- Page meta uses **Gatsby's `<Head>` API** (not `react-helmet`). Each page in `src/pages/` re-exports the shared head: `export { default as Head } from 'components/head'`. Edit `components/head.tsx` to change site-wide meta.
+- `components/page.tsx` wraps every route with `<GlobalStyle>` + tab-key outline tracking. Routes that should share the base styling render through `<Page>` (see `pages/index.tsx`, `pages/404.tsx`). `pages/btc-ticker.tsx` intentionally bypasses `<Page>` and renders its own `<GlobalStyle>` for a clean look.
+- The index page lazy-loads each content section with `@loadable/component`. When adding a new section: import via `loadable(() => import('../content/foo'))`, wrap in `<Section id='foo'>`, and add the hash to `VIEW_ORDER` in `components/scrollHelper.tsx` so the scroll helper updates the URL hash and can jump there.
 
 ### Browser-only APIs
 
@@ -121,20 +138,21 @@ Gatsby SSRs at build time, so `window`, `document`, `navigator`, and `WebSocket`
 
 ### Spirograph
 
-`components/spirograph.js` is a hand-rolled canvas animation (class component, two canvases stacked — one for the moving gear, one for the drawn curve). It self-restarts every full revolution and reseeds on window resize. Treat as a stable "set and forget" — modifying it tends to break the math.
+`components/spirograph.tsx` is a hand-rolled canvas animation (class component, two canvases stacked — one for the moving gear, one for the drawn curve). It self-restarts every full revolution and reseeds on window resize. Treat as a stable "set and forget" — modifying it tends to break the math. All instance fields use `!:` definite-assignment because they're populated in `componentDidMount` via `newSpirograph()`.
 
 ### LastFM data
 
-`components/scrobbles.js` fetches `user.getTopAlbums` and `user.getRecentTracks` client-side with the key from `src/config/lastFm.js`. On fetch failure it renders an apologetic empty state — preserve that behavior. The "average per day" math anchors to May 8, 2011.
+`components/scrobbles.tsx` fetches `user.getTopAlbums` and `user.getRecentTracks` client-side with the key from `src/config/lastFm.ts`. State is typed as a discriminated union `LastFmAlbum[] | { error: true }`. On fetch failure it renders an apologetic empty state — preserve that behavior. The "average per day" math anchors to May 8, 2011.
 
 ## Testing
 
-There is no test suite. Verification is **lint + build**:
+There is no test suite. Verification is **typecheck + lint + build**:
 
-1. `yarn ci:lint` (or just commit — Husky enforces it)
-2. `yarn ci:build` for any non-trivial change to confirm Gatsby SSR succeeds
+1. `yarn typecheck` — `tsc --noEmit`
+2. `yarn ci:lint` (or just commit — Husky enforces it)
+3. `yarn ci:build` for any non-trivial change to confirm Gatsby SSR succeeds
 
-Browser verification is not required by default — trust the diff once lint passes. Spin up `yarn dev` only when asked or when the change is canvas/animation/layout-sensitive in a way lint cannot catch.
+Browser verification is not required by default — trust the diff once typecheck and lint pass. Spin up `yarn dev` only when asked or when the change is canvas/animation/layout-sensitive in a way the static checks cannot catch.
 
 ## Commit style
 

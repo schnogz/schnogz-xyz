@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { darkMode, fontSize } from 'styles/theme'
@@ -32,6 +32,6 @@ const Heading = styled.h2`
     `}
 `
 
-const SectionHeading = (props) => <Heading>{props.children}</Heading>
+const SectionHeading = (props: { children: ReactNode }) => <Heading>{props.children}</Heading>
 
 export default SectionHeading

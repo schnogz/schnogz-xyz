@@ -7,10 +7,11 @@
   "scripts": {
     "clean": "gatsby clean",
     "ci:build": "gatsby build",
-    "ci:lint": "eslint ./src/**/*.js --max-warnings=0",
+    "ci:lint": "eslint 'src/**/*.{js,ts,tsx}' --max-warnings=0",
     "dev": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
-    "lint:fix": "eslint ./src/**/*.js --fix",
+    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
   "dependencies": {
@@ -21,27 +22,29 @@
     "@n8tb1t/use-scroll-position": "4.0.0",
     "framer-motion": "12.40.0",
     "gatsby-plugin-preconnect": "1.4.0",
-    "lodash": "4.18.1",
+    "lodash": "4.17.21",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "react-github-calendar": "5.0.6",
-    "react-helmet": "6.1.0",
     "react-icons": "5.6.0",
     "styled-components": "6.4.2"
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
-    "@babel/plugin-proposal-class-properties": "7.18.6",
-    "@babel/plugin-proposal-object-rest-spread": "7.20.7",
-    "@babel/plugin-proposal-private-methods": "7.18.6",
-    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@babel/plugin-transform-runtime": "7.29.0",
     "@babel/preset-env": "7.29.0",
     "@babel/preset-react": "7.28.5",
+    "@types/loadable__component": "5.13.10",
+    "@types/lodash": "4.17.24",
+    "@types/node": "25.9.3",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@typescript-eslint/eslint-plugin": "8.18.0",
+    "@typescript-eslint/parser": "8.18.0",
     "babel-plugin-styled-components": "2.3.0",
     "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
-    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-import-resolver-typescript": "3.7.0",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-react": "7.37.5",
@@ -50,13 +53,17 @@
     "eslint-plugin-sort-keys-fix": "1.1.2",
     "gatsby": "5.16.1",
     "gatsby-plugin-google-analytics": "5.16.0",
-    "gatsby-plugin-react-helmet": "6.16.0",
     "gatsby-plugin-robots-txt": "1.8.0",
     "gatsby-plugin-root-import": "2.0.9",
     "gatsby-plugin-sitemap": "6.16.0",
     "gatsby-plugin-styled-components": "6.16.0",
     "globals": "17.6.0",
     "husky": "9.1.7",
-    "prettier": "3.8.4"
+    "prettier": "3.8.4",
+    "typescript": "5.7.3"
+  },
+  "resolutions": {
+    "@types/react": "19.2.17",
+    "browserslist": "4.24.0"
   }
 }

@@ -1,11 +1,13 @@
-export const ROTATE_WHILE_TAP = {
+import type { MotionProps } from 'framer-motion'
+
+export const ROTATE_WHILE_TAP: MotionProps = {
   animate: { opacity: 1, scale: 1 },
   initial: { opacity: 0, scale: 0 },
   transition: { duration: 1.5 },
   whileTap: { rotate: 180, scale: 0.5 },
 }
 
-export const ROTATE_ON_HOVER = {
+export const ROTATE_ON_HOVER: MotionProps = {
   transition: {
     duration: 0.5,
     ease: 'easeInOut',
@@ -13,7 +15,7 @@ export const ROTATE_ON_HOVER = {
   whileHover: { rotate: 360 },
 }
 
-export const ARRIVE_FROM_TOP = {
+export const ARRIVE_FROM_TOP: MotionProps = {
   animate: { opacity: 1, y: 0 },
   initial: { opacity: 0, y: -50 },
   transition: {

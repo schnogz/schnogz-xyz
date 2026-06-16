@@ -25,13 +25,40 @@ const CanvasWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `
-let windowWidth
+let windowWidth: number
 
-export default class Spirograph extends React.Component {
-  constructor(props) {
+type SpirographProps = {
+  speed: number
+}
+
+export default class Spirograph extends React.Component<SpirographProps> {
+  hasUnmounted = false
+  movingCanvas!: HTMLCanvasElement
+  plottingCanvas!: HTMLCanvasElement
+  mctx!: CanvasRenderingContext2D
+  pctx!: CanvasRenderingContext2D
+  canvasSize!: number
+  size!: number
+  dotSize!: number
+  spiroColor!: string
+  circleColor!: string
+  speed!: number
+  N!: number
+  M!: number
+  gearRadius!: number
+  f!: number
+  angle!: number
+  centerX!: number
+  centerY!: number
+  gearX!: number
+  gearY!: number
+  spiroX!: number
+  spiroY!: number
+  _resizeHandler: () => void
+
+  constructor(props: SpirographProps) {
     super(props)
     this.draw = this.draw.bind(this)
-    this.hasUnmounted = false
     this._resizeHandler = debounce(() => {
       if (window.innerWidth !== windowWidth) {
         //check if window size has actually changed bc of iOS Safari Bug
@@ -50,8 +77,8 @@ export default class Spirograph extends React.Component {
     window.addEventListener('resize', this._resizeHandler)
     windowWidth = window.innerWidth
 
-    this.mctx = this.movingCanvas.getContext('2d')
-    this.pctx = this.plottingCanvas.getContext('2d')
+    this.mctx = this.movingCanvas.getContext('2d')!
+    this.pctx = this.plottingCanvas.getContext('2d')!
     this.canvasSize = Math.min(1000, window.innerWidth, window.innerHeight)
     this.movingCanvas.width = this.canvasSize
     this.movingCanvas.height = this.canvasSize
@@ -71,15 +98,15 @@ export default class Spirograph extends React.Component {
   }
 
   // helper function
-  reduce(numerator, denominator) {
-    let gcd = function (a, b) {
+  reduce(numerator: number, denominator: number): [number, number] {
+    let gcd = function (a: number, b: number): number {
       return b ? gcd(b, a % b) : a
     }
-    gcd = gcd(numerator, denominator)
-    return [numerator / gcd, denominator / gcd]
+    const divisor = gcd(numerator, denominator)
+    return [numerator / divisor, denominator / divisor]
   }
 
-  delay = (t) => new Promise((resolve) => setTimeout(resolve, t))
+  delay = (t: number) => new Promise((resolve) => setTimeout(resolve, t))
 
   newSpirograph() {
     // display config
@@ -220,10 +247,10 @@ export default class Spirograph extends React.Component {
     return (
       <Wrapper {...ROTATE_WHILE_TAP}>
         <CanvasWrapper>
-          <canvas ref={(plottingCanvas) => (this.plottingCanvas = plottingCanvas)} />
+          <canvas ref={(plottingCanvas) => void (this.plottingCanvas = plottingCanvas!)} />
         </CanvasWrapper>
         <CanvasWrapper>
-          <canvas ref={(movingCanvas) => (this.movingCanvas = movingCanvas)} />
+          <canvas ref={(movingCanvas) => void (this.movingCanvas = movingCanvas!)} />
         </CanvasWrapper>
       </Wrapper>
     )

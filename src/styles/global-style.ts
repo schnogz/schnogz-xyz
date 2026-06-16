@@ -3,7 +3,11 @@ import { createGlobalStyle } from 'styled-components'
 import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
-const GlobalStyle = createGlobalStyle`
+type GlobalStyleProps = {
+  displayOutlines?: boolean
+}
+
+const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     // normalize.css
     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
         display: block;
@@ -355,12 +359,12 @@ const GlobalStyle = createGlobalStyle`
     #___gatsby, #gatsby-focus-wrapper {
         height: 100%;
     }
-    
+
     // GH CALENDAR STYLES
     .react-activity-calendar__scroll-container > svg {
         height: 96px;
     }
-    
+
     .react-activity-calendar__footer {
         display: flex;
         justify-content: space-between;
