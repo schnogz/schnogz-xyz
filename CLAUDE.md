@@ -101,7 +101,7 @@ The Husky `pre-commit` runs `yarn ci:lint` with `--max-warnings=0`. Notable rule
 - **`arrow-body-style: as-needed`** — no `=> { return … }` when an expression body works
 - **`import/no-extraneous-dependencies`** — anything imported must be in `package.json` (no peer-dep cheating)
 
-If you add a new top-level folder under `src/`, register it in **three** places: `gatsby-config.js` (`gatsby-plugin-root-import` options), `.eslintrc.js` (`import/resolver` alias), and add it to the second import-sort group regex.
+If you add a new top-level folder under `src/`, register it in **three** places: `gatsby-config.js` (`gatsby-plugin-root-import` options), `eslint.config.js` (`settings['import/resolver'].alias.map`), and add it to the second import-sort group regex in `eslint.config.js`.
 
 ### Styling
 

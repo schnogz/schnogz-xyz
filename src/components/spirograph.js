@@ -79,7 +79,6 @@ export default class Spirograph extends React.Component {
     return [numerator / gcd, denominator / gcd]
   }
 
-  // eslint-disable-next-line no-promise-executor-return
   delay = (t) => new Promise((resolve) => setTimeout(resolve, t))
 
   newSpirograph() {
