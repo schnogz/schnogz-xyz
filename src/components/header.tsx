@@ -81,13 +81,13 @@ const SocialLink = styled(motion.a)`
     color: ${darkMode.seagreen};
   }
 `
-const Tooltip = styled.div<{ visible: boolean }>`
+const Tooltip = styled.div<{ $visible: boolean }>`
   color: ${darkMode.seagreen};
   padding: 2px 24px 0 24px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  opacity: ${(props) => (props.visible ? '1' : '0')};
+  opacity: ${(props) => (props.$visible ? '1' : '0')};
   transition: opacity 300ms;
   ${media.sm`
     justify-content: center;
@@ -168,7 +168,7 @@ const Header = () => {
             </SocialLink>
           ))}
         </SocialLinks>
-        <Tooltip visible={tooltipText !== null}>
+        <Tooltip $visible={tooltipText !== null}>
           <TooltipText>{tooltipText}</TooltipText>
           <TooltipIcon>
             <Icon glyph='arrow' size={24} />

@@ -16,8 +16,8 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div``
 
-const RightColumn = styled.div<{ wide?: boolean }>`
-  max-width: ${(props) => (props.wide ? '620px' : '544px')};
+const RightColumn = styled.div<{ $wide?: boolean }>`
+  max-width: ${(props) => (props.$wide ? '620px' : '544px')};
   ${media.md`
     max-width: 544px;
   `}
@@ -34,7 +34,7 @@ const TwoColumns = (props: TwoColumnsProps) => {
   return (
     <Wrapper>
       <LeftColumn>{leftColumn}</LeftColumn>
-      <RightColumn wide={wide}>{rightColumn}</RightColumn>
+      <RightColumn $wide={wide}>{rightColumn}</RightColumn>
     </Wrapper>
   )
 }
