@@ -9,7 +9,7 @@ Andrew Schneider's personal portfolio at https://schnogz.xyz — a Gatsby 5 + Re
 ## Stack
 
 - **Gatsby 5.16** (static site, `gatsby develop` / `gatsby build`) — built-in TypeScript via Parcel
-- **React 19** with class components (`Page`, `Header`, `Spirograph`) and function components mixed
+- **React 19**, function components throughout (hooks-only)
 - **TypeScript 5.7** in `strict: true` mode
 - **styled-components 6** with a `createGlobalStyle` global sheet (`src/styles/global-style.ts`)
 - **framer-motion** for entrance and hover animations
@@ -48,11 +48,11 @@ src/
 │   ├── btc-ticker.tsx  # Standalone realtime Binance BTC price page
 │   └── 404.tsx
 ├── components/     # Reusable UI primitives
-│   ├── page.tsx        # Top-level wrapper: GlobalStyle + tab-key outlines
+│   ├── page.tsx        # Top-level wrapper around GlobalStyle (focus-visible handles keyboard-only outlines)
 │   ├── head.tsx        # Shared <Head> meta — re-exported by each page
 │   ├── header.tsx      # Logo + social links with tooltips
 │   ├── hero.tsx        # Full-viewport landing with Spirograph + Header
-│   ├── spirograph.tsx  # Canvas-based hypotrochoid animation (class, raw 2D ctx)
+│   ├── spirograph.tsx  # Canvas-based hypotrochoid animation (function, raw 2D ctx, all imperative state lives in the useEffect closure)
 │   ├── section.tsx     # Centered max-916px content container with top border
 │   ├── sectionHeading.tsx
 │   ├── twoColumns.tsx  # Heading-left / content-right grid (responsive collapses on md)
@@ -102,7 +102,6 @@ If you add a new top-level folder under `src/`, register it in **three** places:
 ### TypeScript
 
 - `strict: true` is on. Add explicit prop types / interfaces for components; avoid `any`. Cast through `unknown` if you genuinely need it.
-- Class components with fields initialized outside the constructor use definite-assignment assertions (`field!: Type`) — see `spirograph.tsx`. Constructor-initialized fields use normal assignment.
 - For styled-components props: `styled.div<{ visible: boolean }>` — keep prop types alongside the styled declaration.
 - The `@types/loadable__component` package ships its own (older) `@types/react`. We pin our version via `resolutions.@types/react` in `package.json` to keep React 19 typings consistent across the tree. Don't remove that resolution.
 - `utils/media-queries.ts` is generic per-call: `${media.lg<{ paddingSmall?: boolean }>\`…\`}`. Pass the prop generic if the inner template uses style functions that read props.
@@ -131,7 +130,7 @@ The Husky `pre-commit` runs `yarn ci:lint` with `--max-warnings=0`. Notable rule
 ### Page lifecycle
 
 - Page meta uses **Gatsby's `<Head>` API** (not `react-helmet`). Each page in `src/pages/` re-exports the shared head: `export { default as Head } from 'components/head'`. Edit `components/head.tsx` to change site-wide meta.
-- `components/page.tsx` wraps every route with `<GlobalStyle>` + tab-key outline tracking. Routes that should share the base styling render through `<Page>` (see `pages/index.tsx`, `pages/404.tsx`). `pages/btc-ticker.tsx` intentionally bypasses `<Page>` and renders its own `<GlobalStyle>` for a clean look.
+- `components/page.tsx` is a thin wrapper that just renders `<GlobalStyle>` + children. Routes that should share the base styling render through `<Page>` (see `pages/index.tsx`, `pages/404.tsx`). `pages/btc-ticker.tsx` intentionally bypasses `<Page>` and renders its own `<GlobalStyle>` for a clean look. Keyboard-only focus rings come from a `:focus-visible` rule in `global-style.ts` — no JS needed.
 - The index page lazy-loads each content section with `@loadable/component`. When adding a new section: import via `loadable(() => import('../content/foo'))`, wrap in `<Section id='foo'>`, and add the hash to `VIEW_ORDER` in `components/scrollHelper.tsx` so the scroll helper updates the URL hash and can jump there.
 
 ### Browser-only APIs
@@ -140,7 +139,7 @@ Gatsby SSRs at build time, so `window`, `document`, `navigator`, and `WebSocket`
 
 ### Spirograph
 
-`components/spirograph.tsx` is a hand-rolled canvas animation (class component, two canvases stacked — one for the moving gear, one for the drawn curve). It self-restarts every full revolution and reseeds on window resize. Treat as a stable "set and forget" — modifying it tends to break the math. All instance fields use `!:` definite-assignment because they're populated in `componentDidMount` via `newSpirograph()`.
+`components/spirograph.tsx` is a hand-rolled canvas animation (function component, two canvases stacked — one for the moving gear, one for the drawn curve). It self-restarts every full revolution and reseeds on window resize. Treat as a stable "set and forget" — modifying it tends to break the math. All imperative state (gear params, animation-frame ID, restart timers) lives in the `useEffect` closure; only the two `<canvas>` elements use refs. The cleanup cancels the frame, clears any pending restart/start timers, and removes the resize listener.
 
 ### LastFM data
 

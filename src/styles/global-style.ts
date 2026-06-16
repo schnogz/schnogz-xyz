@@ -3,11 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
-type GlobalStyleProps = {
-  displayOutlines?: boolean
-}
-
-const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
+const GlobalStyle = createGlobalStyle`
     // normalize.css
     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
         display: block;
@@ -43,11 +39,11 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     }
 
     a:focus {
-        outline: thin dotted;
+        outline: 0;
     }
 
-    a:active, a:hover {
-        outline: 0;
+    a:focus-visible {
+        outline: thin dotted;
     }
 
     h1 {

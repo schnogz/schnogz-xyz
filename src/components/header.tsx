@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { type IconType } from 'react-icons'
 import { FiBookOpen, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
@@ -8,28 +9,24 @@ import { darkMode, fontSize } from 'styles/theme'
 import { ARRIVE_FROM_TOP, ROTATE_ON_HOVER } from 'utils/animations'
 import media from 'utils/media-queries'
 
-const Wrapper = styled.div<{ article?: boolean }>`
+const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex: 0 0 auto;
   z-index: 10;
-  height: ${(props) => (props.article ? '74px' : '')};
-  ${media.lg<{ article?: boolean }>`
-    height: ${(props) => (props.article ? '64px' : '')};
-  `}
-  ${media.sm<{ article?: boolean }>`
-    display: ${(props) => (props.article ? 'flex' : 'block')};
+  ${media.sm`
+    display: block;
   `};
   ${media.xs`
     display: block;
     height: 112px;
   `}
 `
-const LogoWrapper = styled(motion.div)<{ article?: boolean }>`
+const LogoWrapper = styled(motion.div)`
   padding: 24px 0 30px 30px;
-  ${media.sm<{ article?: boolean }>`
-    padding: ${(props) => (props.article ? '24px 0 24px 24px' : '24px 0 0 0')};
+  ${media.sm`
+    padding: 24px 0 0 0;
   `};
   ${media.xs`
     padding: 24px 0 0 0;
@@ -58,14 +55,14 @@ const Role = styled.div`
     font-size: ${fontSize.f6};
   `};
 `
-const SocialLinks = styled.div<{ article?: boolean }>`
+const SocialLinks = styled.div`
   display: grid;
   justify-content: center;
   grid-column-gap: 4px;
   grid-template-columns: auto auto auto auto;
   padding: 15px 24px 0 24px;
-  ${media.sm<{ article?: boolean }>`
-    padding: ${(props) => (props.article ? '15px 12px 0 8px' : '4px 0 0 0')};
+  ${media.sm`
+    padding: 4px 0 0 0;
     grid-column-gap: 0;
   `}
   ${media.xs`
@@ -103,101 +100,77 @@ const TooltipIcon = styled.div`
 `
 const TooltipText = styled.div``
 
-type HeaderState = {
-  tooltipIsVisible: boolean
-  tooltipText: string
+type SocialLinkConfig = {
+  Icon: IconType
+  ariaLabel: string
+  href: string
+  label: string
 }
 
-class Header extends React.Component<object, HeaderState> {
-  constructor(props: object) {
-    super(props)
-    this.state = {
-      tooltipIsVisible: false,
-      tooltipText: '',
-    }
-  }
+const SOCIAL_LINKS: SocialLinkConfig[] = [
+  {
+    Icon: FiBookOpen,
+    ariaLabel: "Andrew's Blog",
+    href: 'https://blog.schnogz.xyz',
+    label: 'Blog',
+  },
+  {
+    Icon: FiGithub,
+    ariaLabel: "Andrew's GitHub profile",
+    href: 'https://github.com/schnogz',
+    label: 'GitHub',
+  },
+  {
+    Icon: FiLinkedin,
+    ariaLabel: "Andrew's LinkedIn profile",
+    href: 'https://www.linkedin.com/in/andrewmarkschneider/',
+    label: 'LinkedIn',
+  },
+  {
+    Icon: FiMail,
+    ariaLabel: 'Send an email to Andrew',
+    href: 'mailto:andrew.mark.schneider@proton.me?subject=Hey Andrew!',
+    label: 'Email',
+  },
+]
 
-  showTooltip = (tooltipText: string) => {
-    this.setState({
-      tooltipIsVisible: true,
-      tooltipText: tooltipText,
-    })
-  }
+const Header = () => {
+  const [tooltipText, setTooltipText] = useState<string | null>(null)
+  const hideTooltip = () => setTooltipText(null)
 
-  hideTooltip = () => {
-    this.setState({
-      tooltipIsVisible: false,
-    })
-  }
-
-  render() {
-    return (
-      <Wrapper>
-        <LogoWrapper {...ARRIVE_FROM_TOP}>
-          <Name>Andrew Schneider</Name>
-          <Role>Web(3) Developer</Role>
-        </LogoWrapper>
-        <motion.div {...ARRIVE_FROM_TOP}>
-          <SocialLinks>
+  return (
+    <Wrapper>
+      <LogoWrapper {...ARRIVE_FROM_TOP}>
+        <Name>Andrew Schneider</Name>
+        <Role>Web(3) Developer</Role>
+      </LogoWrapper>
+      <motion.div {...ARRIVE_FROM_TOP}>
+        <SocialLinks>
+          {SOCIAL_LINKS.map(({ Icon: LinkIcon, ariaLabel, href, label }) => (
             <SocialLink
-              href='https://blog.schnogz.xyz'
+              key={href}
+              href={href}
               target='_blank'
-              onMouseOver={() => this.showTooltip('Blog')}
-              onFocus={() => this.showTooltip('Blog')}
-              onMouseLeave={this.hideTooltip}
-              onBlur={this.hideTooltip}
-              aria-label="Andrew's Blog"
+              onMouseOver={() => setTooltipText(label)}
+              onFocus={() => setTooltipText(label)}
+              onMouseLeave={hideTooltip}
+              onBlur={hideTooltip}
+              aria-label={ariaLabel}
               {...ROTATE_ON_HOVER}
             >
-              <FiBookOpen size='18px' />
+              <LinkIcon size='18px' />
             </SocialLink>
-            <SocialLink
-              href='https://github.com/schnogz'
-              target='_blank'
-              onMouseOver={() => this.showTooltip('GitHub')}
-              onFocus={() => this.showTooltip('GitHub')}
-              onMouseLeave={this.hideTooltip}
-              onBlur={this.hideTooltip}
-              aria-label="Andrew's GitHub profile"
-              {...ROTATE_ON_HOVER}
-            >
-              <FiGithub size='18px' />
-            </SocialLink>
-            <SocialLink
-              href='https://www.linkedin.com/in/andrewmarkschneider/'
-              target='_blank'
-              onMouseOver={() => this.showTooltip('LinkedIn')}
-              onFocus={() => this.showTooltip('LinkedIn')}
-              onMouseLeave={this.hideTooltip}
-              onBlur={this.hideTooltip}
-              aria-label="Andrew's LinkedIn profile"
-              {...ROTATE_ON_HOVER}
-            >
-              <FiLinkedin size='18px' />
-            </SocialLink>
-            <SocialLink
-              href='mailto:andrew.mark.schneider@proton.me?subject=Hey Andrew!'
-              target='_blank'
-              onMouseOver={() => this.showTooltip('Email')}
-              onFocus={() => this.showTooltip('Email')}
-              onMouseLeave={this.hideTooltip}
-              onBlur={this.hideTooltip}
-              aria-label='Send an email to Andrew'
-              {...ROTATE_ON_HOVER}
-            >
-              <FiMail size='18px' />
-            </SocialLink>
-          </SocialLinks>
-          <Tooltip visible={this.state.tooltipIsVisible}>
-            <TooltipText>{this.state.tooltipText}</TooltipText>
-            <TooltipIcon>
-              <Icon glyph='arrow' size={24} />
-            </TooltipIcon>
-          </Tooltip>
-        </motion.div>
-      </Wrapper>
-    )
-  }
+          ))}
+        </SocialLinks>
+        <Tooltip visible={tooltipText !== null}>
+          <TooltipText>{tooltipText}</TooltipText>
+          <TooltipIcon>
+            <Icon glyph='arrow' size={24} />
+          </TooltipIcon>
+        </Tooltip>
+      </motion.div>
+    </Wrapper>
+  )
 }
 
 export default Header

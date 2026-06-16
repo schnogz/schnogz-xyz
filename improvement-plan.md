@@ -14,7 +14,7 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 
 **Highest architectural value:**
 
-- [ ] #6 — Spirograph class → hooks (biggest legacy code)
+- [x] #6 — Spirograph class → hooks (biggest legacy code)
 - [ ] #14 — `gatsby-plugin-image` (biggest perf win)
 - [ ] #17 — Per-page Head + structured data (biggest SEO win)
 
@@ -34,9 +34,9 @@ A backlog of modernization opportunities surfaced during a codebase review. Item
 
 ## 🟡 React modernization (class → hooks)
 
-- [ ] **4. `page.tsx` class → function.** Tab-key state can be `useState` + `useEffect`. Also worth noting: the `displayOutlines` state is passed to `GlobalStyle` but **the global stylesheet doesn't use it** — pure dead prop. Modern alternative: ditch the JS entirely and use CSS `:focus-visible` which gives keyboard-only focus rings for free.
-- [ ] **5. `header.tsx` class → function.** Tooltip state is trivial useState. The four `<SocialLink>` blocks repeat almost verbatim — map over a config array.
-- [ ] **6. `spirograph.tsx` class → function.** Bigger rewrite. The ~20 `!:` instance fields become a single `useRef<SpirographState>(null!)` (or several refs). `componentDidMount` / `componentWillUnmount` → `useEffect`. Animation frame ID should live in a ref so the cleanup can `cancelAnimationFrame`. The module-level `let windowWidth: number` (line 28) is a singleton that breaks if the component ever mounts twice — should be a ref.
+- [x] **4. `page.tsx` class → function.** Tab-key state can be `useState` + `useEffect`. Also worth noting: the `displayOutlines` state is passed to `GlobalStyle` but **the global stylesheet doesn't use it** — pure dead prop. Modern alternative: ditch the JS entirely and use CSS `:focus-visible` which gives keyboard-only focus rings for free.
+- [x] **5. `header.tsx` class → function.** Tooltip state is trivial useState. The four `<SocialLink>` blocks repeat almost verbatim — map over a config array.
+- [x] **6. `spirograph.tsx` class → function.** Bigger rewrite. The ~20 `!:` instance fields become a single `useRef<SpirographState>(null!)` (or several refs). `componentDidMount` / `componentWillUnmount` → `useEffect`. Animation frame ID should live in a ref so the cleanup can `cancelAnimationFrame`. The module-level `let windowWidth: number` (line 28) is a singleton that breaks if the component ever mounts twice — should be a ref.
 
 ## 🟡 Outdated dependencies / patterns
 
