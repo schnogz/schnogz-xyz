@@ -21,7 +21,7 @@ const Footer = () => (
   <Section paddingSmall>
     <FooterText>
       This website is open source! Fork it on{' '}
-      <a href='https://github.com/schnogz/schnogzdotcom' target='blank'>
+      <a href='https://github.com/schnogz/schnogzdotcom' target='_blank' rel='noopener noreferrer'>
         GitHub
       </a>{' '}
       🤓

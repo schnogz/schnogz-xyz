@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import Project from 'components/project'
 import SectionHeading from 'components/sectionHeading'
@@ -9,6 +10,11 @@ import GeminiLogo from 'img/geminiLogo2.png'
 import TargetLogo from 'img/targetLogo.png'
 import ThomsonReutersLogo from 'img/thomsonReutersLogo.png'
 
+// optical alignment nudge for logos whose visual center sits to the right of their bounding box
+const NudgedLogo = styled.img`
+  margin-left: 10px;
+`
+
 const Experience = () => (
   <TwoColumns
     wide
@@ -18,13 +24,12 @@ const Experience = () => (
         <Project
           abstract='A full-reserve and highly-regulated cryptocurrency exchange and custodian. Focused on providing innovative security solutions to protect your crypto.'
           logo={
-            <img
+            <NudgedLogo
               alt='Gemini Logo'
               height='70px'
               rel='preload'
               src={GeminiLogo}
               width='70px'
-              style={{ marginLeft: '10px' }}
             />
           }
           subtitle='Dec 2024 - Feb 2026'
@@ -33,13 +38,12 @@ const Experience = () => (
         <Project
           abstract='E-commerce startup meeting customers where they are via embeddable ads and shoppable content. Originally focused on EVM on-chain messaging for protocols and smart contracts.'
           logo={
-            <img
+            <NudgedLogo
               alt='Dispatch Logo'
               height='70px'
               rel='preload'
               src={DispatchLogo}
               width='70px'
-              style={{ marginLeft: '10px' }}
             />
           }
           subtitle='Aug 2022 - Oct 2024'

@@ -1,10 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import debounce from 'lodash/debounce'
 import styled from 'styled-components'
 
 import { darkMode } from 'styles/theme'
 import { ROTATE_WHILE_TAP } from 'utils/animations'
+
+const debounce = <Args extends unknown[]>(fn: (...args: Args) => void, wait: number) => {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  return (...args: Args) => {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => fn(...args), wait)
+  }
+}
 
 const Wrapper = styled(motion.div)`
   position: absolute;

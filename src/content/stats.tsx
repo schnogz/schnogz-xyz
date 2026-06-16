@@ -36,30 +36,35 @@ const Emoji = styled.span`
   font-size: 1.8rem;
   margin-left: 12px;
 `
+const CalendarWrapper = styled.div`
+  color: white;
+  margin-top: 24px;
+`
 
 const ghYearsToShow = [2025, 2024, 2022, 2021, 2020]
 
 // there are some style overrides defined in global-styles.js
 const GhCalendar = ({ year }: { year: number }) => (
-  <GitHubCalendar
-    blockMargin={3}
-    blockRadius={2}
-    blockSize={8}
-    theme={{
-      dark: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
-      light: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
-    }}
-    fontSize={12}
-    maxLevel={4}
-    renderBlock={(block, activity) => (
-      <MuiTooltip title={`${activity.count} activities on ${activity.date}`} disableInteractive>
-        {block}
-      </MuiTooltip>
-    )}
-    style={{ color: 'white', marginTop: '24px' }}
-    year={year}
-    username='schnogz'
-  />
+  <CalendarWrapper>
+    <GitHubCalendar
+      blockMargin={3}
+      blockRadius={2}
+      blockSize={8}
+      theme={{
+        dark: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
+        light: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
+      }}
+      fontSize={12}
+      maxLevel={4}
+      renderBlock={(block, activity) => (
+        <MuiTooltip title={`${activity.count} activities on ${activity.date}`} disableInteractive>
+          {block}
+        </MuiTooltip>
+      )}
+      year={year}
+      username='schnogz'
+    />
+  </CalendarWrapper>
 )
 
 const Stats = () => (
@@ -91,7 +96,7 @@ const Stats = () => (
           <GithubInto>
             As you can see in the calendar below, I contribute a ton of code to (mostly) open
             sourced projects on{' '}
-            <a href='https://github.com/schnogz' rel='noopener noreferrer' target='blank'>
+            <a href='https://github.com/schnogz' rel='noopener noreferrer' target='_blank'>
               GitHub
             </a>
             {'.  '}

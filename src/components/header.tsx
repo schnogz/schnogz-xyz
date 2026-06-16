@@ -141,7 +141,7 @@ class Header extends React.Component<object, HeaderState> {
           <SocialLinks>
             <SocialLink
               href='https://blog.schnogz.xyz'
-              target='blank'
+              target='_blank'
               onMouseOver={() => this.showTooltip('Blog')}
               onFocus={() => this.showTooltip('Blog')}
               onMouseLeave={this.hideTooltip}
@@ -153,7 +153,7 @@ class Header extends React.Component<object, HeaderState> {
             </SocialLink>
             <SocialLink
               href='https://github.com/schnogz'
-              target='blank'
+              target='_blank'
               onMouseOver={() => this.showTooltip('GitHub')}
               onFocus={() => this.showTooltip('GitHub')}
               onMouseLeave={this.hideTooltip}
@@ -165,7 +165,7 @@ class Header extends React.Component<object, HeaderState> {
             </SocialLink>
             <SocialLink
               href='https://www.linkedin.com/in/andrewmarkschneider/'
-              target='blank'
+              target='_blank'
               onMouseOver={() => this.showTooltip('LinkedIn')}
               onFocus={() => this.showTooltip('LinkedIn')}
               onMouseLeave={this.hideTooltip}
@@ -177,7 +177,7 @@ class Header extends React.Component<object, HeaderState> {
             </SocialLink>
             <SocialLink
               href='mailto:andrew.mark.schneider@proton.me?subject=Hey Andrew!'
-              target='blank'
+              target='_blank'
               onMouseOver={() => this.showTooltip('Email')}
               onFocus={() => this.showTooltip('Email')}
               onMouseLeave={this.hideTooltip}

@@ -71,10 +71,12 @@ type CurrentState = { '@attr'?: { total: string } } | { error: true }
 const ALBUMS_URI = `https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&user=${LastFm.name}&api_key=${LastFm.apiKey}&limit=6&period=7day&format=json`
 const CURRENT_URI = `https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${LastFm.name}&api_key=${LastFm.apiKey}&limit=1&format=json`
 
+// first LastFM scrobble — anchor for the per-day average
+const START_DATE = new Date('2011-05-08')
+const MS_PER_DAY = 86_400_000
+
 const calcAverage = (totalScrobbles = 1) => {
-  const oneDay = 24 * 60 * 60 * 1000 // hours*minutes*seconds*milliseconds
-  const startDate = new Date(2011, 5, 8) // May 8, 2011
-  const daysSinceStart = Math.round(Math.abs((startDate.getTime() - new Date().getTime()) / oneDay))
+  const daysSinceStart = Math.round((Date.now() - START_DATE.getTime()) / MS_PER_DAY)
   return (totalScrobbles / daysSinceStart).toFixed(2)
 }
 
@@ -118,7 +120,7 @@ const Scrobbles = () => {
     <Wrapper>
       <Header>
         I have scrobbled {totalScrobblesFormatted} times to{' '}
-        <a href='https://www.last.fm/user/schnogz' rel='noopener noreferrer' target='blank'>
+        <a href='https://www.last.fm/user/schnogz' rel='noopener noreferrer' target='_blank'>
           LastFM
         </a>{' '}
         since May 8, 2011. That&apos;s an average of {calcAverage(Number(totalScrobbles))} songs per

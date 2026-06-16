@@ -86,14 +86,14 @@ const Project = (props: ProjectProps) => {
     <ProjectWrapper>
       <Logo>{logo}</Logo>
       <Description>
-        <Title href={url} target='_blank' rel='noreferrer'>
+        <Title href={url} target='_blank' rel='noopener noreferrer'>
           {title}
         </Title>
         <Subtitle>{subtitle}</Subtitle>
         <Abstract>{abstract}</Abstract>
         {link && linkText && (
           <Link>
-            <a target='_blank' href={link} rel='noreferrer'>
+            <a target='_blank' href={link} rel='noopener noreferrer'>
               {linkText}
             </a>
           </Link>
