@@ -15,12 +15,13 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "framer-motion": "12.40.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "react-github-calendar": "5.0.6",
     "react-icons": "5.6.0",
-    "styled-components": "6.4.2"
+    "react-photo-album": "3.0.2",
+    "styled-components": "6.4.2",
+    "yet-another-react-lightbox": "3.21.7"
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
@@ -48,6 +49,7 @@
     "gatsby-plugin-sitemap": "6.16.0",
     "gatsby-plugin-styled-components": "6.16.0",
     "gatsby-source-filesystem": "5.16.0",
+    "gatsby-transformer-sharp": "5.16.0",
     "globals": "17.6.0",
     "husky": "9.1.7",
     "lint-staged": "15.2.10",

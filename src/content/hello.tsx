@@ -8,7 +8,7 @@ import media from 'utils/media-queries'
 
 const Heading = styled.span`
   font-size: ${fontSize.f6};
-  color: ${darkMode.grey};
+  color: ${darkMode.white};
   font-weight: 700;
   letter-spacing: -0.4px;
   line-height: 1.35;

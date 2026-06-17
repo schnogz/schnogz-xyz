@@ -1,5 +1,4 @@
-import React from 'react'
-import { GitHubCalendar } from 'react-github-calendar'
+import React, { lazy, Suspense } from 'react'
 import styled from 'styled-components'
 
 import Scrobbles from 'components/scrobbles'
@@ -8,9 +7,12 @@ import TwoColumns from 'components/twoColumns'
 import { darkMode, fontSize } from 'styles/theme'
 import media from 'utils/media-queries'
 
+// lazy-loaded — react-github-calendar pulls in @floating-ui/react which doesn't SSR
+const GithubCalendarSection = lazy(() => import('components/githubCalendarSection'))
+
 const Heading = styled.span`
   font-size: ${fontSize.f6};
-  color: ${darkMode.grey};
+  color: ${darkMode.white};
   font-weight: 700;
   letter-spacing: -0.4px;
   line-height: 1.35;
@@ -35,39 +37,10 @@ const Emoji = styled.span`
   font-size: 1.8rem;
   margin-left: 12px;
 `
-const CalendarWrapper = styled.div`
-  color: white;
-  margin-top: 24px;
+// reserve vertical space so the client-side calendar render doesn't shift the page
+const CalendarPlaceholder = styled.div`
+  min-height: 540px;
 `
-
-const ghYearsToShow = [2025, 2024, 2022, 2021, 2020]
-
-// there are some style overrides defined in global-styles.js
-const GhCalendar = ({ year }: { year: number }) => (
-  <CalendarWrapper>
-    <GitHubCalendar
-      blockMargin={3}
-      blockRadius={2}
-      blockSize={8}
-      theme={{
-        dark: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
-        light: ['#424242', '#7FC3FF', '#538bcb', '#256bb4', '#00448B'],
-      }}
-      fontSize={12}
-      maxLevel={4}
-      // SVG <title> renders as a native browser tooltip on hover — free, accessible, no JS
-      renderBlock={(block, activity) =>
-        React.cloneElement(
-          block,
-          {},
-          <title>{`${activity.count} activities on ${activity.date}`}</title>,
-        )
-      }
-      year={year}
-      username='schnogz'
-    />
-  </CalendarWrapper>
-)
 
 const Stats = () => (
   <TwoColumns
@@ -96,8 +69,7 @@ const Stats = () => (
         </Heading>
         <GithubSection>
           <GithubInto>
-            As you can see in the calendar below, I contribute a ton of code to (mostly) open
-            sourced projects on{' '}
+            I contribute a ton of code to (mostly) open sourced projects on{' '}
             <a href='https://github.com/schnogz' rel='noopener noreferrer' target='_blank'>
               GitHub
             </a>
@@ -105,9 +77,9 @@ const Stats = () => (
             I&apos;m always looking for the next project, so please reach out if you&apos;d like to
             collaborate.
           </GithubInto>
-          {ghYearsToShow.map((year) => (
-            <GhCalendar key={year} year={year} />
-          ))}
+          <Suspense fallback={<CalendarPlaceholder />}>
+            <GithubCalendarSection />
+          </Suspense>
         </GithubSection>
       </>
     }

@@ -8,6 +8,7 @@ import ScrollHelper from 'components/scrollHelper'
 import Section from 'components/section'
 import Experience from 'content/experience'
 import Hello from 'content/hello'
+import Photography from 'content/photography'
 import Projects from 'content/projects'
 import Stats from 'content/stats'
 
@@ -22,6 +23,9 @@ const SinglePage = () => (
     </Section>
     <Section id='projects'>
       <Projects />
+    </Section>
+    <Section id='photography'>
+      <Photography />
     </Section>
     <Section id='experience'>
       <Experience />

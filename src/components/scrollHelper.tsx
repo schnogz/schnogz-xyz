@@ -38,7 +38,7 @@ const ScrollAnimation = styled.div`
   }
 `
 
-const VIEW_ORDER = ['home', 'hello', 'stats', 'projects', 'experience'] as const
+const VIEW_ORDER = ['home', 'hello', 'stats', 'projects', 'photography', 'experience'] as const
 
 const ScrollHelper = () => {
   useEffect(() => {

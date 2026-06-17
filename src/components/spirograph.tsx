@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import { darkMode } from 'styles/theme'
-import { ROTATE_WHILE_TAP } from 'utils/animations'
 
 const debounce = <Args extends unknown[]>(fn: (...args: Args) => void, wait: number) => {
   let timer: ReturnType<typeof setTimeout> | undefined
@@ -29,7 +27,18 @@ const COLOR_PALETTE = Array.from(
       .padStart(6, '0'),
 )
 
-const Wrapper = styled(motion.div)`
+const spirographEnter = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`
+
+const Wrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -39,6 +48,18 @@ const Wrapper = styled(motion.div)`
   height: 100vh;
   overflow: hidden;
   cursor: pointer;
+  animation: ${spirographEnter} 1.5s both;
+  transition: transform 0.2s ease-in-out;
+  &:active {
+    transform: rotate(180deg) scale(0.5);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transition: none;
+    &:active {
+      transform: none;
+    }
+  }
 `
 const CanvasWrapper = styled.div`
   position: absolute;
@@ -291,7 +312,7 @@ const Spirograph = ({ speed }: SpirographProps) => {
   }, [speed])
 
   return (
-    <Wrapper {...ROTATE_WHILE_TAP} aria-hidden='true' ref={wrapperRef}>
+    <Wrapper aria-hidden='true' ref={wrapperRef}>
       <CanvasWrapper>
         <canvas ref={plottingCanvasRef} />
       </CanvasWrapper>

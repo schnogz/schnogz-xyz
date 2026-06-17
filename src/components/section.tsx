@@ -19,12 +19,12 @@ const Section = styled.section`
 const Container = styled.div<{ $paddingSmall?: boolean }>`
   border-top: 1px solid ${darkMode.greyDark};
   max-width: 916px;
-  padding: ${(props) => (props.$paddingSmall ? '42px 0' : '128px 0')};
+  padding: ${(props) => (props.$paddingSmall ? '42px 0' : '96px 0')};
   ${media.lg`
-    padding: ${(props: { $paddingSmall?: boolean }) => (props.$paddingSmall ? '42px 0' : '112px 0')};
+    padding: ${(props: { $paddingSmall?: boolean }) => (props.$paddingSmall ? '42px 0' : '84px 0')};
   `}
   ${media.sm`
-    padding: ${(props: { $paddingSmall?: boolean }) => (props.$paddingSmall ? '10px 0' : '64px 0')};
+    padding: ${(props: { $paddingSmall?: boolean }) => (props.$paddingSmall ? '10px 0' : '48px 0')};
   `}
   width: 100%;
 `

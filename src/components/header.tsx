@@ -1,13 +1,31 @@
 import React, { useState } from 'react'
 import { type IconType } from 'react-icons'
 import { FiBookOpen, FiFileText, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
-import { motion } from 'framer-motion'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Icon from 'components/icons'
 import { darkMode, fontSize } from 'styles/theme'
-import { ARRIVE_FROM_TOP, ROTATE_ON_HOVER } from 'utils/animations'
 import media from 'utils/media-queries'
+
+const arriveFromTop = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
+
+const rotateOnce = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,14 +41,24 @@ const Wrapper = styled.div`
     height: 112px;
   `}
 `
-const LogoWrapper = styled(motion.div)`
+const LogoWrapper = styled.div`
   padding: 24px 0 30px 30px;
+  animation: ${arriveFromTop} 1s ease-in-out both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
   ${media.sm`
     padding: 24px 0 0 0;
   `};
   ${media.xs`
     padding: 24px 0 0 0;
   `}
+`
+const RightSide = styled.div`
+  animation: ${arriveFromTop} 1s ease-in-out both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 const Name = styled.h1`
   color: ${darkMode.seagreen};
@@ -69,7 +97,7 @@ const SocialLinks = styled.div`
     padding: 0;
   `}
 `
-const SocialLink = styled(motion.a)`
+const SocialLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,8 +105,15 @@ const SocialLink = styled(motion.a)`
   height: 40px;
   border-radius: 20px;
   color: ${darkMode.grey};
+  transition: color 0.2s ease-in-out;
   &:hover {
     color: ${darkMode.seagreen};
+    animation: ${rotateOnce} 0.5s ease-in-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &:hover {
+      animation: none;
+    }
   }
 `
 const Tooltip = styled.div<{ $visible: boolean }>`
@@ -146,11 +181,11 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <LogoWrapper {...ARRIVE_FROM_TOP}>
+      <LogoWrapper>
         <Name>Andrew Schneider</Name>
         <Role>Web(3) Developer</Role>
       </LogoWrapper>
-      <motion.div {...ARRIVE_FROM_TOP}>
+      <RightSide>
         <SocialLinks>
           {SOCIAL_LINKS.map(({ Icon: LinkIcon, ariaLabel, href, label }) => (
             <SocialLink
@@ -162,7 +197,6 @@ const Header = () => {
               onMouseLeave={hideTooltip}
               onBlur={hideTooltip}
               aria-label={ariaLabel}
-              {...ROTATE_ON_HOVER}
             >
               <LinkIcon size='18px' />
             </SocialLink>
@@ -174,7 +208,7 @@ const Header = () => {
             <Icon glyph='arrow' size={24} />
           </TooltipIcon>
         </Tooltip>
-      </motion.div>
+      </RightSide>
     </Wrapper>
   )
 }

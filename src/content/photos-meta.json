@@ -1,0 +1,254 @@
+[
+  {
+    "filename": "01-brooklyn-bridge-twilight.jpg",
+    "title": "Brooklyn Bridge at Twilight",
+    "caption": "Blue hour over the East River, with the city settling in for the night.",
+    "alt": "Brooklyn Bridge at twilight with the lit Manhattan skyline reflecting on the East River and rocks in the foreground",
+    "date": "2020-06-13",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 20,
+      "aperture": 13,
+      "shutter": "8s",
+      "iso": 100
+    }
+  },
+  {
+    "filename": "02-vienna-mosaic-rooftop.jpg",
+    "title": "Mosaic Rooftop",
+    "caption": "Chevron tile on an old cathedral — patterns made for the sky.",
+    "alt": "Close-up of the patterned chevron tile roof of a European cathedral with two small dormer windows",
+    "date": "2024-08-09",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 200,
+      "aperture": 4,
+      "shutter": "1/250s",
+      "iso": 400
+    }
+  },
+  {
+    "filename": "03-subway-tunnel.jpg",
+    "title": "Underpass",
+    "caption": "A pedestrian tunnel engineered for some quieter future.",
+    "alt": "A symmetric futuristic pedestrian tunnel with white curved panels and blue accents leading to a vanishing point",
+    "date": "2024-08-11",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 24,
+      "aperture": 4,
+      "shutter": "1/160s",
+      "iso": 1600
+    }
+  },
+  {
+    "filename": "04-glade-creek-grist-mill.jpg",
+    "title": "Glade Creek Grist Mill",
+    "caption": "Falling water and falling leaves, all in the same frame.",
+    "alt": "An autumn waterfall in front of Glade Creek Grist Mill surrounded by yellow and orange foliage",
+    "date": "2021-10-13",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 70,
+      "aperture": 9,
+      "shutter": "1/1s",
+      "iso": 50
+    }
+  },
+  {
+    "filename": "05-blue-ridge-pink-sunset.jpg",
+    "title": "Blue Ridge at Dusk",
+    "caption": "Layers of ridges fading into a pink dusk.",
+    "alt": "Layered Blue Ridge mountains receding into haze beneath a pink sunset sky",
+    "date": "2021-10-10",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 120,
+      "aperture": 18,
+      "shutter": "1/3s",
+      "iso": 100
+    }
+  },
+  {
+    "filename": "06-portland-head-lighthouse-waves.jpg",
+    "title": "Portland Head Light",
+    "caption": "Long exposure on the surf below the headland.",
+    "alt": "Portland Head Lighthouse silhouetted against a pastel sunset with waves blurring across foreground rocks",
+    "date": "2023-08-10",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 16,
+      "aperture": 11,
+      "shutter": "1.6s",
+      "iso": 50
+    }
+  },
+  {
+    "filename": "07-catawba-falls.jpg",
+    "title": "Catawba Falls",
+    "caption": "A cascade hidden in lush green.",
+    "alt": "Catawba Falls cascading over rocks in a lush green forest",
+    "date": "2021-04-24",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 35,
+      "aperture": 16,
+      "shutter": "1s",
+      "iso": 125
+    }
+  },
+  {
+    "filename": "08-barred-owl.jpg",
+    "title": "Barred Owl",
+    "caption": "Eye contact — the gaze that gives nothing away.",
+    "alt": "A barred owl staring directly at the camera against a dark wooden background",
+    "date": "2021-08-06",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 200,
+      "aperture": 4,
+      "shutter": "1/250s",
+      "iso": 2500
+    }
+  },
+  {
+    "filename": "09-manhattan-skyline-sunset.jpg",
+    "title": "Manhattan at Sunset",
+    "caption": "Old pier pilings in front of Lower Manhattan at golden hour.",
+    "alt": "Manhattan skyline at sunset above a row of weathered pier pilings reflecting in calm water",
+    "date": "2020-06-16",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 20,
+      "aperture": 16,
+      "shutter": "20s",
+      "iso": 64
+    }
+  },
+  {
+    "filename": "10-peacock-in-the-garden.jpg",
+    "title": "Peacock in the Garden",
+    "caption": "An afternoon visitor, keeping to the boxwood.",
+    "alt": "A peacock peeking above garden boxwood with a grape trellis behind",
+    "date": "2024-08-05",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 200,
+      "aperture": 5,
+      "shutter": "1/400s",
+      "iso": 100
+    }
+  },
+  {
+    "filename": "11-portland-head-lighthouse-sunset.jpg",
+    "title": "Portland Head, Different Evening",
+    "caption": "The same headland — warmer light, wildflowers in bloom.",
+    "alt": "Portland Head Lighthouse at sunset with warm light over the rocky coast and wildflowers in bloom",
+    "date": "2023-08-12",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 20,
+      "aperture": 11,
+      "shutter": "1/20s",
+      "iso": 80
+    }
+  },
+  {
+    "filename": "12-burano-colorful-houses.jpg",
+    "title": "Burano",
+    "caption": "Painted houses, reflected in the canal.",
+    "alt": "Colorful painted houses lining a canal in Burano with two boats moored and reflections on still water",
+    "date": "2024-08-17",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 35,
+      "aperture": 6.3,
+      "shutter": "1/400s",
+      "iso": 100
+    }
+  },
+  {
+    "filename": "13-venice-canal-arch.jpg",
+    "title": "Venetian Arch",
+    "caption": "A wooden chair, an open arch, an old city.",
+    "alt": "A wooden chair beneath a stone arch overlooking a quiet Venetian canal",
+    "date": "2024-08-18",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 21,
+      "aperture": 4,
+      "shutter": "1/160s",
+      "iso": 800
+    }
+  },
+  {
+    "filename": "14-cardinal-on-string-lights.jpg",
+    "title": "Cardinal on String Lights",
+    "caption": "A female cardinal pauses between the porch lights, framed by bokeh.",
+    "alt": "A female cardinal perched on a string of patio lights with green and blue bokeh in the background",
+    "date": "2020-07-21",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 183,
+      "aperture": 4,
+      "shutter": "1/200s",
+      "iso": 2500
+    }
+  },
+  {
+    "filename": "15-portland-oregon-neon-sign.jpg",
+    "title": "Portland, Oregon",
+    "caption": "The old stag sign caught between passing headlights.",
+    "alt": "The Portland Oregon white stag neon sign at night with red and white light trails from passing cars",
+    "date": "2026-05-28",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 19,
+      "aperture": 13,
+      "shutter": "10s",
+      "iso": 250
+    }
+  },
+  {
+    "filename": "16-rose-garden.jpg",
+    "title": "Rose Garden",
+    "caption": "Wandering the test garden, late afternoon.",
+    "alt": "A figure walking down a rose garden path with an orange rose in the foreground",
+    "date": "2026-05-27",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 25,
+      "aperture": 4,
+      "shutter": "1/800s",
+      "iso": 100
+    }
+  },
+  {
+    "filename": "17-young-bald-eagle.jpg",
+    "title": "Young Bald Eagle",
+    "caption": "A juvenile bald eagle keeps watch from a fallen pine.",
+    "alt": "A juvenile bald eagle perched on a horizontal pine branch in a dark green forest",
+    "date": "2023-08-22",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 242,
+      "aperture": 8,
+      "shutter": "1/250s",
+      "iso": 8000
+    }
+  },
+  {
+    "filename": "18-dragonfly-on-roses.jpg",
+    "title": "Dragonfly on Roses",
+    "caption": "A moment of stillness before lift-off.",
+    "alt": "A dragonfly resting on a red and white hybrid rose with another rose below",
+    "date": "2026-05-27",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 35,
+      "aperture": 4,
+      "shutter": "1/160s",
+      "iso": 100
+    }
+  }
+]

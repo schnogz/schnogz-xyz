@@ -7602,28 +7602,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:12.40.0":
-  version: 12.40.0
-  resolution: "framer-motion@npm:12.40.0"
-  dependencies:
-    motion-dom: "npm:^12.40.0"
-    motion-utils: "npm:^12.39.0"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    "@emotion/is-prop-valid": "*"
-    react: ^18.0.0 || ^19.0.0
-    react-dom: ^18.0.0 || ^19.0.0
-  peerDependenciesMeta:
-    "@emotion/is-prop-valid":
-      optional: true
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 10c0/a1d26908d6661028fcdba0cf200fca18927a4d4eae0b1e64c37dfb7fdea9da66a8991abd0007079e98687060ba9c83db55620c238bc363106a24ff411d22f533
-  languageName: node
-  linkType: hard
-
 "fresh@npm:~0.5.2":
   version: 0.5.2
   resolution: "fresh@npm:0.5.2"
@@ -8078,6 +8056,25 @@ __metadata:
   peerDependencies:
     gatsby: ^5.0.0-next
   checksum: 10c0/98d746ff145862d961be7310b78dcd6473da4f2abfa87841b9e5038e15f3bffae8de5803b000fdd9f75675bcd7a3865f8973ec04143b40f94dfd5b5dcb13a60a
+  languageName: node
+  linkType: hard
+
+"gatsby-transformer-sharp@npm:5.16.0":
+  version: 5.16.0
+  resolution: "gatsby-transformer-sharp@npm:5.16.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.20.13"
+    bluebird: "npm:^3.7.2"
+    common-tags: "npm:^1.8.2"
+    fs-extra: "npm:^11.2.0"
+    gatsby-plugin-utils: "npm:^4.16.0"
+    probe-image-size: "npm:^7.2.3"
+    semver: "npm:^7.5.3"
+    sharp: "npm:^0.32.6"
+  peerDependencies:
+    gatsby: ^5.0.0-next
+    gatsby-plugin-sharp: ^5.0.0-next
+  checksum: 10c0/6452f18b75d70451dec5151b9be301c7e00d04384587c9762ceb9efd43633fdf64861c61aea5a6a5ad965ca61723c5bb0b49e8be1cda06f0ea04d1d50f042c06
   languageName: node
   linkType: hard
 
@@ -10432,22 +10429,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion-dom@npm:^12.40.0":
-  version: 12.40.0
-  resolution: "motion-dom@npm:12.40.0"
-  dependencies:
-    motion-utils: "npm:^12.39.0"
-  checksum: 10c0/79da846a36fd5f6762a0fcfa6e0b7128e4d58f7c07d1467a9f789a9cd0b5adbef9bfbde75760901a13cf2bddd9b31e93e4348a714f570c45ca1e2bfabd22859e
-  languageName: node
-  linkType: hard
-
-"motion-utils@npm:^12.39.0":
-  version: 12.39.0
-  resolution: "motion-utils@npm:12.39.0"
-  checksum: 10c0/6d7a2a2cc0797b72410a666a9cc1c201c8e39bf9669670464e433fe1e72af5f0217154c869867b34fbadf3664cf222c0d022bbc4eed7927f201ae971918e7440
-  languageName: node
-  linkType: hard
-
 "ms@npm:2.0.0":
   version: 2.0.0
   resolution: "ms@npm:2.0.0"
@@ -12131,6 +12112,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-photo-album@npm:3.0.2":
+  version: 3.0.2
+  resolution: "react-photo-album@npm:3.0.2"
+  peerDependencies:
+    "@types/react": ">=18"
+    react: ">=18"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/2c2ff12680079adde8a121bff3c26c3794f5bd64e1ca284d9a4228bb5565f9ea811dab86a9f1f4f11ce79d29dafbff331fc26dc226e2e1bbe1c49771f1cefa40
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.14.1":
   version: 0.14.2
   resolution: "react-refresh@npm:0.14.2"
@@ -12735,13 +12729,13 @@ __metadata:
     eslint-plugin-simple-import-sort: "npm:13.0.0"
     eslint-plugin-sort-destructure-keys: "npm:3.0.0"
     eslint-plugin-sort-keys-fix: "npm:1.1.2"
-    framer-motion: "npm:12.40.0"
     gatsby: "npm:5.16.1"
     gatsby-plugin-image: "npm:3.16.0"
     gatsby-plugin-sharp: "npm:5.16.0"
     gatsby-plugin-sitemap: "npm:6.16.0"
     gatsby-plugin-styled-components: "npm:6.16.0"
     gatsby-source-filesystem: "npm:5.16.0"
+    gatsby-transformer-sharp: "npm:5.16.0"
     globals: "npm:17.6.0"
     husky: "npm:9.1.7"
     lint-staged: "npm:15.2.10"
@@ -12750,8 +12744,10 @@ __metadata:
     react-dom: "npm:19.2.7"
     react-github-calendar: "npm:5.0.6"
     react-icons: "npm:5.6.0"
+    react-photo-album: "npm:3.0.2"
     styled-components: "npm:6.4.2"
     typescript: "npm:5.7.3"
+    yet-another-react-lightbox: "npm:3.21.7"
   languageName: unknown
   linkType: soft
 
@@ -14843,6 +14839,16 @@ __metadata:
     y18n: "npm:^4.0.0"
     yargs-parser: "npm:^18.1.2"
   checksum: 10c0/f1ca680c974333a5822732825cca7e95306c5a1e7750eb7b973ce6dc4f97a6b0a8837203c8b194f461969bfe1fb1176d1d423036635285f6010b392fa498ab2d
+  languageName: node
+  linkType: hard
+
+"yet-another-react-lightbox@npm:3.21.7":
+  version: 3.21.7
+  resolution: "yet-another-react-lightbox@npm:3.21.7"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 10c0/05f939552e16bca5d7dcf28448ff807ee93f26ec1fa6aee9f22f98657d7f7f56740529a8716c90f8cc425ae2b2e4dcb569e22d9f46e9e48eb1bab65d85b59ee5
   languageName: node
   linkType: hard
 

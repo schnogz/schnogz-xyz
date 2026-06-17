@@ -12,10 +12,18 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       options: {
         name: 'images',
         path: path.join(__dirname, 'src/img'),
+      },
+      resolve: 'gatsby-source-filesystem',
+    },
+    {
+      options: {
+        name: 'photos',
+        path: path.join(__dirname, 'src/photos'),
       },
       resolve: 'gatsby-source-filesystem',
     },

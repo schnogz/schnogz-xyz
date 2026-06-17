@@ -7,6 +7,7 @@ export const darkMode = {
   greyDark: '#575656',
   seagreen: '#66FCF1',
   seagreenDark: '#45A29E',
+  white: '#F5F5F5',
 } as const
 
 export const fontSize = {

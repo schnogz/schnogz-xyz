@@ -27,7 +27,7 @@ const Description = styled.div`
 `
 
 const Title = styled.a`
-  color: ${darkMode.grey};
+  color: ${darkMode.white};
   font-size: ${fontSize.f6};
   font-weight: 700;
   margin: 0 0 2px;
