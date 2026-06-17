@@ -70,7 +70,21 @@
     }
   },
   {
-    "filename": "06-portland-head-lighthouse-waves.jpg",
+    "filename": "06-rose-garden.jpg",
+    "title": "Rose Garden",
+    "caption": "Wandering the test garden, late afternoon.",
+    "alt": "A figure walking down a rose garden path with an orange rose in the foreground",
+    "date": "2026-05-27",
+    "exif": {
+      "camera": "Sony α7 III",
+      "focalLength": 25,
+      "aperture": 4,
+      "shutter": "1/800s",
+      "iso": 100
+    }
+  },
+  {
+    "filename": "07-portland-head-lighthouse-waves.jpg",
     "title": "Portland Head Light",
     "caption": "Long exposure on the surf below the headland.",
     "alt": "Portland Head Lighthouse silhouetted against a pastel sunset with waves blurring across foreground rocks",
@@ -84,7 +98,7 @@
     }
   },
   {
-    "filename": "07-catawba-falls.jpg",
+    "filename": "08-catawba-falls.jpg",
     "title": "Catawba Falls",
     "caption": "A cascade hidden in lush green.",
     "alt": "Catawba Falls cascading over rocks in a lush green forest",
@@ -98,7 +112,7 @@
     }
   },
   {
-    "filename": "08-barred-owl.jpg",
+    "filename": "09-barred-owl.jpg",
     "title": "Barred Owl",
     "caption": "Eye contact — the gaze that gives nothing away.",
     "alt": "A barred owl staring directly at the camera against a dark wooden background",
@@ -112,7 +126,7 @@
     }
   },
   {
-    "filename": "09-manhattan-skyline-sunset.jpg",
+    "filename": "10-manhattan-skyline-sunset.jpg",
     "title": "Manhattan at Sunset",
     "caption": "Old pier pilings in front of Lower Manhattan at golden hour.",
     "alt": "Manhattan skyline at sunset above a row of weathered pier pilings reflecting in calm water",
@@ -126,7 +140,7 @@
     }
   },
   {
-    "filename": "10-peacock-in-the-garden.jpg",
+    "filename": "11-peacock-in-the-garden.jpg",
     "title": "Peacock in the Garden",
     "caption": "An afternoon visitor, keeping to the boxwood.",
     "alt": "A peacock peeking above garden boxwood with a grape trellis behind",
@@ -140,7 +154,7 @@
     }
   },
   {
-    "filename": "11-portland-head-lighthouse-sunset.jpg",
+    "filename": "12-portland-head-lighthouse-sunset.jpg",
     "title": "Portland Head, Different Evening",
     "caption": "The same headland — warmer light, wildflowers in bloom.",
     "alt": "Portland Head Lighthouse at sunset with warm light over the rocky coast and wildflowers in bloom",
@@ -154,7 +168,7 @@
     }
   },
   {
-    "filename": "12-burano-colorful-houses.jpg",
+    "filename": "13-burano-colorful-houses.jpg",
     "title": "Burano",
     "caption": "Painted houses, reflected in the canal.",
     "alt": "Colorful painted houses lining a canal in Burano with two boats moored and reflections on still water",
@@ -168,7 +182,7 @@
     }
   },
   {
-    "filename": "13-venice-canal-arch.jpg",
+    "filename": "14-venice-canal-arch.jpg",
     "title": "Venetian Arch",
     "caption": "A wooden chair, an open arch, an old city.",
     "alt": "A wooden chair beneath a stone arch overlooking a quiet Venetian canal",
@@ -182,7 +196,7 @@
     }
   },
   {
-    "filename": "14-cardinal-on-string-lights.jpg",
+    "filename": "15-cardinal-on-string-lights.jpg",
     "title": "Cardinal on String Lights",
     "caption": "A female cardinal pauses between the porch lights, framed by bokeh.",
     "alt": "A female cardinal perched on a string of patio lights with green and blue bokeh in the background",
@@ -196,7 +210,7 @@
     }
   },
   {
-    "filename": "15-portland-oregon-neon-sign.jpg",
+    "filename": "16-portland-oregon-neon-sign.jpg",
     "title": "Portland, Oregon",
     "caption": "The old stag sign caught between passing headlights.",
     "alt": "The Portland Oregon white stag neon sign at night with red and white light trails from passing cars",
@@ -207,20 +221,6 @@
       "aperture": 13,
       "shutter": "10s",
       "iso": 250
-    }
-  },
-  {
-    "filename": "16-rose-garden.jpg",
-    "title": "Rose Garden",
-    "caption": "Wandering the test garden, late afternoon.",
-    "alt": "A figure walking down a rose garden path with an orange rose in the foreground",
-    "date": "2026-05-27",
-    "exif": {
-      "camera": "Sony α7 III",
-      "focalLength": 25,
-      "aperture": 4,
-      "shutter": "1/800s",
-      "iso": 100
     }
   },
   {

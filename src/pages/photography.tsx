@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+import Footer from 'components/footer'
 import SiteHead from 'components/head'
 import Page from 'components/page'
 import PhotoGrid from 'components/photoGallery/PhotoGrid'
@@ -21,20 +22,50 @@ const Wrapper = styled.section`
   `}
 `
 
+const TitleRow = styled.div`
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+`
+
+const HeaderBackLink = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: ${fontSize.f3};
+  white-space: nowrap;
+`
+
 const Title = styled.h1`
+  border-bottom: 2px solid ${darkMode.seagreen};
+  display: inline-block;
   color: ${darkMode.seagreen};
-  margin-bottom: 8px;
+  font-size: ${fontSize.f10};
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 0 16px 0;
+  line-height: 1.1;
+  /* same neon glow stack used by SectionHeading */
+  text-shadow:
+    0 0 14px rgba(102, 252, 241, 0.7),
+    0 0 32px rgba(102, 252, 241, 0.5),
+    0 0 64px rgba(102, 252, 241, 0.25);
+  ${media.lg`
+    font-size: ${fontSize.f9};
+  `}
+  ${media.sm`
+    font-size: ${fontSize.f8};
+    letter-spacing: 3px;
+  `}
 `
 
 const Subtitle = styled.p`
-  color: ${darkMode.grey};
+  color: ${darkMode.white};
   font-size: ${fontSize.f4};
-  margin-bottom: 32px;
-`
-
-const BackLink = styled.p`
-  margin-top: 32px;
-  font-size: ${fontSize.f3};
+  margin: 20px 0 40px;
 `
 
 const EmptyState = styled.p`
@@ -49,8 +80,13 @@ const PhotographyPage = () => {
   return (
     <Page>
       <Wrapper>
-        <Title>Photography</Title>
-        <Subtitle>The full collection.</Subtitle>
+        <TitleRow>
+          <Title>Photography</Title>
+          <HeaderBackLink>
+            <Link to='/#photography'>← Back to portfolio</Link>
+          </HeaderBackLink>
+        </TitleRow>
+        <Subtitle>Moments frozen in time from a world worth exploring.</Subtitle>
         {photos.length === 0 ? (
           <EmptyState>
             Gallery is empty — drop some photos into <code>src/photos/</code>.
@@ -67,10 +103,8 @@ const PhotographyPage = () => {
             />
           </Suspense>
         )}
-        <BackLink>
-          <Link to='/#photography'>← Back to portfolio</Link>
-        </BackLink>
       </Wrapper>
+      <Footer />
     </Page>
   )
 }

@@ -63,7 +63,7 @@ const Photography = () => {
             </Emoji>
           </Heading>
           <Intro>
-            Moments I&apos;ve frozen from a world worth exploring. Check out my{' '}
+            Moments frozen in time from a world worth exploring. Check out my{' '}
             <Link to='/photography/'>full gallery</Link>.
           </Intro>
           {preview.length === 0 ? (
