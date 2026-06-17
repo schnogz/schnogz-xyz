@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import styled from 'styled-components'
 
-import Scrobbles from 'components/scrobbles'
 import SectionHeading from 'components/sectionHeading'
 import TwoColumns from 'components/twoColumns'
 import { darkMode, fontSize } from 'styles/theme'
@@ -24,41 +23,27 @@ const Heading = styled.span`
     font-size: ${fontSize.f5};
   `}
 `
-const ScrobbleSection = styled.div`
-  padding: 0 0 2.5rem;
-`
-const GithubSection = styled.div`
-  padding-top: 0.5rem;
-`
-const GithubInto = styled.p`
-  margin: 0.25rem 0 1.75rem;
-`
 const Emoji = styled.span`
   font-size: 1.8rem;
   margin-left: 12px;
+`
+const Intro = styled.p`
+  margin: 0.25rem 0 1.75rem;
+`
+const CalendarWrap = styled.div`
+  padding-top: 0.5rem;
 `
 // reserve vertical space so the client-side calendar render doesn't shift the page
 const CalendarPlaceholder = styled.div`
   min-height: 540px;
 `
 
-const Stats = () => (
+const Coding = () => (
   <TwoColumns
     wide
-    leftColumn={<SectionHeading>Stats</SectionHeading>}
+    leftColumn={<SectionHeading>Coding</SectionHeading>}
     rightColumn={
       <>
-        <Heading>
-          Won&apos;t stop groovin&apos;
-          <Emoji>
-            <span role='img' aria-label='dance emoji'>
-              🕺🏻
-            </span>
-          </Emoji>
-        </Heading>
-        <ScrobbleSection>
-          <Scrobbles />
-        </ScrobbleSection>
         <Heading>
           Won&apos;t stop improvin&apos;
           <Emoji>
@@ -67,8 +52,8 @@ const Stats = () => (
             </span>
           </Emoji>
         </Heading>
-        <GithubSection>
-          <GithubInto>
+        <CalendarWrap>
+          <Intro>
             I contribute a ton of code to (mostly) open sourced projects on{' '}
             <a href='https://github.com/schnogz' rel='noopener noreferrer' target='_blank'>
               GitHub
@@ -76,14 +61,14 @@ const Stats = () => (
             {'.  '}
             I&apos;m always looking for the next project, so please reach out if you&apos;d like to
             collaborate.
-          </GithubInto>
+          </Intro>
           <Suspense fallback={<CalendarPlaceholder />}>
             <GithubCalendarSection />
           </Suspense>
-        </GithubSection>
+        </CalendarWrap>
       </>
     }
   />
 )
 
-export default Stats
+export default Coding
