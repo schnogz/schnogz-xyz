@@ -6,6 +6,15 @@ import styled from 'styled-components'
 const CalendarWrapper = styled.div`
   color: white;
   margin-top: 24px;
+  /* contain the calendar's intrinsic width — on narrow screens it overflows,
+     this keeps it scrollable within its own lane instead of pushing the page sideways */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* hide native scrollbar — swipe gesture still works */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const GH_YEARS_TO_SHOW = [2025, 2024, 2022, 2021, 2020]

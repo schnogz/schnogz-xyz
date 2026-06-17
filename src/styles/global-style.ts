@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         height: 100%;
+        /* safety net: keeps any wide child (like the github calendars) from triggering page-level horizontal scroll on mobile */
+        overflow-x: clip;
         background-color: ${darkMode.black};
         color: ${darkMode.grey};
         font-family: system-ui, sans-serif;

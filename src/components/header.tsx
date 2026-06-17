@@ -68,6 +68,11 @@ const Name = styled.h1`
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.8px;
+  /* same neon glow stack used by SectionHeading */
+  text-shadow:
+    0 0 14px rgba(102, 252, 241, 0.7),
+    0 0 32px rgba(102, 252, 241, 0.5),
+    0 0 64px rgba(102, 252, 241, 0.25);
   ${media.sm`
     text-align: center;
     font-size: ${fontSize.f7};

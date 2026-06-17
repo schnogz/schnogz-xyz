@@ -12,8 +12,10 @@ const FooterText = styled.div`
     font-size: ${fontSize.f1};
   `}
   ${media.sm`
-    text-align: left;
-    font-size: ${fontSize.f1};
+    text-align: center;
+    font-size: 13px;
+    padding: 28px 16px;
+    line-height: 1.7;
   `}
 `
 

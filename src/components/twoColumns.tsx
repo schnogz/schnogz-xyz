@@ -18,6 +18,9 @@ const LeftColumn = styled.div``
 
 const RightColumn = styled.div<{ $wide?: boolean }>`
   max-width: ${(props) => (props.$wide ? '620px' : '544px')};
+  /* allows grid/flex item to shrink below its content's intrinsic width on mobile — */
+  /* without this, the github calendar's natural width would push the section wider than the viewport */
+  min-width: 0;
   ${media.md`
     max-width: 544px;
   `}
