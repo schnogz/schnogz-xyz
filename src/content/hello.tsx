@@ -20,6 +20,10 @@ const Heading = styled.span`
     font-size: ${fontSize.f5};
   `}
 `
+const Emoji = styled.span`
+  font-size: 1.8rem;
+  margin-left: 12px;
+`
 
 const Hello = () => (
   <TwoColumns
@@ -29,10 +33,11 @@ const Hello = () => (
       <>
         <Heading>
           The name is Andrew, pleasure to meet you
-          <span role='img' aria-label='wave emoji'>
-            {' '}
-            🙋🏼‍♂️
-          </span>
+          <Emoji>
+            <span role='img' aria-label='wave emojii'>
+              🙋🏼‍♂️
+            </span>
+          </Emoji>
         </Heading>
         <p>
           I&apos;m an experienced frontend engineer who contributes across the entire stack, with a

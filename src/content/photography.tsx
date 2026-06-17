@@ -38,6 +38,11 @@ const EmptyState = styled.p`
   font-style: italic;
 `
 
+const Emoji = styled.span`
+  font-size: 1.8rem;
+  margin-left: 12px;
+`
+
 const Photography = () => {
   const allPhotos = usePhotos()
   const preview = allPhotos.slice(0, PREVIEW_COUNT)
@@ -49,7 +54,14 @@ const Photography = () => {
       leftColumn={<SectionHeading>Photography</SectionHeading>}
       rightColumn={
         <>
-          <Heading>Out in the Wild 📸</Heading>
+          <Heading>
+            Out in the Wild
+            <Emoji>
+              <span role='img' aria-label='camera emojii'>
+                📸
+              </span>
+            </Emoji>
+          </Heading>
           <Intro>
             Moments I&apos;ve frozen from a world worth exploring. Check out my{' '}
             <Link to='/photography/'>full gallery</Link>.
