@@ -30,7 +30,7 @@ const Heading = styled.h2`
     padding-bottom: 12px;
   `}
   ${media.sm`
-    margin-bottom: 60px;
+    margin-bottom: 32px;
     padding-bottom: 8px;
   `}
 `
