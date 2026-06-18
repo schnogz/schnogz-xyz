@@ -42,7 +42,7 @@ const Hello = () => (
         <p>
           I&apos;m an experienced frontend engineer who contributes across the entire stack, with a
           focus on the Web3 space. I thrive on turning ambitious ideas into production-ready
-          products — pushing boundaries, building secure applications, and helping decentralize the
+          products. Pushing boundaries, building secure applications, and helping decentralize the
           web is what drives me.
         </p>
       </>
