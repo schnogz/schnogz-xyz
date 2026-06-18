@@ -3,6 +3,7 @@ import { navigate } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 
 import { darkMode } from 'styles/theme'
+import media from 'utils/media-queries'
 
 const scroll = keyframes`
   0% {
@@ -36,6 +37,10 @@ const ScrollAnimation = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  ${media.sm`
+    display: none;
+  `}
 `
 
 const VIEW_ORDER = [
