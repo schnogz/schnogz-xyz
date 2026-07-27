@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import Project from 'components/project'
@@ -14,6 +15,23 @@ const Projects = () => (
     leftColumn={<SectionHeading>Projects</SectionHeading>}
     rightColumn={
       <>
+        <Project
+          abstract='Breakcastr gives live card breakers everything they need to run a professional stream: polished overlays, animations, and a purpose-built studio, all in the browser.'
+          logo={
+            <StaticImage
+              alt='Breakcastr Logo'
+              src='../img/BreakcastrLogo.png'
+              width={70}
+              height={70}
+            />
+          }
+          subtitle={
+            <a href='https://www.breakcastr.com' rel='noopener noreferrer' target='_blank'>
+              https://www.breakcastr.com
+            </a>
+          }
+          title='Breakcastr (Founder)'
+        />
         <Project
           abstract='An iTerm2 plugin that displays various stats about the Bitcoin blockchain as well as price information of many other top cryptocurrencies.'
           logo={
